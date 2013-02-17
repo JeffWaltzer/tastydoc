@@ -17,7 +17,6 @@ describe 'The TastyDocs app' do
   end
 
   it 'is an html document' do
-    pending
     get '/'
     last_response.body.should include 'html'
   end
