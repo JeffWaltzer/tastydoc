@@ -14,11 +14,11 @@ class HtmlView
               <% contact= @document[:contact] %>
               <% if contact %>
                   <div class='contact'>
-                      <% if contact[:name] %>
-                          <div class='name'>
-                              <%= contact[:name] %>
+                      <% contact.each do |contact_item, item_value| %>
+                          <div class='<%= contact_item %>'>
+                              <%= item_value %>
                          </div>
-                     <% end %>
+                      <% end %>
                   </div>
               <% end %>
             </body>

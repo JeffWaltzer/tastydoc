@@ -9,11 +9,18 @@ describe "HtmlView#render's result" do
   end
 end
 
-describe "The contact info div" do
+describe "A fully populated contact" do
   before do
-    doc= Nokogiri::HTML(HtmlView.new({contact: {name: "Joe Smith"}}).render)
+    master_document= {
+      contact: {
+        name: "Joe Smith",
+        email: 'joe@example.com'
+      }
+    }
+    doc= Nokogiri::HTML(HtmlView.new(master_document).render)
     @contactinfo= doc.xpath("//div[@class='contact']")
     @name= @contactinfo.xpath("//div[@class='name']")
+    @email= @contactinfo.xpath("//div[@class='email']")
   end
   
   it "exists" do
@@ -23,13 +30,19 @@ describe "The contact info div" do
   it "has the correct contact name" do
     @name[0].text.strip.should == 'Joe Smith'
   end
+
+  it "has the correct contact email" do
+    @email[0].text.strip.should == 'joe@example.com'
+  end
 end
 
-describe "The contact info div" do
+describe "An empty contact" do
   before do
-    doc= Nokogiri::HTML(HtmlView.new({contact: {}}).render)
+    master_document= {contact: {}}
+    doc= Nokogiri::HTML(HtmlView.new(master_document).render)
     @contactinfo= doc.xpath("//div[@class='contact']")
     @name= @contactinfo.xpath("//div[@class='name']")
+    @email= @contactinfo.xpath("//div[@class='email']")
   end
   
   it "exists" do
@@ -38,6 +51,10 @@ describe "The contact info div" do
 
   it "has the correct contact name" do
     @name.should have(0).elements
+  end
+
+  it "has the correct contact email" do
+    @email.should have(0).elements
   end
 end
 
