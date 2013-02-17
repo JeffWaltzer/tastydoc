@@ -1,4 +1,4 @@
-require 'erb'
+require 'haml'
 
 class HtmlView
   def initialize(document)
@@ -7,23 +7,15 @@ class HtmlView
 
   def render
     template= <<-END.gsub(/^ {8}/, '')
-        <html>
-            <head>
-            </head>
-            <body>
-              <% contact= @document[:contact] %>
-              <% if contact %>
-                  <div class='contact'>
-                      <% contact.each do |contact_item, item_value| %>
-                          <div class='<%= contact_item %>'>
-                              <%= item_value %>
-                         </div>
-                      <% end %>
-                  </div>
-              <% end %>
-            </body>
-        </html>
+        %html
+          %head
+          %body
+            - contact= document[:contact]
+            - if contact
+              .contact
+                - contact.each do |contact_item, item_value|
+                  %div{class: contact_item}=item_value
     END
-    ERB.new(template).result(binding)
+    Haml::Engine.new(template).render(Object.new, document: @document)
    end
 end
