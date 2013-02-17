@@ -11,9 +11,14 @@ class HtmlView
             <head>
             </head>
             <body>
-              <% if @document[:contact] %>
-                  <div class='contactinfo'>
-                      <%= @document[:contact] %>
+              <% contact= @document[:contact] %>
+              <% if contact %>
+                  <div class='contact'>
+                      <% if contact[:name] %>
+                          <div class='name'>
+                              <%= contact[:name] %>
+                         </div>
+                     <% end %>
                   </div>
               <% end %>
             </body>
