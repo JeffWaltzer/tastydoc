@@ -20,6 +20,7 @@ describe "The contact info div" do
   end
 
   it "has the correct contact info content" do
-    @contactinfo[0].text.should == 'Joe Smith'
+    @contactinfo[0].text.strip.should == 'Joe Smith'
   end
 end
+
