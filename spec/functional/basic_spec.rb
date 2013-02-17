@@ -11,9 +11,14 @@ describe 'The TastyDocs app' do
     Sinatra::Application
   end
 
-  it 'says hello' do
+  it 'returns OK' do
     get '/'
     last_response.should be_ok
-    last_response.body.should == 'Hello, world'
+  end
+
+  it 'is an html document' do
+    pending
+    get '/'
+    last_response.body.should include 'html'
   end
 end
