@@ -9,7 +9,29 @@ describe "HtmlView#render's result" do
   end
 end
 
-describe "A fully populated contact" do
+describe "An empty contact" do
+  before do
+    master_document= {contact: {}}
+    doc= Nokogiri::HTML(HtmlView.new(master_document).render)
+    @contactinfo= doc.xpath("//div[@class='contact']")
+    @name= @contactinfo.xpath("//div[@class='name']")
+    @email= @contactinfo.xpath("//div[@class='email']")
+  end
+  
+  it "exists" do
+    @contactinfo.should have(1).element
+  end
+
+  it "has the correct contact name" do
+    @name.should have(0).elements
+  end
+
+  it "has the correct contact email" do
+    @email.should have(0).elements
+  end
+end
+
+describe "A populated contact" do
   before do
     master_document= {
       contact: {
@@ -36,25 +58,43 @@ describe "A fully populated contact" do
   end
 end
 
-describe "An empty contact" do
+describe "A summary" do
   before do
-    master_document= {contact: {}}
+    master_document= {summary: 'I have done lots of stuff.'}
     doc= Nokogiri::HTML(HtmlView.new(master_document).render)
-    @contactinfo= doc.xpath("//div[@class='contact']")
-    @name= @contactinfo.xpath("//div[@class='name']")
-    @email= @contactinfo.xpath("//div[@class='email']")
+    @summary= doc.xpath("//div[@class='summary']")
   end
   
   it "exists" do
-    @contactinfo.should have(1).element
+    @summary.should have(1).element
   end
 
-  it "has the correct contact name" do
-    @name.should have(0).elements
+  describe "header" do
+    before do
+      @summary_header= @summary.xpath("//div[@class='header']")
+    end
+
+    it "exists" do
+      @summary_header.should have(1).element
+    end
+
+    it "has the correct text" do
+      @summary_header.text.strip.should == 'Summary'
+    end
   end
 
-  it "has the correct contact email" do
-    @email.should have(0).elements
+  describe "text" do
+    before do
+      @summary_text= @summary.xpath("//div[@class='text']")
+    end
+
+    it "exists" do
+      @summary_text.should have(1).element
+    end
+
+    it "has the correct text" do
+      @summary_text.text.strip.should == 'I have done lots of stuff.'
+    end
   end
 end
 
