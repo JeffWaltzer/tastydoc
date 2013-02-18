@@ -65,7 +65,24 @@ describe "A populated contact" do
   end
 end
 
-def should_have_document_section(parent_node, child_node, expected_text)
+def should_have_document_section(master_document, parent_node, child_expectations)
+  describe parent_node do
+    before do
+      @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
+    end
+    
+    it "exists" do
+      summary= @doc.xpath(xpath_for(parent_node))
+      summary.should have(1).element
+    end
+
+    child_expectations.each do |child_name, child_expected_value|
+      should_have_child(parent_node, child_name.to_s, child_expected_value)
+    end
+  end
+end
+
+def should_have_child(parent_node, child_node, expected_text)
   describe child_node do
     before do
       @header= @doc.xpath(xpath_for(parent_node, child_node))
@@ -81,19 +98,8 @@ def should_have_document_section(parent_node, child_node, expected_text)
   end
 end
 
-describe "A summary" do
-  before do
-    master_document= {summary: 'I have done lots of stuff.'}
-    @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
-  end
-  
-  it "exists" do
-    summary= @doc.xpath(xpath_for('summary'))
-    summary.should have(1).element
-  end
-
-  should_have_document_section('summary', 'header', 'Summary')
-  should_have_document_section('summary', 'text', 'I have done lots of stuff.')
-
-end
+should_have_document_section({summary: 'I have done lots of stuff.'},
+                             'summary',
+                             header: 'Summary',
+                             text: 'I have done lots of stuff.')
 
