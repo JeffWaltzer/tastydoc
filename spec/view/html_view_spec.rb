@@ -103,3 +103,8 @@ should_have_document_section({summary: 'I have done lots of stuff.'},
                              header: 'Summary',
                              text: 'I have done lots of stuff.')
 
+should_have_document_section({education: 'BS from Miskatonic U'},
+                             'education',
+                             header: 'Education',
+                             text: 'BS from Miskatonic U')
+
