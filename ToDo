@@ -1,1 +1,2 @@
-De-uglify html_view_spec#render
+Add direct unit tests for HtmlView#document_section
+

@@ -108,3 +108,58 @@ should_have_document_section({education: 'BS from Miskatonic U'},
                              header: 'Education',
                              text: 'BS from Miskatonic U')
 
+#<div class='development'>
+#  <div class='header'>
+#    Professional Development
+#  </div>
+#  <div class='text'>
+#        ["Organizer for the Ruby on Rails code fest in Columbia, MD.", "Projects developed included a Ruby refactoring tool, Podcast feed reader and web based GPS tracker."]
+#  </div>
+#</div>
+
+
+describe 'development section' do
+  before do
+    master_document= {
+      development: {
+        header: 'Professional Development',
+        text: [
+          'Makes grand pronouncements.',
+          'Fulfills them.'
+        ]
+      },
+    }
+    @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
+  end
+
+  it "exists" do
+    development= @doc.xpath(xpath_for('development'))
+    development.should have(1).element
+  end
+
+  it "has the correct development name" do
+    header= @doc.xpath(xpath_for('development', 'header'))
+    header[0].text.strip.should == 'Professional Development'
+  end
+
+  it "has the correct development text" do
+    list= @doc.xpath(xpath_for('development', 'list'))
+    list.should have(1).element
+  end
+
+  it "has the correct development text list" do
+    list= @doc.xpath(xpath_for('development', 'list', 'list-item'))
+    list.should have(2).elements
+  end
+
+  it "has the correct development text list" do
+    list= @doc.xpath(xpath_for('development', 'list', 'list-item'))
+    list[0].text.strip.should == 'Makes grand pronouncements.'
+  end
+
+  it "has the correct development text list" do
+    list= @doc.xpath(xpath_for('development', 'list', 'list-item'))
+    list[1].text.strip.should == 'Fulfills them.'
+  end
+
+end
