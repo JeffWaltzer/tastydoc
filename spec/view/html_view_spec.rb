@@ -123,7 +123,7 @@ describe 'development section' do
     master_document= {
       development: {
         header: 'Professional Development',
-        text: [
+        list: [
           'Makes grand pronouncements.',
           'Fulfills them.'
         ]

@@ -17,8 +17,8 @@
 
   development: {
     header: 'Professional Development',
-    text: ['Organizer for the Ruby on Rails code fest in Columbia, MD.',
-             'Projects developed included a Ruby refactoring tool, Podcast feed reader and web based GPS tracker.']},
+    list: ['Organizer for the Ruby on Rails code fest in Columbia, MD.',
+           'Projects developed included a Ruby refactoring tool, Podcast feed reader and web based GPS tracker.']},
 
 experience: [
              {job_title: 'Senior Ruby on Rails Consultant',
