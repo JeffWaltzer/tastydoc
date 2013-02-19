@@ -1,0 +1,154 @@
+﻿Jeffrey L. Waltzer
+3 Riverview Court #202
+Laurel, MD 20707
+240-671-9368 (cell)
+jeffwaltzer@gmail.com
+
+Summary
+Senior Ruby on Rails Programmer with extensive experience doing ground-up development for several mission-critical projects.   Responsible for the concept, coding, testing, implementation, user training, and technical support of new systems. Experienced with agile development methodologies and Behvaior Driven Development. 
+
+Programming Languages, Databases, Tools
+Ruby 1.9.3, Ruby on Rails 3.2, RSpec, Jruby, jQuery, CoffeeScript, Haml, JavaScript, XML, MySQL, PostgreSQL, PostGIS, Oracle, Linux (Ubuntu, Red Hat, CentOS), Soap4r,  Java, J2EE, Hibernate, Eclipse IDE, JUnit, Assembler, RubyMine
+
+Education
+BS, Computer Science, University of Bridgeport
+
+Professional Development Activities
+Organizer for the Ruby on Rails code fest in Columbia, MD.
+Projects developed included a Ruby refactoring tool, Podcast feed reader and web based GPS tracker.
+
+Experience
+
+Senior Ruby on Rails Consultant
+Sol Systems (contract), Washington DC  			10/2012 – 2/2013
+Developed new software and helped maintained existing Ruby on Rails website used in day to day operations.  
+Advised on programming design principles.  
+Used Behavior Driven Development with Rspec to drive functionality and to ensure proper implementation of new features. 
+Refactored code to improve the system architecture and to make it more object oriented.  
+Used MiniProfiler and Bullet profiling tools to find inefficient database usage.
+Converted HTML/Javascript into HAML/Coffeescript for improved code clarity. 
+Used JQuery Datatables and Ajax calls to improve user experience.  
+
+Senior Ruby on Rails Developer
+Unissant (NASA contract), Riverdale, MD   			5/2011 – 7/2012
+
+Ruby on Rails development for NASA's http://reverb.echo.nasa.gov website on an agile Scrum team. System used Ruby 1.9.2 (JRuby) , Ruby on Rails 3.1, Elastic Search, Cucumber, Oracle 11g, Jquery, GeoRuby, Tomcat, Git,  RESTful web services,
+Implemented interaction with ESI's RESTful web service API at both Javascript and Rails levels.  Used Jquery ajax calls to display remote system call progress.  Added dynamic display of images in a Jquery pop-up.  
+Enhanced Jquery DataTables that displayed search results to give users the ability to resize/minimize columns, rearrange columns.  Also created UI element that did autocomplete on place names as they were typed in by the user.  Used Jasmine library to unit test Javascript code.
+Used Cucumber testing tool to verify ECHO Reverb at a functional level.  Rspec and MiniTest for testing at the unit level.
+Tutored fellow team members on unit testing and BDD (Behavior Driven Development)
+Frequently refactored code and advised team on system architecture, object oriented design, clean code concepts, unit testing with Behavior Driven Development and enhanced readability.
+
+Senior Software Engineer, 
+Boxtone Inc.,  Columbia MD		 		7/2010 - 3/2011
+Developed with an user experience expert, user interface dialogs for a mobile device management system. The dialogs were implemented using Ruby on Rails, Protoype, Javascript and CSS.
+Designed/implemented a REST interface in Ruby on Rails to enabled the device management system ability to communicate with a mail server front-end service. Interface used the RestClient Ruby gem.
+Coached developers on implementing RESTful interfaces in Java.
+Developed Rails back-end code that interfaced with legacy Oracle DB system.
+
+Senior Software Engineer, 
+Greenhorne & O’Mara, Laurel MD		 		6/2009 – 7/2010
+Developed a Ruby on Rails facilities maintenance application that used GIS to draw building and room layouts using JavaScript, PostGIS and OpenLayers.
+Created virtual machine deployments of CentOS Linux systems running Ruby on Rails applications with PostGIS and Oracle. 
+Practiced Behavior Driven Development (BDD) using RSpec to achieve high reliability and ease of code change.
+
+Senior Software Engineer, 
+Traffipax Inc, Linthicum MD		 		12/2007 - 3/2009 
+Responsible for development support for a Ruby on Rails replacement of a legacy Java system.  
+Mentored and encouraged the use of agile development methodologies including test driven development, refactoring, pair programming, continuous integration, refactoring, and iterations. 
+Acheived 100% code covergage with TDD using RSpec.
+Refactored database schema design to meet changing business requirements.   
+Created SOA interfaces for various state DMV computer systems (Restfull and SOAP).
+Refactored code base to improve system architecture.
+Implemented report generation system with dynamically generated input pages.
+Wrote image manipulation code using RMagick.
+
+Senior Software Engineer, 
+AJILON, Baltimore, MD and Washington, DC 			6/2007 - 12/2007
+Wachovia (Contract)
+Updated legacy applications to new architecture to Spring framework using refactorings.
+Advised on existing architecure and suggested future improvements.
+Architecture used IBM Websphere J2EE with Spring, and Hibernate.
+
+Senior Software Consultant, 
+AARP, Washington, DC					2007
+Community web site (Contract)
+Participated and advised in the use of Scrum development methodologies.
+Added 'invite friend to forum' functionality using Java Javamail Java 1.5 with Hibernate, MySQL for the backend and Jakarta Struts for the front end.
+Used JRuby library to integate a user login web service API written in Ruby into Java code.
+Mentored team on project agility, unit testing/Test Driven Development, Object Oriented Programming, refactoring, design patterns.
+
+Senior Software Development Consultant, 
+Fannie Mae, Washington, DC				2005-2007
+eMortgage web site (Contract)
+Member of a agile development team working on a eMortgage loan system.
+BEA Weblogic and the Apache Tapestry web framework was used for the front end.
+The data persistence layer was implemented using the Hibernate framework accessing an Oracle 8i database.
+Used the Xerces XML library to process and analyse SMARTDOC eMortgage packages, and to perform digital signature validation on them.
+High quality code was created using JUnit with Test Driven Development
+Mentored team on project agility, unit testing, Object Oriented Programming, refactoring, design patterns and other practices to increase projects agility to deal with changing requirements.
+Team achieved 95% code coverage with unit tests resulting in a very number of defects found.
+Helped design and architect many aspects of the system to create code that had low coupling and was easy to maintain.
+
+Senior Software Engineer, 
+Wondir, Bethesda, MD 					2005
+Wondir.com web site
+Used Jakarta Tomcat with MySQL for the database and Jakarta Lucene for search indexing
+.Supported software development at a Internet startup company.
+Implemented a paginated search page using Jakarta Lucene
+Applied Test Driven Development to legacy code, with JUnit regression tests of the legacy code.
+
+
+Senior Software Engineer, 
+Digital Focus, Columbia, MD 				2004
+Arbitron's Report Generator and Scheduling System (Contract)
+Developed new code in Scrum environment.
+Mentored others in the use of JUnit in writing unit tests..
+Developed rich client interface dialogs in Java using Eclipse's SWT and Eclipse's RCP frameworks.
+Advised fellow coders on what coding patterns to use to solve design problems.
+Refactored existing code to maximize reuse and minimize code duplication.
+
+Senior Software Engineer, 
+Spirent Communications, Rockville, MD 			2004
+Intranet Network Diagnostic System (Contract)
+Followed Extreme Programming (XP) methodologies, including iterations, test-driven development, and paired programming.
+Developed product using Java 1.4, Jakarta Tomcat, MySQL, JUnit and Eclipse.
+Used XPath to parse XML received over TCP/IP from legacy application.
+Used refactoring to improve the program architecture.
+Mentored Team. Provided expertise in XP, Object-Oriented Programming and test-driven development to programming team.
+
+Senior Software Engineer, 
+MadWolf Technologies, Washington DC 			2001-2003
+Web-based contention resolution forum system
+Developed a system to support a web based message forum system using Jakarta Struts,.
+Introduced TDD (Test-Driven Development) to insure correctness and to avoid regression errors.
+Managed changing requirements through agile development principles.
+
+Intranet web-based work flow application
+Using Jakarta Tomcat 4.1 with Oracle 8i, implemented a Business work flow application for a real estate title research company.
+Extensive use of refactoring was used to minimize and eliminate code duplication.
+Web-based Java Reporting Tool
+Developed an extensible web-based reporting tool using Java Servlets accessing an Oracle database.
+Reports were edited using HTML web forms generated by the Java Servlets.
+Patterns and object-oriented programming concepts were exploited to make the system adaptable.
+
+Software Engineer, 
+AJILON, Baltimore, MD and Washington, DC  	1996-2001
+World Bank
+Developed a 32-bit replacement object oriented imaging toolkit with a Visual Basic 6.0 ActiveX user control for use in other applications such as MS Word and Lotus Notes.
+Provided the toolkit to handle the scanning and imaging needs of the World Bank's  documents.
+
+KPMG (Peat Marwick)
+Used Visual Basic 5.0 to develop REMIC (mortgage-backed securities) Tax Setup software.
+Implemented 'wizard' style interface to maximize customer usability.
+Enhanced preexisting REMIC tax tracking program to increase report generation speed.
+
+Banking Services Corporation
+Constructed code to assist other developers in the general programming of the application that tracked and facilitated auto lease telemarketing.
+Performed DBA functions to assist the staff DBA on this project.
+
+Software Engineer, 
+Information Concepts Inc., Washington, DC 			1994-1996
+Project Development
+Developed a nutritional labeling program using Visual Basic and MS-Access that handled data entry of new recipes, calculation of nutrients and printing of new labels.
+Improved a front-end package that provided a GUI Interface for a legislative on-line database. Added Internet (TCP/IP) access, significant performance improvements, and improved user interface.
