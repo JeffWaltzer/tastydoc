@@ -1,6 +1,6 @@
 require 'haml'
 
-class HtmlView
+class HamlView
   def initialize(document)
     @document= document
   end
@@ -19,13 +19,13 @@ class HtmlView
           section_body(item_name, item_value)
         end
       else
-        tag_content(".header", section_name.to_s.capitalize)
-        tag_content(".text" , section)
+        tag(".header", section_name.to_s.capitalize)
+        tag(".text" , section)
       end
     end
   end
 
-  def tag_content(tag, tag_content)
+  def tag(tag, tag_content)
     haml_tag(tag) {haml_concat tag_content}
   end
 
@@ -34,14 +34,14 @@ class HtmlView
     when :list
       list(item_value)
     else
-      tag_content(".#{item_name}", item_value)
+      tag(".#{item_name}", item_value)
     end
   end
 
   def list(item_value)
     haml_tag(".list") do
       item_value.each do |item|
-        tag_content(".list-item", item)
+        tag(".list-item", item)
       end
     end
   end

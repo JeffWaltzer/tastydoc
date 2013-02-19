@@ -1,4 +1,4 @@
-require_relative '../../app/html_view'
+require_relative '../../app/haml_view'
 require 'nokogiri'
 
 def xpath_for(parent, *children)
@@ -10,7 +10,7 @@ end
 
 describe "HtmlView#render's result" do
   it "is an HTML document" do
-    html= HtmlView.new({}).render
+    html= HamlView.new({}).render
     html.gsub!(/\s+/, '')
     html.should == '<html><head></head><body></body></html>'
   end
@@ -19,7 +19,7 @@ end
 describe "An empty contact" do
   before do
     master_document= {contact: {}}
-    @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
+    @doc= Nokogiri::HTML(HamlView.new(master_document).render)
   end
   
   it "exists" do
@@ -46,7 +46,7 @@ describe "A populated contact" do
         email: 'joe@example.com'
       }
     }
-    @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
+    @doc= Nokogiri::HTML(HamlView.new(master_document).render)
   end
   
   it "exists" do
@@ -68,7 +68,7 @@ end
 def should_have_document_section(master_document, parent_node, child_expectations)
   describe parent_node do
     before do
-      @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
+      @doc= Nokogiri::HTML(HamlView.new(master_document).render)
     end
     
     it "exists" do
@@ -129,7 +129,7 @@ describe 'development section' do
         ]
       },
     }
-    @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
+    @doc= Nokogiri::HTML(HamlView.new(master_document).render)
   end
 
   it "exists" do
