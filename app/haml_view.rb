@@ -30,11 +30,15 @@ class HamlView
   end
 
   def section_body(item_name, item_value)
-    case item_name 
-    when :list
-      list(item_value)
+    if item_value
+      case item_name 
+      when :list
+        list(item_value)
+      else
+        tag(".#{item_name}", item_value)
+      end
     else
-      tag(".#{item_name}", item_value)
+      section :job, item_name
     end
   end
 

@@ -108,16 +108,6 @@ should_have_document_section({education: 'BS from Miskatonic U'},
                              header: 'Education',
                              text: 'BS from Miskatonic U')
 
-#<div class='development'>
-#  <div class='header'>
-#    Professional Development
-#  </div>
-#  <div class='text'>
-#        ["Organizer for the Ruby on Rails code fest in Columbia, MD.", "Projects developed included a Ruby refactoring tool, Podcast feed reader and web based GPS tracker."]
-#  </div>
-#</div>
-
-
 describe 'development section' do
   before do
     master_document= {
@@ -162,4 +152,33 @@ describe 'development section' do
     list[1].text.strip.should == 'Fulfills them.'
   end
 
+end
+
+describe 'experience section' do
+  before do
+    master_document= {
+      experience: [
+                   {title: 'Bottle Washer',
+                     company: 'Yoyodyne, Inc.',
+                     dates: '3/10/2000 - 4/10/2000',
+                     responsibilities: ['Wash bottles.',
+                                        'Clean up broken glass.']},
+                   {title: 'Grand Poobah',
+                     company: 'Overlord Industries',
+                     dates: '1995 - 2000',
+                     responsibilities: ['Direct underlings',
+                                        'Inspect tropical locations']}]}
+
+    @doc= Nokogiri::HTML(HamlView.new(master_document).render)
+  end
+
+  it "exists" do
+    experience= @doc.xpath(xpath_for('experience'))
+    experience.should have(1).element
+  end
+
+  it "has two jobs" do
+    experience= @doc.xpath(xpath_for('experience', 'job'))
+    experience.should have(2).elements
+  end
 end
