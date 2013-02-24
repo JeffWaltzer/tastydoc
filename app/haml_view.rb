@@ -39,7 +39,8 @@ class HamlView
   def section_body(item_name, item_value)
     if item_value
       haml_tag(".#{item_name}") do
-        if LIST_KEY[item_name]
+#        if LIST_KEY[item_name]
+        if item_value.respond_to? :each
           item_value.each do |item|
             if item.respond_to? :each
               section(LIST_KEY[item_name], item)
