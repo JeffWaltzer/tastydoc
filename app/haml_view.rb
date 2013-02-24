@@ -13,6 +13,16 @@ class HamlView
     end
   end
 
+  def tag(tag, tag_content)
+    haml_tag(tag) {haml_concat tag_content}
+  end
+
+  LIST_KEY= {
+    projects: :project,
+    responsibilities: :responsibility,
+    clients: :client,
+  }
+
   def section(section_name, section)
     haml_tag ".#{section_name}" do
       if section.respond_to? :each
@@ -26,39 +36,25 @@ class HamlView
     end
   end
 
-  def tag(tag, tag_content)
-    haml_tag(tag) {haml_concat tag_content}
-  end
-
   def section_body(item_name, item_value)
     if item_value
-      case item_name 
-      when :projects
-        list(item_value, 'projects', 'project')
-      when :responsibilities
-        list(item_value, 'responsibilities', 'responsibility')
-      when :clients
-        list(item_value, 'clients', 'client')
-      else
-        tag(".#{item_name}", item_value)
+      haml_tag(".#{item_name}") do
+        if LIST_KEY[item_name]
+          item_value.each do |item|
+            if item.respond_to? :each
+              section(LIST_KEY[item_name], item)
+            else
+              section_body(LIST_KEY[item_name], item)
+            end
+          end
+        else
+          haml_concat item_value
+        end
       end
     else
       section :job, item_name
     end
   end
-
-  def list(item_value, parent_class, child_class)
-    haml_tag(".#{parent_class}") do
-      item_value.each do |item|
-        if item.respond_to? :each
-          section child_class.to_sym, item
-        else
-          tag(".#{child_class}", item)
-        end
-      end
-    end
-  end
-
 
   def render
     template= <<-END.gsub(/^ {8}/, '')
