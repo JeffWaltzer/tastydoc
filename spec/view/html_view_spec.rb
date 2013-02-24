@@ -1,5 +1,6 @@
 require_relative '../../app/haml_view'
 require 'nokogiri'
+require 'pry'
 
 def xpath_for(parent, *children)
   children.inject("//div[@class='#{parent}']") do |path_so_far, child|
@@ -113,9 +114,9 @@ describe 'development section' do
     master_document= {
       development: {
         header: 'Professional Development',
-        list: [
-          'Makes grand pronouncements.',
-          'Fulfills them.'
+        projects: [
+                   'Makes grand pronouncements.',
+                   'Fulfills them.'
         ]
       },
     }
@@ -132,26 +133,28 @@ describe 'development section' do
     header[0].text.strip.should == 'Professional Development'
   end
 
-  it "has the correct development text" do
-    list= @doc.xpath(xpath_for('development', 'list'))
+  it "has the development project list" do
+    list= @doc.xpath(xpath_for('development', 'projects'))
     list.should have(1).element
   end
 
-  it "has the correct development text list" do
-    list= @doc.xpath(xpath_for('development', 'list', 'list-item'))
-    list.should have(2).elements
-  end
+  describe "the development project list" do
+    before do
+      @projects= @doc.xpath(xpath_for('development', 'projects', 'project'))
+    end
 
-  it "has the correct development text list" do
-    list= @doc.xpath(xpath_for('development', 'list', 'list-item'))
-    list[0].text.strip.should == 'Makes grand pronouncements.'
+    it "has two projects" do
+      @projects.should have(2).elements
+    end
+    
+    it "has the correct text for project 0" do
+      @projects[0].text.strip.should == 'Makes grand pronouncements.'
+    end
+    
+    it "has the correct text for project 1" do
+      @projects[1].text.strip.should == 'Fulfills them.'
+    end
   end
-
-  it "has the correct development text list" do
-    list= @doc.xpath(xpath_for('development', 'list', 'list-item'))
-    list[1].text.strip.should == 'Fulfills them.'
-  end
-
 end
 
 describe 'experience section' do
@@ -180,5 +183,14 @@ describe 'experience section' do
   it "has two jobs" do
     experience= @doc.xpath(xpath_for('experience', 'job'))
     experience.should have(2).elements
+  end
+
+  describe "the first job's responsibilites" do
+    it "has the correct responsibilities" do
+      jobs= @doc.xpath(xpath_for('experience', 'job'))
+      first_job= jobs[0]
+      responsibilities= first_job.xpath("div[@class='responsibilities']/div[@class='responsibility']")
+      responsibilities.map {|r| r.text.strip}.should == ["Wash bottles.", "Clean up broken glass."]
+    end
   end
 end

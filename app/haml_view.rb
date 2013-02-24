@@ -1,5 +1,6 @@
 require 'haml'
 
+#ToDo: change name to HtmlView
 class HamlView
   def initialize(document)
     @document= document
@@ -32,8 +33,10 @@ class HamlView
   def section_body(item_name, item_value)
     if item_value
       case item_name 
-      when :list
-        list(item_value)
+      when :projects
+        list(item_value, 'projects', 'project')
+      when :responsibilities
+        list(item_value, 'responsibilities', 'responsibility')
       else
         tag(".#{item_name}", item_value)
       end
@@ -42,10 +45,10 @@ class HamlView
     end
   end
 
-  def list(item_value)
-    haml_tag(".list") do
+  def list(item_value, parent_class, child_class)
+    haml_tag(".#{parent_class}") do
       item_value.each do |item|
-        tag(".list-item", item)
+        tag(".#{child_class}", item)
       end
     end
   end
