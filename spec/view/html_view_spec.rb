@@ -157,20 +157,14 @@ describe 'development section' do
   end
 end
 
-describe 'experience section' do
+describe 'responsibilities under job under experience' do
   before do
     master_document= {
       experience: [
-                   {title: 'Bottle Washer',
-                     company: 'Yoyodyne, Inc.',
-                     dates: '3/10/2000 - 4/10/2000',
-                     responsibilities: ['Wash bottles.',
-                                        'Clean up broken glass.']},
-                   {title: 'Grand Poobah',
-                     company: 'Overlord Industries',
-                     dates: '1995 - 2000',
-                     responsibilities: ['Direct underlings',
-                                        'Inspect tropical locations']}]}
+                   {responsibilities: ['Wash bottles.',
+                                       'Clean up broken glass.']},
+                   {responsibilities: ['Direct underlings',
+                                       'Inspect tropical locations']}]}
 
     @doc= Nokogiri::HTML(HamlView.new(master_document).render)
   end
@@ -191,6 +185,77 @@ describe 'experience section' do
       first_job= jobs[0]
       responsibilities= first_job.xpath("div[@class='responsibilities']/div[@class='responsibility']")
       responsibilities.map {|r| r.text.strip}.should == ["Wash bottles.", "Clean up broken glass."]
+    end
+  end
+
+  describe "the second job's responsibilites" do
+    it "has the correct responsibilities" do
+      jobs= @doc.xpath(xpath_for('experience', 'job'))
+      first_job= jobs[1]
+      responsibilities= first_job.xpath("div[@class='responsibilities']/div[@class='responsibility']")
+      responsibilities.map {|r| r.text.strip}.should == ['Direct underlings', 'Inspect tropical locations']
+    end
+  end
+end
+
+describe 'clients under job' do
+  before do
+    master_document= {
+      experience: [
+                   {clients: [{company: "Bubblegum, Inc."},
+                              {company: "Jawbreakers, Inc."}]},
+                  ]}
+
+    @doc= Nokogiri::HTML(HamlView.new(master_document).render)
+  end
+
+  it "exists" do
+    clients_section= @doc.xpath(xpath_for('job', 'clients'))
+    clients_section.should have(1).element
+  end
+
+  it "has two clients" do
+    clients= @doc.xpath(xpath_for('clients', 'client'))
+    clients.should have(2).elements
+  end
+
+  describe "the first client's company" do
+    it "has the correct title" do
+      clients= @doc.xpath(xpath_for('clients', 'client'))
+      first_client= clients[0]
+      title= first_client.xpath("div[@class='company']").text.strip
+      title.should == 'Bubblegum, Inc.'
+    end
+  end
+end
+
+describe 'projects under job' do
+  before do
+    master_document= {
+      experience: [
+                   {projects: [{name: "Chew it."},
+                               {name: "Crunch it."}]},
+                  ]}
+
+    @doc= Nokogiri::HTML(HamlView.new(master_document).render)
+  end
+
+  it "exists" do
+    projects_section= @doc.xpath(xpath_for('job', 'projects'))
+    projects_section.should have(1).element
+  end
+
+  it "has two projects" do
+    projects= @doc.xpath(xpath_for('projects', 'project'))
+    projects.should have(2).elements
+  end
+
+  describe "the first project" do
+    it "has the correct naame" do
+      projects= @doc.xpath(xpath_for('projects', 'project'))
+      first_project= projects[0]
+      name= first_project.xpath("div[@class='name']").text.strip
+      name.should == 'Chew it.'
     end
   end
 end

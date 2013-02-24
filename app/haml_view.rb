@@ -37,6 +37,8 @@ class HamlView
         list(item_value, 'projects', 'project')
       when :responsibilities
         list(item_value, 'responsibilities', 'responsibility')
+      when :clients
+        list(item_value, 'clients', 'client')
       else
         tag(".#{item_name}", item_value)
       end
@@ -48,7 +50,11 @@ class HamlView
   def list(item_value, parent_class, child_class)
     haml_tag(".#{parent_class}") do
       item_value.each do |item|
-        tag(".#{child_class}", item)
+        if item.respond_to? :each
+          section child_class.to_sym, item
+        else
+          tag(".#{child_class}", item)
+        end
       end
     end
   end
