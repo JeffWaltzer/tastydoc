@@ -30,15 +30,15 @@ class HamlView
     jobs: :job,
   }
 
-  def section(item_name, item)
+  def section(item_name, item_value)
     child_class= LIST_KEY[item_name]
     haml_tag(".#{child_class}") do
-      if item.respond_to? :each
-        item.each do |sub_item_name, sub_item_value|
+      if item_value.respond_to? :each
+        item_value.each do |sub_item_name, sub_item_value|
           section_body(sub_item_name, sub_item_value)
         end
       else
-        haml_concat item
+        haml_concat item_value
       end
     end
   end
