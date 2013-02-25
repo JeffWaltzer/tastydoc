@@ -30,13 +30,6 @@ class HamlView
     jobs: :job,
   }
 
-  def section(item_name, item_value)
-    child_class= LIST_KEY[item_name]
-    haml_tag(".#{child_class}") do
-      guts(child_class, item_value)
-    end
-  end
-
   def section_body(item_name, item_value)
     haml_tag(".#{item_name}") do
       guts(item_name, item_value)
@@ -46,15 +39,10 @@ class HamlView
   def guts(item_name, item_value)
     if item_value.respond_to? :each
       item_value.each do |sub_item_name, sub_item_value|
-        if sub_item_value
-          haml_tag(".#{sub_item_name}") do
-            guts(sub_item_name, sub_item_value)
-          end
-        else
-          child_class= LIST_KEY[item_name]
-          haml_tag(".#{child_class}") do
-            guts(child_class, sub_item_name)
-          end
+        child_class= LIST_KEY[item_name] || sub_item_name
+        child_value= sub_item_value || sub_item_name
+        haml_tag(".#{child_class}") do
+          guts(child_class, child_value)
         end
       end
     else
