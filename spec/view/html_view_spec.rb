@@ -99,12 +99,12 @@ def should_have_child(parent_node, child_node, expected_text)
   end
 end
 
-should_have_document_section({summary: 'I have done lots of stuff.'},
+should_have_document_section({summary: {header: 'Summary', text: 'I have done lots of stuff.'}},
                              'summary',
                              header: 'Summary',
                              text: 'I have done lots of stuff.')
 
-should_have_document_section({education: 'BS from Miskatonic U'},
+should_have_document_section({education: {header: 'Education', text: 'BS from Miskatonic U'}},
                              'education',
                              header: 'Education',
                              text: 'BS from Miskatonic U')
@@ -157,31 +157,32 @@ describe 'development section' do
   end
 end
 
-describe 'responsibilities under job under experience' do
+describe 'responsibilities under jobs' do
   before do
     master_document= {
-      experience: [
+      experience: { 
+        jobs: [
                    {responsibilities: ['Wash bottles.',
                                        'Clean up broken glass.']},
                    {responsibilities: ['Direct underlings',
-                                       'Inspect tropical locations']}]}
+                                       'Inspect tropical locations']}]}}
 
     @doc= Nokogiri::HTML(HamlView.new(master_document).render)
   end
 
   it "exists" do
-    experience= @doc.xpath(xpath_for('experience'))
+    experience= @doc.xpath(xpath_for('jobs'))
     experience.should have(1).element
   end
 
   it "has two jobs" do
-    experience= @doc.xpath(xpath_for('experience', 'job'))
-    experience.should have(2).elements
+    jobs= @doc.xpath(xpath_for('jobs', 'job'))
+    jobs.should have(2).elements
   end
 
   describe "the first job's responsibilites" do
     it "has the correct responsibilities" do
-      jobs= @doc.xpath(xpath_for('experience', 'job'))
+      jobs= @doc.xpath(xpath_for('jobs', 'job'))
       first_job= jobs[0]
       responsibilities= first_job.xpath("div[@class='responsibilities']/div[@class='responsibility']")
       responsibilities.map {|r| r.text.strip}.should == ["Wash bottles.", "Clean up broken glass."]
@@ -190,7 +191,7 @@ describe 'responsibilities under job under experience' do
 
   describe "the second job's responsibilites" do
     it "has the correct responsibilities" do
-      jobs= @doc.xpath(xpath_for('experience', 'job'))
+      jobs= @doc.xpath(xpath_for('jobs', 'job'))
       first_job= jobs[1]
       responsibilities= first_job.xpath("div[@class='responsibilities']/div[@class='responsibility']")
       responsibilities.map {|r| r.text.strip}.should == ['Direct underlings', 'Inspect tropical locations']
@@ -201,10 +202,11 @@ end
 describe 'clients under job' do
   before do
     master_document= {
-      experience: [
-                   {clients: [{company: "Bubblegum, Inc."},
-                              {company: "Jawbreakers, Inc."}]},
-                  ]}
+      experience: {
+        jobs: [
+               {clients: [{company: "Bubblegum, Inc."},
+                          {company: "Jawbreakers, Inc."}]},
+              ]}}
 
     @doc= Nokogiri::HTML(HamlView.new(master_document).render)
   end
@@ -232,10 +234,10 @@ end
 describe 'projects under job' do
   before do
     master_document= {
-      experience: [
-                   {projects: [{name: "Chew it."},
-                               {name: "Crunch it."}]},
-                  ]}
+      experience: {
+        jobs: [{projects: [{name: "Chew it."},
+                           {name: "Crunch it."}]},
+              ]}}
 
     @doc= Nokogiri::HTML(HamlView.new(master_document).render)
   end

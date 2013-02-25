@@ -9,7 +9,13 @@ class HamlView
 
   def generate_body
     @document.each do |section_name, section|
-      section section_name, section
+      haml_tag ".#{section_name}" do
+        if section.respond_to? :each
+          section.each do |item_name, item_value|
+            section_body(item_name, item_value)
+          end
+        end
+      end
     end
   end
 
@@ -21,39 +27,28 @@ class HamlView
     projects: :project,
     responsibilities: :responsibility,
     clients: :client,
+    jobs: :job,
   }
 
-  def section(section_name, section)
-    haml_tag ".#{section_name}" do
-      if section.respond_to? :each
-        section.each do |item_name, item_value|
-          section_body(item_name, item_value)
+  def section_body(item_name, item_value)
+    haml_tag(".#{item_name}") do
+      if item_value.respond_to? :each
+        item_value.each do |item|
+          if item.respond_to? :each
+            haml_tag ".#{LIST_KEY[item_name]}" do
+              if item.respond_to? :each
+                item.each do |item_name, item_value|
+                  section_body(item_name, item_value)
+                end
+              end
+            end
+          else
+            section_body(LIST_KEY[item_name], item)
+          end
         end
       else
-        tag(".header", section_name.to_s.capitalize)
-        tag(".text" , section)
+        haml_concat item_value
       end
-    end
-  end
-
-  def section_body(item_name, item_value)
-    if item_value
-      haml_tag(".#{item_name}") do
-#        if LIST_KEY[item_name]
-        if item_value.respond_to? :each
-          item_value.each do |item|
-            if item.respond_to? :each
-              section(LIST_KEY[item_name], item)
-            else
-              section_body(LIST_KEY[item_name], item)
-            end
-          end
-        else
-          haml_concat item_value
-        end
-      end
-    else
-      section :job, item_name
     end
   end
 
