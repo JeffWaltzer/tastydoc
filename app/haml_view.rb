@@ -33,25 +33,27 @@ class HamlView
   def section(item_name, item_value)
     child_class= LIST_KEY[item_name]
     haml_tag(".#{child_class}") do
-      if item_value.respond_to? :each
-        item_value.each do |sub_item_name, sub_item_value|
-          section_body(sub_item_name, sub_item_value)
-        end
-      else
-        haml_concat item_value
-      end
+      guts(child_class, item_value)
     end
   end
 
   def section_body(item_name, item_value)
     haml_tag(".#{item_name}") do
-      if item_value.respond_to? :each
-        item_value.each do |item|
-          section(item_name, item)
+      guts(item_name, item_value)
+    end
+  end
+
+  def guts(item_name, item_value)
+    if item_value.respond_to? :each
+      item_value.each do |sub_item_name, sub_item_value|
+        if sub_item_value
+          section_body(sub_item_name, sub_item_value)
+        else
+          section(item_name, sub_item_name)
         end
-      else
-        haml_concat item_value
       end
+    else
+      haml_concat item_value
     end
   end
 
