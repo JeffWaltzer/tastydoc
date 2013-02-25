@@ -47,9 +47,14 @@ class HamlView
     if item_value.respond_to? :each
       item_value.each do |sub_item_name, sub_item_value|
         if sub_item_value
-          section_body(sub_item_name, sub_item_value)
+          haml_tag(".#{sub_item_name}") do
+            guts(sub_item_name, sub_item_value)
+          end
         else
-          section(item_name, sub_item_name)
+          child_class= LIST_KEY[item_name]
+          haml_tag(".#{child_class}") do
+            guts(child_class, sub_item_name)
+          end
         end
       end
     else
