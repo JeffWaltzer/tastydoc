@@ -1,0 +1,19 @@
+body {margin-left: 3%; margin-right: 5%;}
+.contact {text-align: center;}
+.contact div {display: block;}
+.name {}
+.street {}
+.city_state_zip {}
+.phone {}
+.email {}
+.summary {margin-top: 0.25cm; margin-left:0.25cm}
+.skills {}
+.header {font-family: sans-serif; font-size: large; margin-top: 0.25cm;}
+.text {margin-left: 0.25cm;}
+.education {}
+.development {}
+.development .projects {margin-left: 0.25cm;}
+.development .projects .project {margin-left: 0.5cm; display: list-item; list-style-type: square;}
+.projects {}
+.experience {}
+.jobs {}

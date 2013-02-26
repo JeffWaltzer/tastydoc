@@ -43,6 +43,7 @@ class HtmlView
     template= <<-END.gsub(/^ {8}/, '')
         %html
           %head
+            %link(rel="stylesheet" type="text/css" href="resume.css")
           %body
             - section @document
     END

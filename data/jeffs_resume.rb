@@ -13,7 +13,10 @@
     header: 'Programming Languages, Databases, Tools',
     text: 'Ruby 1.9.3, Ruby on Rails 3.2, RSpec, Jruby, jQuery, CoffeeScript, Haml, JavaScript, XML, MySQL, PostgreSQL, PostGIS, Oracle, Linux (Ubuntu, Red Hat, CentOS), Soap4r,  Java, J2EE, Hibernate, Eclipse IDE, JUnit, Assembler, RubyMine'},
 
-  education: 'BS, Computer Science, University of Bridgeport',
+  education: {
+    header: 'Education',
+    text: 'BS, Computer Science, University of Bridgeport',
+    },
 
   development: {
     header: 'Professional Development',
