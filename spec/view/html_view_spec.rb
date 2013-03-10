@@ -13,7 +13,7 @@ describe "HtmlView#render's result" do
   it "is an HTML document" do
     html= HtmlView.new({}).render
     html.gsub!(/\s+/, '')
-    html.should == '<html><head></head><body></body></html>'
+    html.should == "<html><head><linkhref='resume.css'rel='stylesheet'type='text/css'></head><body></body></html>"
   end
 end
 
