@@ -12,12 +12,22 @@ describe 'The TastyDocs app' do
   end
 
   it 'returns OK' do
-    get '/'
+    get '/jeffwaltzer.html'
     last_response.should be_ok
   end
 
   it 'is an html document' do
-    get '/'
-    last_response.body.should include 'html'
+    get '/jeffwaltzer.html'
+    last_response.body.should include 'Jeff'
+  end
+
+  it 'does not have doc id' do
+    get '/jeffwaltzer.html'
+    last_response.body.should_not include "'jeffwaltzer'"
+  end
+
+  it 'is an html document' do
+    get '/johnmaxwell.html'
+    last_response.body.should include 'John'
   end
 end

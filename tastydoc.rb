@@ -3,8 +3,8 @@ require_relative 'app/html_view'
 require_relative 'app/css_view'
 require_relative 'data/jeffs_resume'
 
-get "/" do
-  HtmlView.new(JEFFS_RESUME).render
+get "/:name.html" do
+  HtmlView.new(RESUMES[params[:name].to_sym]).render
 end
 
 get "/resume.css" do
