@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
+gem 'rack'
 gem 'rspec'
 gem 'rack-test'
 gem 'nokogiri'

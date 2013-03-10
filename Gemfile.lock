@@ -38,6 +38,7 @@ DEPENDENCIES
   haml
   nokogiri
   pry
+  rack
   rack-test
   rspec
   sinatra

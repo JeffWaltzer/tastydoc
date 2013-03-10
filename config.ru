@@ -1,3 +1,3 @@
-require "tastydoc"
+require "./tastydoc"
 
 run Sinatra::Application
