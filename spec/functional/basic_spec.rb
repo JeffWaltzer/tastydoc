@@ -21,6 +21,11 @@ describe 'The TastyDocs app' do
     last_response.body.should include 'Jeff'
   end
 
+  it 'defaults to HTML' do
+    get '/jeffwaltzer'
+    last_response.body.should include 'Jeff'
+  end
+
   it 'does not have doc id' do
     get '/jeffwaltzer.html'
     last_response.body.should_not include "'jeffwaltzer'"
