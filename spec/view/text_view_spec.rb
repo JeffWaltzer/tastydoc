@@ -7,55 +7,32 @@ describe "TextView#render's result" do
     text.should == ''
   end
 end
-#
-#describe "An empty contact" do
-#  before do
-#    master_document= {contact: {}}
-#    @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
-#  end
-#
-#  it "exists" do
-#    contact= @doc.xpath(xpath_for('contact'))
-#    contact.should have(1).element
-#  end
-#
-#  it "has the correct contact name" do
-#    name= @doc.xpath(xpath_for('contact', 'name'))
-#    name.should have(0).elements
-#  end
-#
-#  it "has the correct contact email" do
-#    email= @doc.xpath(xpath_for('contact', 'email'))
-#    email.should have(0).elements
-#  end
-#end
-#
-#describe "A populated contact" do
-#  before do
-#    master_document= {
-#      contact: {
-#        name: "Joe Smith",
-#        email: 'joe@example.com'
-#      }
-#    }
-#    @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
-#  end
-#
-#  it "exists" do
-#    contact= @doc.xpath(xpath_for('contact'))
-#    contact.should have(1).element
-#  end
-#
-#  it "has the correct contact name" do
-#    name= @doc.xpath(xpath_for('contact', 'name'))
-#    name[0].text.strip.should == 'Joe Smith'
-#  end
-#
-#  it "has the correct contact email" do
-#    email= @doc.xpath(xpath_for('contact', 'email'))
-#    email[0].text.strip.should == 'joe@example.com'
-#  end
-#end
+
+describe "A populated contact" do
+  before do
+    master_document= {
+      contact: {
+        name: "Joe Smith",
+        email: 'joe@example.com'
+      }
+    }
+    @doc= TextView.new(master_document).render.split("\n")
+  end
+
+  it "exists" do
+    @doc.size.should == 2
+  end
+
+  it "has the correct contact name" do
+    name= @doc.first
+    name.strip.should == 'Joe Smith'
+  end
+
+  it "has the correct contact email" do
+    email= @doc[1]
+    email.strip.should == 'joe@example.com'
+  end
+end
 #
 #def should_have_document_section(master_document, parent_node, child_expectations)
 #  describe parent_node do
