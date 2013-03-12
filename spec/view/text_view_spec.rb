@@ -33,16 +33,58 @@ describe "A populated contact" do
     email.strip.should == 'joe@example.com'
   end
 end
+
+
+describe "experience" do
+  before do
+    master_document= {
+      experience: {
+        header: 'Experience' ,
+        jobs: [
+          {
+            title: 'A job',
+            company: 'Some Corp Inc.',
+            dates: '1990-2009',
+            responsibilities: %w{one two three}
+          }
+        ]
+      }
+    }
+    @doc= TextView.new(master_document).render.split("\n")
+  end
+
+  it "exists" do
+    puts @doc.inspect
+    @doc.size.should == 6
+  end
+
+  it 'should have experience' do
+    @doc[0].should=='Experience'
+  end
+
+  it do
+    @doc[1].should == '  A job'
+  end
+
+  it "should have company and date" do
+    @doc[2].should == "  Some Corp Inc.  1990-2009"
+  end
+end
+
+
+
+
+
+
+
+
+
+
 #
 #def should_have_document_section(master_document, parent_node, child_expectations)
 #  describe parent_node do
 #    before do
-#      @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
-#    end
-#
-#    it "exists" do
-#      summary= @doc.xpath(xpath_for(parent_node))
-#      summary.should have(1).element
+#      @doc= TextView.new(master_document).render
 #    end
 #
 #    child_expectations.each do |child_name, child_expected_value|
@@ -71,7 +113,7 @@ end
 #                             'summary',
 #                             header: 'Summary',
 #                             text: 'I have done lots of stuff.')
-#
+
 #should_have_document_section({education: {header: 'Education', text: 'BS from Miskatonic U'}},
 #                             'education',
 #                             header: 'Education',
