@@ -1,7 +1,7 @@
 require 'sinatra'
 require_relative 'app/html_view'
 require_relative 'app/css_view'
-require_relative 'data/jeffs_resume'
+require_relative 'data/documents'
 
 get %r{/(\w+)(\.html)?$} do
   name = params[:captures].first.to_sym
