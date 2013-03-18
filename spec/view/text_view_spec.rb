@@ -54,7 +54,6 @@ describe "experience" do
   end
 
   it "exists" do
-    puts @doc.inspect
     @doc.size.should == 6
   end
 
