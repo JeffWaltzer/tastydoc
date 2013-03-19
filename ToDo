@@ -1,2 +1,3 @@
 Add direct unit tests for HtmlView#document_section
+check is-an-html spec in basic-spec.
 
