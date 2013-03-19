@@ -1,7 +1,5 @@
 ﻿RESUMES= {
 
-  johnmaxwell: {contact: {name: 'John'}},
-
   jeffwaltzer: {
 
     contact: {
@@ -177,5 +175,89 @@
           company: 'Information Concepts Inc., Washington, DC',
           dates: '1994-1996',
           responsibilities: ['Developed a nutritional labeling program using Visual Basic and MS-Access that handled data entry of new recipes, calculation of nutrients and printing of new labels.',
-                             'Improved a front-end package that provided a GUI Interface for a legislative on-line database. Added Internet (TCP/IP) access, significant performance improvements, and improved user interface.'] }] } }
+                             'Improved a front-end package that provided a GUI Interface for a legislative on-line database. Added Internet (TCP/IP) access, significant performance improvements, and improved user interface.'] }] } },
+
+  johnmaxwell: {
+
+    contact: {
+      name: 'John A. Maxwell',
+      street: '1551 Alcova Drive',
+      city_state_zip: 'Davidsonville, MD 21035',
+      phone: '301-535-0225',
+      email: 'jmax@toad.net',
+    },
+
+    summary: 'Senior Software Engineer with experience in desktop, embedded, and web apps.',
+
+    skills: {
+      header: 'Skills',
+      text: 'Software development, Agile Methods (Extreme Programming), Device Drivers, Embedded Applications, Web Applications, AJAX, Client/Server Applications. C, C++, Assembler, Javascript, Lisp, Scheme, Fortran, Ruby, Ruby on Rails, jQuery, XML, Linux, MySQL'
+    },
+
+    education: {
+      header: 'Education',
+      text: 'BA Physics, University of Maryland, Baltimore County',
+    },
+
+    development: {
+      header: 'Professional Development',
+      projects: ['Agile Maryland Codefest',
+                 'Floyd Code Retreat.'] },
+
+    experience: {
+      header: 'Employment Hostory',
+      jobs: [
+             { title: 'Senior Software Engineer',
+               company: 'OpenAmplify, Annapolis, MD',
+               dates: '5/2009 – present',
+               responsibilities: ['Developed and enhanced semantic text analysis software C++ running as a web service (REST and SOAP APIs) under Linux in the Amazon EC2 cloud.',
+                                  'Developed various front end applications for the service in C++, Javascript, Scheme, and Ruby.', 
+                                  'Coded prototype and experimental applications for linguistic R&D group, then participated in incorporating successful R&D efforts into production software.',
+                                  'Maintained and enhanced administrative scripts in Ruby for administration of servers in the EC2 cloud.']},
+
+             {title: 'Head of Software',
+               company: 'Rimark Technologies, Frederick, MD',
+               dates: '2007',
+               responsibilities: ['Founding member of a startup producing digital panel voltage meters.',
+                                  'Wrote meter firmware.',
+                                  'Defined and implemented communications protocols for the meters.', 
+                                  'Wrote Windows GUI for interfacing to meters.',
+                                  'Wrote Windows utilities for meter production.']},
+
+             { title: 'Senior Software Engineer',
+               company: 'Harsh Environment Applied Technologies, White Plains, MD',
+               dates: '2004 - 2008',
+               responsibilities: ['Independent consultant under contract for work on several DoD contracts.',
+                                  'Developed embedded application in C++ under embedded Linux.',
+                                  'Developed applications on PIC microcontrollers in C and Assembler for various custom hardware.',
+                                  'Wrote interface software and device drivers for a variety of off the shelf and custom hardware.']},
+
+             { title: 'Senior Software Engineer',
+               company: 'GE Medical Systems, Annapolis, MD',
+               dates: '1998 - 2004',
+               responsibilities: ['Maintained and enhanced client/server and Web based medical record keeping software in C++, SQL-Server, and VB6.',
+                                  'Implemented interfaces to third-party hardware and software.',
+                                  'Provided back-end customer support.']},
+
+             { title: 'Contract Programmer',
+               company: 'Aerotek/Maxim Group',
+               dates: '1996 - 1998',
+               responsibilities: ['Designed and developed application software in C++ for several customers, running under Windows (95/98/NT4).']},
+
+             { title: 'Programmer',
+               company: 'BYK Gardner USA, Silver Spring, MD',
+               dates: '1988 - 1996',
+               responsibilities: ['Developed and maintained color matching software for retail paint stores in C and assembler.',
+                                  'Maintained and enhanced embedded software for colorimeters.',
+                                  'Wrote and supported test software for hardware manufacturing.',
+                                  'Wrote and supported software for lab use.']},
+
+             { title: 'Programmer',
+               company: 'Logistics Data Systems, Potomac, MD',
+               dates: '1985 - 1988',
+               responsibilities: ['Developed and maintained a specialized CAD system for retail store shelf layouts, running under MS-DOS.',
+                                  'Implemented device drivers for pen plotters and other graphical output devices.',
+                                  'Ported software from MS-DOS to VMS, DOS extenders, and Xenix.',
+                                  'Provided customer support.']},
+            ]}}
 }
