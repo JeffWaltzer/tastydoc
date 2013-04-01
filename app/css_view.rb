@@ -9,18 +9,18 @@ class CssView
       .header {font-family: sans-serif; font-size: large; margin-top: 0.25cm;}
       .text {margin-left: 0.25cm;}
       .development .projects {margin-left: 0.25cm;}
-      .development .projects .project {margin-left: 0.5cm; display: list-item; list-style-type: square;}
-      .project {margin-left: 0.75cm;}
-      .project .name {font-style:italic}
+      .development .projects .projects_item {margin-left: 0.5cm; display: list-item; list-style-type: square;}
+      .projects_item {margin-left: 0.75cm;}
+      .projects_item .name {font-style:italic}
       .client {margin-left: 0.5cm;}
       .client .company {font-style:italic}
-      .job {margin-left: 0.75cm; margin-top: 0.2cm}
+      .jobs_item {margin-left: 0.75cm; margin-top: 0.2cm}
       .title {font-weight: bold}
       .company {font-weight: bold; display: inline}
       .client .company {font-weight: normal; font-style: italic; display: inline}
       .dates {display: inline;}
       .responsibilities {margin-left: 0.75cm; }
-      .responsibility {display: list-item; list-style-type: circle}
+      .responsibilities_item {display: list-item; list-style-type: circle}
     CSS
   end
 end
