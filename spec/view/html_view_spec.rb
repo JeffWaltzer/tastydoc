@@ -259,5 +259,18 @@ describe 'projects under job' do
       name= first_project.xpath("div[@class='name']").text.strip
       name.should == 'Chew it.'
     end
+    end
+end
+
+describe "a list section whose key is not in LIST_KEY" do
+  before do
+    master_document= {unknown_key: ["some text", "some more text"]}
+    rendered_doc = HtmlView.new(master_document).render
+    @doc= Nokogiri::HTML(rendered_doc)
+  end
+
+  it do
+    items= @doc.xpath(xpath_for('unknown_key', 'unknown_key_item'))
+    items.should have(2).children
   end
 end

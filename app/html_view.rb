@@ -5,7 +5,7 @@ class HtmlView
     @document= document
   end
 
-  LIST_KEY= {
+  SUBITEM_CLASS= {
     projects: :project,
     responsibilities: :responsibility,
     clients: :client,
@@ -13,8 +13,12 @@ class HtmlView
   }
 
   def section(contents, name = nil)
-    if contents.respond_to? :each
-      list(contents, name)
+    if SUBITEM_CLASS[name]
+      array_list(contents,SUBITEM_CLASS[name])
+    elsif contents.is_a? Array
+      array_list(contents, "#{name}_item")
+    elsif contents.is_a? Hash
+      hash_list(contents)
     else
       text(contents)
     end
@@ -24,12 +28,15 @@ class HtmlView
     haml_concat contents
   end
 
-  def list(contents, name)
+  def array_list(contents, class_name)
+    contents.each do |sub_name|
+      div(class_name, sub_name)
+    end
+  end
+
+  def hash_list(contents)
     contents.each do |sub_name, sub_contents|
-      div(
-        LIST_KEY[name] || sub_name,
-        sub_contents || sub_name
-      )
+      div(sub_name, sub_contents)
     end
   end
 
