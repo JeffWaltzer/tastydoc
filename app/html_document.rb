@@ -1,9 +1,14 @@
+
 class HtmlDocument
-  def initialize(document)
-    @document= document
+  def initialize(content)
+    @content= content
   end
 
-  def section(contents, name = nil)
+  def builder=(builder)
+    @builder=builder
+  end
+
+  def section(contents= @content, name = nil)
     if list_section?(contents)
       list_section(contents, "#{name}_item")
     elsif document_section?(contents)
@@ -22,7 +27,7 @@ class HtmlDocument
   end
 
   def text_section(contents)
-    haml_concat contents
+    @builder.concat contents
   end
 
   def list_section(contents, class_name)
@@ -33,7 +38,7 @@ class HtmlDocument
 
   def document_section(contents)
     if contents[:link]
-      haml_tag("a", href: contents[:link]) do
+      @builder.tag("a", href: contents[:link]) do
         section(contents[:text])
       end
     else
@@ -44,7 +49,7 @@ class HtmlDocument
   end
 
   def div(div_class, div_content)
-    haml_tag(".#{div_class}") do
+    @builder.tag(".#{div_class}") do
       section(div_content, div_class)
     end
   end

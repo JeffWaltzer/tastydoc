@@ -1,5 +1,6 @@
 require 'haml'
 require_relative 'html_document'
+require_relative 'html_builder'
 
 class HtmlView
   def initialize(document)
@@ -16,8 +17,9 @@ class HtmlView
           %head
             %link(rel="stylesheet" type="text/css" href="resume.css")
           %body
-            - section @document
+            - render content
     END
-    Haml::Engine.new(template).render(@document, document: @document)
+    builder = HtmlBuilder.new
+    Haml::Engine.new(template).render(builder, content: @document)
   end
 end
