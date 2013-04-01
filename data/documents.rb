@@ -7,7 +7,8 @@
       street: '3 Riverview Court #202',
       city_state_zip: 'Laurel, MD 20707',
       phone: '240-671-9368 (cell)',
-      email: 'jeffwaltzer@gmail.com',
+      email: {link: 'mailto:jeffwaltzer@gmail.com',
+              text: 'jeffwaltzer@gmail.com'},
     },
 
     summary: 'Senior Ruby on Rails Programmer with extensive experience doing ground-up development for several mission-critical projects.   Responsible for the concept, coding, testing, implementation, user training, and technical support of new systems. Experienced with agile development methodologies and Behvaior Driven Development. ',
@@ -23,7 +24,8 @@
 
     development: {
       header: 'Professional Development',
-      projects: ['Organizer for the Ruby on Rails code fest in Columbia, MD.',
+      projects: [{link: 'http://agilemaryland.org',
+                  text: 'Organizer for the Ruby on Rails code fest in Columbia, MD.'},
                  'Projects developed included a Ruby refactoring tool, Podcast feed reader and web based GPS tracker.'] },
 
     experience: {
