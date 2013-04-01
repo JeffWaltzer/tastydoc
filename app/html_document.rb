@@ -1,11 +1,7 @@
-
 class HtmlDocument
-  def initialize(content)
+  def initialize(builder, content)
     @content= content
-  end
-
-  def builder=(builder)
-    @builder=builder
+    @builder = builder
   end
 
   def section(contents= @content, name = nil)
@@ -14,7 +10,7 @@ class HtmlDocument
     elsif document_section?(contents)
       document_section(contents)
     else
-      text_section(contents)
+      @builder.text(contents)
     end
   end
 
@@ -26,32 +22,23 @@ class HtmlDocument
     contents.is_a? Array
   end
 
-  def text_section(contents)
-    @builder.concat contents
-  end
-
   def list_section(contents, class_name)
     contents.each do |sub_name|
-      div(class_name, sub_name)
+      @builder.section(class_name, sub_name) do |content, clazz|
+        section(content, clazz)
+      end
     end
   end
 
   def document_section(contents)
     if contents[:link]
-      @builder.tag("a", href: contents[:link]) do
-        section(contents[:text])
-      end
+      @builder.link(contents) { |text| section(text) }
     else
       contents.each do |sub_name, sub_contents|
-        div(sub_name, sub_contents)
+        @builder.section(sub_name, sub_contents) do |content, clazz|
+          section(content, clazz)
+        end
       end
     end
   end
-
-  def div(div_class, div_content)
-    @builder.tag(".#{div_class}") do
-      section(div_content, div_class)
-    end
-  end
-
 end
