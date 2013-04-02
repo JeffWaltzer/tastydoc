@@ -1,11 +1,11 @@
 require 'haml'
-require_relative 'html_document'
+require_relative 'renderer'
 require_relative 'haml_builder'
 
 class HtmlView
   def initialize(document)
     @builder = HamlBuilder.new
-    @document= HtmlDocument.new(@builder, document)
+    @document= Renderer.new(@builder, document)
   end
 
   def section(contents)

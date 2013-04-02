@@ -1,4 +1,4 @@
-class HtmlDocument
+class Renderer
   def initialize(builder, content)
     @content= content
     @builder = builder
