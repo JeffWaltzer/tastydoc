@@ -35,12 +35,16 @@ class TextView
     [' ' * @indentation + document]
   end
 
+  def indent
+    @indentation+=2
+    rv=yield
+    @indentation-=2
+    rv
+  end
+
   def list(document)
     document.map do |section|
-      @indentation += 2
-      return_value= render_helper(section)
-      @indentation -= 2
-      return_value
+      indent { render_helper(section) }
     end.flatten
   end
 end
