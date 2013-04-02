@@ -5,11 +5,11 @@ require_relative 'haml_builder'
 class HtmlView
   def initialize(document)
     @builder = HamlBuilder.new
-    @document= Renderer.new(@builder, document)
+    @renderer= Renderer.new(@builder, document)
   end
 
   def section(contents)
-    @document.section(contents)
+    @renderer.section(contents)
   end
 
   def render
@@ -21,6 +21,6 @@ class HtmlView
             - content.section
     END
 
-    Haml::Engine.new(template).render(@builder, content: @document)
+    Haml::Engine.new(template).render(@builder, content: @renderer)
   end
 end
