@@ -4,7 +4,11 @@ class Renderer
     @builder = builder
   end
 
-  def section(contents= @content, name = nil)
+  def render
+    section(@content)
+  end
+
+  def section(contents, name = nil)
     if list_section?(contents)
       list_section(contents, "#{name}_item")
     elsif link_section?(contents)

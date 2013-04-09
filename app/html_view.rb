@@ -8,17 +8,13 @@ class HtmlView
     @renderer= Renderer.new(@builder, document)
   end
 
-  def section(contents)
-    @renderer.section(contents)
-  end
-
   def render
     template= <<-END.gsub(/^ {8}/, '')
         %html
           %head
             %link(rel="stylesheet" type="text/css" href="resume.css")
           %body
-            - content.section
+            - content.render
     END
 
     Haml::Engine.new(template).render(@builder, content: @renderer)
