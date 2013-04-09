@@ -7,6 +7,8 @@ class Renderer
   def section(contents= @content, name = nil)
     if list_section?(contents)
       list_section(contents, "#{name}_item")
+    elsif link_section?(contents)
+      link_section(contents)
     elsif document_section?(contents)
       document_section(contents)
     else
@@ -22,23 +24,29 @@ class Renderer
     contents.is_a? Array
   end
 
-  def list_section(contents, class_name)
-    contents.each do |sub_name|
-      @builder.section(class_name, sub_name) do |content, clazz|
-        section(content, clazz)
-      end
+  def link_section?(contents)
+    contents.is_a?(Hash) && contents[:link]
+  end
+
+  def sub_document(sub_name, class_name)
+    @builder.section(class_name, sub_name) do |content, clazz|
+      section(content, clazz)
     end
   end
 
+  def list_section(contents, class_name)
+    contents.each do |sub_name|
+      sub_document(sub_name, class_name)
+    end
+  end
+
+  def link_section(contents)
+    @builder.link(contents) { |text| section(text) }
+  end
+
   def document_section(contents)
-    if contents[:link]
-      @builder.link(contents) { |text| section(text) }
-    else
-      contents.each do |sub_name, sub_contents|
-        @builder.section(sub_name, sub_contents) do |content, clazz|
-          section(content, clazz)
-        end
-      end
+    contents.each do |sub_name, sub_contents|
+      sub_document(sub_contents, sub_name)
     end
   end
 end
