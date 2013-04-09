@@ -1,3 +1,5 @@
+require 'haml'
+
 class HamlBuilder
   def section(div_class, div_content)
     haml_tag(".#{div_class}") do
@@ -14,4 +16,17 @@ class HamlBuilder
       yield contents[:text]
     end
   end
+
+  def render(renderer)
+    template= <<-END.gsub(/^ {8}/, '')
+        %html
+          %head
+            %link(rel="stylesheet" type="text/css" href="resume.css")
+          %body
+            - renderer.render
+    END
+
+    Haml::Engine.new(template).render(self, renderer: renderer)
+  end
+
 end
