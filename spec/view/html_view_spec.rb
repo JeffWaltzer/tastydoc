@@ -1,3 +1,4 @@
+require_relative '../spec_helper'
 require_relative '../../app/html_view'
 require 'nokogiri'
 require 'pry'
@@ -28,14 +29,9 @@ describe "An empty contact" do
     contact.should have(1).element
   end
 
-  it "has the correct contact name" do
-    name= @doc.xpath(xpath_for('contact', 'name'))
-    name.should have(0).elements
-  end
-
-  it "has the correct contact email" do
-    email= @doc.xpath(xpath_for('contact', 'email'))
-    email.should have(0).elements
+  it "has no child fields" do
+    contact= @doc.xpath(xpath_for('contact','*'))
+    contact.should have(0).children
   end
 end
 

@@ -1,3 +1,4 @@
+require_relative '../spec_helper'
 require_relative '../../tastydoc'
 require 'rspec'
 require 'rack/test'
