@@ -16,7 +16,7 @@ class Renderer
     elsif document_section?(contents)
       document_section(contents)
     else
-      @builder.text(contents)
+      text_section(contents)
     end
   end
 
@@ -54,5 +54,9 @@ class Renderer
     contents.each do |sub_name, sub_contents|
       sub_document(sub_contents, sub_name)
     end
+  end
+
+  def text_section(contents)
+    @builder.text(contents)
   end
 end
