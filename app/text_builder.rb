@@ -24,4 +24,8 @@ class TextBuilder
   def text(contents)
     @results << ('  ' * @indent + contents)
   end
+
+  def link(contents)
+    @results << "#{contents[:text]} (#{contents[:link]})"
+  end
 end

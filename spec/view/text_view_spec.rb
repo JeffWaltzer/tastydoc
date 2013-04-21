@@ -67,5 +67,19 @@ describe "experience" do
     @doc[3].should == '  Basic Coding'
   end
 
-  it "Add more deeply nested hash next."
+  it "Add more deeply nested hash."
+end
+
+describe "a document with a link" do
+  before do
+    master_document= {
+      link: 'http://example.com',
+      text: 'An example'
+    }
+    @doc= TextView.new(master_document).render.split("\n")
+  end
+
+  it "has a rendered link" do
+    @doc[0].should == 'An example (http://example.com)'
+  end
 end
