@@ -39,9 +39,11 @@ class Renderer
   end
 
   def list_section(contents, class_name)
+    @builder.nest
     contents.each do |sub_name|
       sub_document(sub_name, class_name)
     end
+    @builder.unnest
   end
 
   def link_section(contents)

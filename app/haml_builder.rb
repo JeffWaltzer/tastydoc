@@ -7,6 +7,12 @@ class HamlBuilder
     end
   end
 
+  def nest
+  end
+
+  def unnest
+  end
+
   def text(contents)
     haml_concat contents
   end
