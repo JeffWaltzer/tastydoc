@@ -8,7 +8,6 @@ class HtmlView
   end
 
   def render
-    @builder.render( @renderer)
+    @builder.render(@renderer)
   end
-
 end
