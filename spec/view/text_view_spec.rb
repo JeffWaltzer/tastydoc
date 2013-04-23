@@ -26,12 +26,12 @@ describe "A populated contact" do
 
   it "has the correct contact name" do
     name= @doc.first
-    name.strip.should == 'Joe Smith'
+    name.should == '  Joe Smith'
   end
 
   it "has the correct contact email" do
     email= @doc[1]
-    email.strip.should == 'joe@example.com'
+    email.should == '  joe@example.com'
   end
 end
 
@@ -73,13 +73,22 @@ end
 describe "a document with a link" do
   before do
     master_document= {
-      link: 'http://example.com',
-      text: 'An example'
+      pages: {
+        header: 'Pages',
+        contents: [{
+                     link: 'http://example.com',
+                     text: 'An example'
+                   }],
+      },
     }
     @doc= TextView.new(master_document).render.split("\n")
   end
 
+  it "has a header" do
+    @doc[0].should == 'Pages'
+  end
+
   it "has a rendered link" do
-    @doc[0].should == 'An example (http://example.com)'
+    @doc[1].should == '  An example (http://example.com)'
   end
 end
