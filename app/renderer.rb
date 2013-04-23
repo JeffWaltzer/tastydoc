@@ -32,10 +32,6 @@ class Renderer
     contents.is_a?(Hash) && contents[:link]
   end
 
-  def indent_for?(class_name)
-    !([:contact, :experience, :skills, :pages].include?(class_name))
-  end
-
   def sub_document(sub_name, class_name)
     @builder.section(class_name, sub_name) do |content, clazz|
       section(content, clazz)

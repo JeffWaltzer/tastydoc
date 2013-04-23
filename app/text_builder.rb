@@ -26,6 +26,6 @@ class TextBuilder
   end
 
   def link(contents)
-    Text("#{contents[:text]} (#{contents[:link]})")
+    text("#{contents[:text]} (#{contents[:link]})")
   end
 end
