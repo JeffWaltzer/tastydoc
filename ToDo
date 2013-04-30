@@ -2,3 +2,8 @@ Add direct unit tests for HtmlView#document_section
 check is-an-html spec in basic-spec.
 Handle links intelligently in text view
 
+Remove :text magic from link handling.
+Remove :contents magic from document_section
+Remove parameter swapping from document_section.
+Implement date magic for text.
+
