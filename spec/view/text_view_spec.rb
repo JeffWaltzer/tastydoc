@@ -44,8 +44,8 @@ describe "experience" do
       },
       skills: {
         header: 'Skills',
-        contents: ["Advanced BSing",
-                   "Basic Coding"]
+        skills: ["Advanced BSing",
+                 "Basic Coding"]
       }
     }
     @doc= TextView.new(master_document).render.split("\n")

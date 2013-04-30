@@ -38,6 +38,21 @@ class Renderer
     end
   end
 
+  def document_section(contents, top)
+    if contents[:header]
+      sub_document(contents[:header], :header)
+      contents.each do |sub_name, sub_contents|
+        sub_document(sub_contents, sub_name) unless sub_name == :header
+      end
+    else
+      @builder.nest if !top
+      contents.each do |sub_name, sub_contents|
+        sub_document(sub_contents, sub_name) unless sub_name == :header
+      end
+      @builder.unnest if !top
+    end
+  end
+
   def list_section(contents, class_name)
     @builder.nest
     contents.each do |sub_name|
@@ -49,24 +64,6 @@ class Renderer
   def link_section(contents)
     @builder.link(contents) do |text|
       section(text)
-    end
-  end
-
-  def document_section(contents, top)
-    if contents[:header]
-      sub_document(contents[:header], :header)
-    end
-
-    if contents[:contents]
-      contents.each do |sub_name, sub_contents|
-        sub_document(sub_contents, sub_name) unless sub_name == :header
-      end
-    else
-      @builder.nest if !top
-      contents.each do |sub_name, sub_contents|
-        sub_document(sub_contents, sub_name) unless sub_name == :header
-      end
-      @builder.unnest if !top
     end
   end
 
