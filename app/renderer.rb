@@ -5,18 +5,20 @@ class Renderer
   end
 
   def render
-    section(@content, nil, :top)
+    top_section(@content)
   end
 
-  def section(contents, name = nil, top= nil)
+  def section(contents, name = nil)
     if list_section?(contents)
       list_section(contents, "#{name}_item")
-    elsif link_section?(contents)
-      link_section(contents)
+    elsif link_document?(contents)
+      link_document(contents)
     elsif document_section?(contents)
-      document_section(contents, top)
+      document_section(contents)
+    elsif text_document?(contents)
+      text_document(contents)
     else
-      text_section(contents)
+      raise "Unknown document type: #{contents.class.name}"
     end
   end
 
@@ -28,46 +30,63 @@ class Renderer
     contents.is_a? Array
   end
 
-  def link_section?(contents)
+  def link_document?(contents)
     contents.is_a?(Hash) && contents[:link]
   end
 
-  def sub_document(sub_name, class_name)
-    @builder.section(class_name, sub_name) do |content, clazz|
-      section(content, clazz)
+  def text_document?(contents)
+    contents.is_a?(String)
+  end
+
+  def document_section(contents)
+    if contents[:header]
+      @builder.section(:header, contents[:header]) do |content, clazz|
+        section(content, clazz)
+      end
+      sub_document(contents)
+    else
+      @builder.nest
+      sub_document(contents)
+      @builder.unnest
     end
   end
 
-  def document_section(contents, top)
+  def top_section(contents)
     if contents[:header]
-      sub_document(contents[:header], :header)
-      contents.each do |sub_name, sub_contents|
-        sub_document(sub_contents, sub_name) unless sub_name == :header
+      @builder.section(:header, contents[:header]) do |content, clazz|
+        section(content, clazz)
       end
-    else
-      @builder.nest if !top
-      contents.each do |sub_name, sub_contents|
-        sub_document(sub_contents, sub_name) unless sub_name == :header
+    end
+    sub_document(contents)
+  end
+
+  def sub_document(contents)
+    contents.each do |sub_name, sub_contents|
+      unless sub_name == :header
+        @builder.section(sub_name, sub_contents) do |content, clazz|
+          section(content, clazz)
+        end
       end
-      @builder.unnest if !top
     end
   end
 
   def list_section(contents, class_name)
     @builder.nest
     contents.each do |sub_name|
-      sub_document(sub_name, class_name)
+      @builder.section(class_name, sub_name) do |content, clazz|
+        section(content, clazz)
+      end
     end
     @builder.unnest
   end
 
-  def link_section(contents)
+  def link_document(contents)
     @builder.link(contents) do |text|
       section(text)
     end
   end
 
-  def text_section(contents)
+  def text_document(contents)
     @builder.text(contents)
   end
 end

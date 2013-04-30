@@ -30,7 +30,7 @@ describe "An empty contact" do
   end
 
   it "has no child fields" do
-    contact= @doc.xpath(xpath_for('contact','*'))
+    contact= @doc.xpath(xpath_for('contact', '*'))
     contact.should have(0).children
   end
 end
@@ -301,8 +301,8 @@ end
 describe 'document links' do
   before do
     @doc= document_builder(
-      { link: "http://example.com",
-        text: "Example Web Site" })
+      a_link: { link: "http://example.com",
+                text: "Example Web Site" })
   end
 
   it "formats text correctly" do
