@@ -38,12 +38,18 @@ class Renderer
     contents.is_a?(String)
   end
 
+
+  def header_section(contents)
+    @builder.section(:header, contents[:header]) do |content, clazz|
+      section(content, clazz)
+    end
+    sub_document(contents)
+  end
+
+
   def document_section(contents)
     if contents[:header]
-      @builder.section(:header, contents[:header]) do |content, clazz|
-        section(content, clazz)
-      end
-      sub_document(contents)
+      header_section(contents)
     else
       @builder.nest
       sub_document(contents)
@@ -53,12 +59,11 @@ class Renderer
 
   def top_section(contents)
     if contents[:header]
-      @builder.section(:header, contents[:header]) do |content, clazz|
-        section(content, clazz)
-      end
+      header_section(contents)
     end
     sub_document(contents)
   end
+
 
   def sub_document(contents)
     contents.each do |sub_name, sub_contents|
