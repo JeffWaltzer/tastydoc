@@ -12,8 +12,13 @@ describe 'The TastyDocs app' do
     Sinatra::Application
   end
 
-  it 'returns OK' do
+  it 'returns OK for html' do
     get '/jeffwaltzer.html'
+    last_response.should be_ok
+  end
+
+  it 'returns OK for text' do
+    get '/jeffwaltzer.txt'
     last_response.should be_ok
   end
 
