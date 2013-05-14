@@ -20,7 +20,7 @@ get %r{/(\w+)(\.txt)?$} do
   TextView.new(RESUMES[name]).render
 end
 
-get "/resume.css" do
+get %r{/(\w+)(\.css)$} do
   content_type 'text/css'
   CssView.new({}).render
 end

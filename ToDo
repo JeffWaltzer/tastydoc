@@ -6,4 +6,4 @@ Remove :text magic from link handling.
 Remove :contents magic from document_section
 Remove parameter swapping from document_section.
 Implement date magic for text.
-
+Why do regexes in top level for .html and .txt have trailing ?

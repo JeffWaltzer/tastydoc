@@ -13,12 +13,12 @@ describe 'The TastyDocs app' do
   end
 
   it 'returns OK' do
-    get '/resume.css'
+    get '/jeffwaltzer.css'
     last_response.should be_ok
   end
 
   it 'is has content type of css' do
-    get '/resume.css'
+    get '/johnmaxwell.css'
     last_response.headers['Content-Type'].should== "text/css;charset=utf-8"
   end
 end
