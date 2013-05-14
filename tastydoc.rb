@@ -22,7 +22,7 @@ end
 
 get "/resume.css" do
   content_type 'text/css'
-  CssView.new.render
+  CssView.new({}).render
 end
 
 

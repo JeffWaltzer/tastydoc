@@ -1,6 +1,11 @@
 require 'sinatra'
 class CssView
+  def initialize(document)
+    @document= document
+  end
+
   def render
+    return '' if @document.empty?
     <<-CSS
       body {margin-left: 3%; margin-right: 7%;}
       .contact {text-align: center;}
@@ -21,6 +26,6 @@ class CssView
       .dates {display: inline;}
       .responsibilities {margin-left: 0.75cm; }
       .responsibilities_item {display: list-item; list-style-type: circle}
-    CSS
+      CSS
   end
 end
