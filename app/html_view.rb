@@ -2,8 +2,8 @@ require_relative 'renderer'
 require_relative 'haml_builder'
 
 class HtmlView
-  def initialize(document)
-    @builder = HamlBuilder.new
+  def initialize(document, name)
+    @builder = HamlBuilder.new(name)
     @renderer= Renderer.new(@builder, document)
   end
 

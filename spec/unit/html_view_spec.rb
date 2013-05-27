@@ -12,16 +12,16 @@ end
 
 describe "HtmlView#render's result" do
   it "is an HTML document" do
-    html= HtmlView.new({ }).render
+    html= HtmlView.new({ }, 'document_name').render
     html.gsub!(/\s+/, '')
-    html.should == "<html><head><linkhref='resume.css'rel='stylesheet'type='text/css'></head><body></body></html>"
+    html.should == "<html><head><linkhref='document_name.css'rel='stylesheet'type='text/css'></head><body></body></html>"
   end
 end
 
 describe "An empty contact" do
   before do
     master_document= { contact: { } }
-    @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
+    @doc= Nokogiri::HTML(HtmlView.new(master_document, 'junk').render)
   end
 
   it "exists" do
@@ -43,7 +43,7 @@ describe "A populated contact" do
         email: 'joe@example.com'
       }
     }
-    @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
+    @doc= Nokogiri::HTML(HtmlView.new(master_document, 'junk').render)
   end
 
   it "exists" do
@@ -65,7 +65,7 @@ end
 def should_have_document_section(master_document, parent_node, child_expectations)
   describe parent_node do
     before do
-      @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
+      @doc= Nokogiri::HTML(HtmlView.new(master_document, 'junk').render)
     end
 
     it "exists" do
@@ -116,7 +116,7 @@ describe 'development section' do
         ]
       },
     }
-    render_doc = HtmlView.new(master_document).render
+    render_doc = HtmlView.new(master_document, 'junk').render
     @doc= Nokogiri::HTML(render_doc)
   end
 
@@ -164,7 +164,7 @@ describe 'responsibilities under jobs' do
           { responsibilities: ['Direct underlings',
                                'Inspect tropical locations'] }] } }
 
-    @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
+    @doc= Nokogiri::HTML(HtmlView.new(master_document, 'junk').render)
   end
 
   it "exists" do
@@ -205,7 +205,7 @@ describe 'clients under job' do
                       { company: "Jawbreakers, Inc." }] },
         ] } }
 
-    rendered_doc = HtmlView.new(master_document).render
+    rendered_doc = HtmlView.new(master_document, 'junk').render
     @doc= Nokogiri::HTML(rendered_doc)
   end
 
@@ -237,7 +237,7 @@ describe 'projects under job' do
                             { name: "Crunch it." }] },
         ] } }
 
-    @doc= Nokogiri::HTML(HtmlView.new(master_document).render)
+    @doc= Nokogiri::HTML(HtmlView.new(master_document, 'junk').render)
   end
 
   it "exists" do
@@ -263,7 +263,7 @@ end
 describe "a list section" do
   before do
     master_document= { unknown_key: ["some text", "some more text"] }
-    rendered_doc = HtmlView.new(master_document).render
+    rendered_doc = HtmlView.new(master_document, 'junk').render
     @doc= Nokogiri::HTML(rendered_doc)
   end
 
@@ -274,7 +274,7 @@ describe "a list section" do
 end
 
 def document_builder(master_document, dump=false)
-  rendered_doc = HtmlView.new(master_document).render
+  rendered_doc = HtmlView.new(master_document, 'junk').render
   puts "Master Document: #{rendered_doc}" if dump
   Nokogiri::HTML(rendered_doc)
 end
