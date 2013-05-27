@@ -17,7 +17,7 @@ describe 'The TastyDocs app' do
     last_response.should be_ok
   end
 
-  it 'is has content type of css' do
+  it 'has content type of css' do
     get '/johnmaxwell.css'
     last_response.headers['Content-Type'].should== "text/css;charset=utf-8"
   end
