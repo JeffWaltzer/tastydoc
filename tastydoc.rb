@@ -21,8 +21,9 @@ get %r{/(\w+)(\.txt)?$} do
 end
 
 get %r{/(\w+)(\.css)$} do
+  name = params[:captures].first.to_sym
   content_type 'text/css'
-  CssView.new({}).render
+  CssView.new(RESUMES[name]).render
 end
 
 
