@@ -56,18 +56,17 @@ describe NewHtmlView do
         @html= view.render({
                              content: {
                                some_text: "text",
-                               more_text: "more test" }
+                               more_text: "more text" }
                            },
-                           { content: :center })
+                           { content: :centered })
         @html.gsub!(/\s+/, '')
       end
 
       it "produces a text div with class 'center'" do
-        pending
         @html.should == "<html><head><linkhref='tastydoc.css'rel='stylesheet'type='text/css'></head><body>" +
           "<divclass='centered'>" +
           "<div>text</div>" +
-          "<div>more text</div>" +
+          "<div>moretext</div>" +
           "</div>" +
           "</body></html>"
       end
