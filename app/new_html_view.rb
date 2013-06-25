@@ -16,7 +16,15 @@ class NewHtmlView
       render_text(document, @style_sheet[content_name])
     elsif document.is_a?(Hash)
       render_hash(document, content_name)
+    elsif document.is_a?(Array)
+      render_array(document, content_name)
     end
+  end
+
+  def render_array(document, content_name)
+    document.map do |element|
+      render_content(content_name, element)
+    end.join('')
   end
 
   def render_hash(document, content_name)

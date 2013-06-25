@@ -1,6 +1,12 @@
 require 'spec_helper'
 require_relative '../../app/new_html_view'
 
+def html_page(body_html)
+  "<html><head><linkhref='tastydoc.css'rel='stylesheet'type='text/css'></head><body>" +
+    body_html +
+    "</body></html>"
+end
+
 describe NewHtmlView do
   describe "when handed an empty document" do
     before do
@@ -35,7 +41,7 @@ describe NewHtmlView do
       before do
         view = NewHtmlView.new
         @html= view.render({ some_text: "text",
-                             more_text: "more text"},
+                             more_text: "more text" },
                            { })
         @html.gsub!(/\s+/, '')
       end
@@ -63,13 +69,26 @@ describe NewHtmlView do
       end
 
       it "produces a text div with class 'center'" do
-        @html.should == "<html><head><linkhref='tastydoc.css'rel='stylesheet'type='text/css'></head><body>" +
+        @html.should == html_page(
           "<divclass='centered'>" +
-          "<div>text</div>" +
-          "<div>moretext</div>" +
-          "</div>" +
-          "</body></html>"
+            "<div>text</div>" +
+            "<div>moretext</div>" +
+            "</div>")
       end
+    end
+  end
+
+  describe "when handed a document with an array item" do
+    it "produces two divs with the same class" do
+      view= NewHtmlView.new
+      html= view.render(
+        {
+          content: {
+            history: ["did this",
+                      "did that"]
+          } },
+        {history: 'history_entry' }).gsub!(/\s+/, '')
+      html.should == html_page( "<divclass='history_entry'>didthis</div><divclass='history_entry'>didthat</div>")
     end
   end
 end

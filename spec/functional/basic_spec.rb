@@ -41,4 +41,10 @@ describe 'The TastyDocs app' do
     get '/johnmaxwell.html'
     last_response.body.should include 'John'
   end
+
+  it 'has deeply nested content' do
+    get '/jeffwaltzer.html'
+    last_response.body.should include 'Applied Test Driven Development to legacy code'
+  end
+
 end
