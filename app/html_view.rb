@@ -1,4 +1,4 @@
-class NewHtmlView
+class HtmlView
   def render(document, style_sheet)
     @style_sheet= style_sheet
     "<html>\n" +

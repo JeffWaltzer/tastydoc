@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../../app/new_html_view'
+require_relative '../../app/html_view'
 
 def html_page(body_html)
   "<html><head><linkhref='tastydoc.css'rel='stylesheet'type='text/css'></head><body>" +
@@ -7,10 +7,10 @@ def html_page(body_html)
     "</body></html>"
 end
 
-describe NewHtmlView do
+describe HtmlView do
   describe "when handed an empty document" do
     before do
-      @html= NewHtmlView.new.render({ }, { })
+      @html= HtmlView.new.render({ }, { })
       @html.gsub!(/\s+/, '')
     end
 
@@ -22,7 +22,7 @@ describe NewHtmlView do
   describe "when handed a document with one text item" do
     describe "with text_justification set to :center" do
       before do
-        view = NewHtmlView.new
+        view = HtmlView.new
         @html= view.render({ some_text: "text" },
                            { some_text: :centered })
         @html.gsub!(/\s+/, '')
@@ -39,7 +39,7 @@ describe NewHtmlView do
   describe "when handed a document with a nested item" do
     describe "with text_justification set to :center" do
       before do
-        view = NewHtmlView.new
+        view = HtmlView.new
         @html= view.render({ some_text: "text",
                              more_text: "more text" },
                            { })
@@ -58,7 +58,7 @@ describe NewHtmlView do
   describe "when handed a document with two text items" do
     describe "with text_justification set to :center" do
       before do
-        view = NewHtmlView.new
+        view = HtmlView.new
         @html= view.render({
                              content: {
                                some_text: "text",
@@ -80,7 +80,7 @@ describe NewHtmlView do
 
   describe "when handed a document with an array item" do
     it "produces two divs with the same class" do
-      view= NewHtmlView.new
+      view= HtmlView.new
       html= view.render(
         {
           content: {
