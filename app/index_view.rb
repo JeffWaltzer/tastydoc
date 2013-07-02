@@ -1,3 +1,5 @@
+require 'haml'
+
 class IndexView
   def initialize(document)
     @document= document

@@ -1,6 +1,6 @@
 require_relative '../spec_helper'
 require_relative '../../app/index_view'
-# require 'nokogiri'
+require 'nokogiri'
 # require 'pry'
 
 describe "IndexView#render's result" do
