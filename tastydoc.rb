@@ -11,7 +11,7 @@ end
 
 get %r{/(\w+)(\.html)?$} do
   name = params[:captures].first.to_sym
-  HtmlView.new.render(RESUMES[name], {})
+  HtmlView.new({}).render(RESUMES[name])
 end
 
 get %r{/(\w+)(\.txt)?$} do

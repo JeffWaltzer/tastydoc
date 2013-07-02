@@ -10,7 +10,7 @@ end
 describe HtmlView do
   describe "when handed an empty document" do
     before do
-      @html= HtmlView.new.render({ }, { })
+      @html= HtmlView.new({ }).render({ })
       @html.gsub!(/\s+/, '')
     end
 
@@ -22,9 +22,8 @@ describe HtmlView do
   describe "when handed a document with one text item" do
     describe "with text_justification set to :center" do
       before do
-        view = HtmlView.new
-        @html= view.render({ some_text: "text" },
-                           { some_text: :centered })
+        view = HtmlView.new({ some_text: :centered })
+        @html= view.render({ some_text: "text" })
         @html.gsub!(/\s+/, '')
       end
 
@@ -39,10 +38,9 @@ describe HtmlView do
   describe "when handed a document with a nested item" do
     describe "with text_justification set to :center" do
       before do
-        view = HtmlView.new
+        view = HtmlView.new({ })
         @html= view.render({ some_text: "text",
-                             more_text: "more text" },
-                           { })
+                             more_text: "more text" })
         @html.gsub!(/\s+/, '')
       end
 
@@ -58,13 +56,12 @@ describe HtmlView do
   describe "when handed a document with two text items" do
     describe "with text_justification set to :center" do
       before do
-        view = HtmlView.new
+        view = HtmlView.new({ content: :centered })
         @html= view.render({
                              content: {
                                some_text: "text",
                                more_text: "more text" }
-                           },
-                           { content: :centered })
+                           })
         @html.gsub!(/\s+/, '')
       end
 
@@ -80,15 +77,24 @@ describe HtmlView do
 
   describe "when handed a document with an array item" do
     it "produces two divs with the same class" do
-      view= HtmlView.new
+      view= HtmlView.new({ history: 'history_entry' })
       html= view.render(
         {
           content: {
             history: ["did this",
                       "did that"]
-          } },
-        {history: 'history_entry' }).gsub!(/\s+/, '')
-      html.should == html_page( "<divclass='history_entry'>didthis</div><divclass='history_entry'>didthat</div>")
+          }
+        }).gsub!(/\s+/, '')
+      html.should == html_page("<divclass='history_entry'>didthis</div><divclass='history_entry'>didthat</div>")
+    end
+  end
+end
+
+describe HtmlView do
+  describe "when passed a string" do
+    it "wraps the string in a div" do
+      pending
+      HtmlView.new({}).render_content('content_name', "content").should == "<div>\n  content\n</div>\n"
     end
   end
 end

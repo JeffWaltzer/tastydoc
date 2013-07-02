@@ -1,6 +1,9 @@
 class HtmlView
-  def render(document, style_sheet)
+  def initialize(style_sheet)
     @style_sheet= style_sheet
+  end
+
+  def render(document)
     "<html>\n" +
       "  <head>\n" +
       "    <linkhref='tastydoc.css'rel='stylesheet'type='text/css'>\n" +
@@ -34,18 +37,22 @@ class HtmlView
   end
 
   def open_div(style)
-    style ? "<div class='#{style}'>" : "<div>"
+    style ? "<div class='#{style}'>\n" : "<div>\n"
+  end
+
+  def close_div
+    "</div>\n"
   end
 
   def div_wrap(style)
     if style
-      "#{open_div(style)}#{yield}</div>"
+      "#{open_div(style)}#{yield}\n#{close_div}"
     else
       yield
     end
   end
 
   def render_text(text, style)
-    open_div(style) + text + "</div>"
+    "#{open_div(style)}#{text}\n#{close_div}"
   end
 end
