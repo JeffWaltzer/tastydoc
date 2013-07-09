@@ -14,45 +14,49 @@ class HtmlView
       "</html>\n"
   end
 
-  def render_content(content_name, document)
+  def render_content(content_name, document, indent= 0)
     if document.is_a?(String)
-      render_text(document, @style_sheet[content_name])
+      render_text(document, @style_sheet[content_name], indent)
     elsif document.is_a?(Hash)
-      render_hash(document, content_name)
+      render_hash(document, content_name, indent)
     elsif document.is_a?(Array)
-      render_array(document, content_name)
+      render_array(document, content_name, indent)
     end
   end
 
-  def render_array(document, content_name)
+  def render_array(document, content_name, indent)
     document.map do |element|
-      render_content(content_name, element)
+      render_content(content_name, element, indent)
     end.join('')
   end
 
-  def render_hash(document, content_name)
-    div_wrap(content_name && @style_sheet[content_name]) do
-      document.map { |key, value| render_content(key, value) }.join('')
+  def render_hash(document, content_name, indent)
+    div_wrap(content_name && @style_sheet[content_name], indent) do |indent|
+      document.map { |key, value| render_content(key, value, indent) }.join('')
     end
   end
 
-  def open_div(style)
-    style ? "<div class='#{style}'>\n" : "<div>\n"
+  def render_text(text, style, indent)
+    "#{open_div(style, indent)}#{indent_string(indent+1)}#{text}\n#{close_div(indent)}"
   end
 
-  def close_div
-    "</div>\n"
+  def indent_string(indent)
+    "  " * indent
   end
 
-  def div_wrap(style)
+  def open_div(style, indent)
+    "#{indent_string(indent)}#{style ? "<div class='#{style}'>\n" : "<div>\n"}"
+  end
+
+  def close_div(indent)
+    "#{indent_string(indent)}</div>\n"
+  end
+
+  def div_wrap(style, indent)
     if style
-      "#{open_div(style)}#{yield}\n#{close_div}"
+      "#{open_div(style, indent)}#{yield(indent+1)}#{close_div(indent)}"
     else
-      yield
+      yield(indent)
     end
-  end
-
-  def render_text(text, style)
-    "#{open_div(style)}#{text}\n#{close_div}"
   end
 end

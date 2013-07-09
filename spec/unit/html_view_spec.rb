@@ -93,8 +93,31 @@ end
 describe HtmlView do
   describe "when passed a string" do
     it "wraps the string in a div" do
-      pending
       HtmlView.new({}).render_content('content_name', "content").should == "<div>\n  content\n</div>\n"
+    end
+  end
+
+  describe "when handed two text items" do
+    before do
+      view = HtmlView.new({content: 'centered'})
+      @html= view.render_content('',
+                                 {
+                                   content: {
+                                     some_text: "text",
+                                     more_text: "more text" }
+                                 })
+    end
+
+    it "produces a suitably indent set of divs and strings" do
+      @html.should ==
+        "<div class='centered'>\n" +
+        "  <div>\n" +
+        "    text\n" +
+        "  </div>\n" +
+        "  <div>\n" +
+        "    more text\n" +
+        "  </div>\n" +
+        "</div>\n"
     end
   end
 end
