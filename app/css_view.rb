@@ -1,4 +1,5 @@
 require 'sinatra'
+require_relative 'renderer'
 require_relative 'css_builder'
 
 class CssView
