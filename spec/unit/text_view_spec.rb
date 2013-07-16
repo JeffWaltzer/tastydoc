@@ -4,7 +4,7 @@ require_relative '../../app/text_view'
 
 describe "TextView#render's result" do
   it "is a text document" do
-    text= TextView.new({}).render({})
+    text= TextView.new({}).render_document({})
     text.should == ''
   end
 end
@@ -17,7 +17,7 @@ describe "A populated contact" do
         email: 'joe@example.com'
       }
     }
-    @doc= TextView.new({}).render(master_document).split("\n")
+    @doc= TextView.new({}).render_document(master_document).split("\n")
   end
 
   it "has two lines" do
@@ -48,7 +48,7 @@ describe "experience" do
                  "Basic Coding"]
       }
     }
-    @doc= TextView.new({}).render(master_document).split("\n")
+    @doc= TextView.new({}).render_document(master_document).split("\n")
   end
 
   it 'should have experience' do
@@ -81,7 +81,7 @@ describe "a document with a link" do
                    }],
       },
     }
-    @doc= TextView.new({}).render(master_document).split("\n")
+    @doc= TextView.new({}).render_document(master_document).split("\n")
   end
 
   it "has a header" do

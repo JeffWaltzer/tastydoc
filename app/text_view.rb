@@ -5,7 +5,7 @@ class TextView
   def initialize(style)
   end
   
-  def render(document)
+  def render_document(document)
     builder= TextBuilder.new
     builder.render(Renderer.new(builder, document))
   end

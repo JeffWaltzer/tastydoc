@@ -9,6 +9,6 @@ describe "rendering an invalid document" do
         email: 'joe@example.com'
       }
     }
-    expect { TextView.new({}).render(master_document) }.to raise_error("Unknown document type: Fixnum")
+    expect { TextView.new({}).render_document(master_document) }.to raise_error("Unknown document type: Fixnum")
   end
 end
