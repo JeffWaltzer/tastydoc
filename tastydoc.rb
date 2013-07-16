@@ -17,7 +17,7 @@ end
 get %r{/(\w+)(\.txt)?$} do
   name = params[:captures].first.to_sym
   content_type 'text/plain'
-  TextView.new(RESUMES[name]).render
+  TextView.new({}).render(RESUMES[name])
 end
 
 get %r{/(\w+)(\.css)$} do

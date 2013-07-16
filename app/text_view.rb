@@ -2,12 +2,11 @@ require_relative 'renderer'
 require_relative 'text_builder'
 
 class TextView
-  def initialize(document)
-    @builder= TextBuilder.new
-    @renderer= Renderer.new(@builder, document)
+  def initialize(style)
   end
   
-  def render
-    @builder.render(@renderer)
+  def render(document)
+    builder= TextBuilder.new
+    builder.render(Renderer.new(builder, document))
   end
 end
