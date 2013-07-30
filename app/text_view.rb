@@ -1,17 +1,17 @@
-require_relative 'renderer'
+require_relative 'renderer2'
 
 class TextView
   def initialize(style)
     @results= []
     @indent= 0
   end
-  
+
   def render_document(document)
-    render(Renderer.new(self, document))
+    render(Renderer2.new(self, document))
   end
 
   def render(renderer)
-    renderer.render
+    renderer.renderit
     @results.join("\n")
   end
 
