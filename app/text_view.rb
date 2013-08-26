@@ -1,4 +1,4 @@
-require_relative 'renderer2'
+require_relative 'renderer'
 
 class TextView
   def initialize(style)
@@ -7,7 +7,7 @@ class TextView
   end
 
   def render_document(document)
-    render(Renderer2.new(self, document))
+    render(Renderer.new(self, document))
   end
 
   def render(renderer)

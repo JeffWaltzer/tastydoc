@@ -1,4 +1,4 @@
-class Renderer2
+class Renderer
   def initialize(builder, content)
     @content= content
     @builder = builder
