@@ -1,15 +1,20 @@
 require 'sinatra'
-require_relative 'renderer'
 require_relative 'css_builder'
 
 class CssView
   def initialize(document)
     @builder= CssBuilder.new
-    @renderer= Renderer.new(@builder, document)
+    @content= document
   end
 
   def render
-    @builder.render(@renderer)
+    @builder.results << ["body {margin-left: 3%; margin-right: 7%;}"]
+    @content.each do |sub_name, sub_contents|
+      @builder.section(sub_name, sub_contents)
+    end
+
+    @builder.results.join('\n')
+
     #return '' if @document.empty?
     #<<-CSS
     #  body {margin-left: 3%; margin-right: 7%;}

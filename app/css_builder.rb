@@ -5,6 +5,8 @@ class CssBuilder
     summary: ".summary {margin-top: 0.25cm; margin-left:0.25cm}",
   }
 
+  attr_accessor :results
+
   def initialize
     @results= []
   end
