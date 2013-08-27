@@ -4,7 +4,7 @@ require_relative '../../app/css_view'
 
 describe "CssView#render's result" do
   it "is a body CSS style" do
-    css= CssView.new({ }).render
+    css= CssView.new({ }).render({})
     css.should == "body {margin-left: 3%; margin-right: 7%;}"
   end
 end
@@ -18,7 +18,7 @@ describe "A populated contact and summary" do
       },
       summary: "Does all kinds of wonderful things."
     }
-    @doc= CssView.new(master_document).render
+    @doc= CssView.new({}).render(master_document)
   end
 
   it "has the correct style for the contact div" do

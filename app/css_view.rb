@@ -5,14 +5,13 @@ class CssView
     summary: ".summary {margin-top: 0.25cm; margin-left:0.25cm}",
   }
 
-  def initialize(document)
-    @content= document
+  def initialize(style)
     @results= []
   end
 
-  def render
+  def render(document)
     @results << ["body {margin-left: 3%; margin-right: 7%;}"]
-    @content.each do |sub_name, sub_contents|
+    document.each do |sub_name, sub_contents|
       section_style = SECTION_STYLES[sub_name]
       if section_style
         @results += [section_style].flatten

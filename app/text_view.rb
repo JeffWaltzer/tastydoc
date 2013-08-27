@@ -4,10 +4,7 @@ class TextView
     @indent= 0
   end
 
-  def render_document(document)
-    @content= document
-    @builder = self
-
+  def render(document)
     top_section(document)
     @results.join("\n")
   end
@@ -64,7 +61,7 @@ class TextView
 
 
   def header_section(contents)
-    @builder.view_section(:header, contents[:header]) do |content, clazz|
+    view_section(:header, contents[:header]) do |content, clazz|
       section(content, clazz)
     end
     sub_document(contents)
@@ -75,9 +72,9 @@ class TextView
     if contents[:header]
       header_section(contents)
     else
-      @builder.nest
+      nest
       sub_document(contents)
-      @builder.unnest
+      unnest
     end
   end
 
@@ -92,7 +89,7 @@ class TextView
   def sub_document(contents)
     contents.each do |sub_name, sub_contents|
       unless sub_name == :header
-        @builder.view_section(sub_name, sub_contents) do |content, clazz|
+        view_section(sub_name, sub_contents) do |content, clazz|
           section(content, clazz)
         end
       end
@@ -100,22 +97,22 @@ class TextView
   end
 
   def list_section(contents, class_name)
-    @builder.nest
+    nest
     contents.each do |sub_name|
-      @builder.view_section(class_name, sub_name) do |content, clazz|
+      view_section(class_name, sub_name) do |content, clazz|
         section(content, clazz)
       end
     end
-    @builder.unnest
+    unnest
   end
 
   def link_document(contents)
-    @builder.link(contents) do |text|
+    link(contents) do |text|
       section(text)
     end
   end
 
   def text_document(contents)
-    @builder.text(contents)
+    text(contents)
   end
 end
