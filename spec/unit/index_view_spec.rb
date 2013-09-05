@@ -5,7 +5,7 @@ require 'nokogiri'
 
 describe "IndexView#render's result" do
   it "is an HTML document" do
-    html= IndexView.new({}).render
+    html= IndexView.new({}).render({})
     html.gsub!(/\s+/, '')
     html.should == "<html><head></head><body></body></html>"
   end
@@ -14,7 +14,7 @@ end
 describe "IndexView for a database with two documents" do
   before do
     master_document= {jeff: {contact: {name: "Jeff Waltzer"}}, john: {contact: {name: "John Maxwell"}}}
-    @doc= Nokogiri::HTML(IndexView.new(master_document).render)
+    @doc= Nokogiri::HTML(IndexView.new({}).render(master_document))
   end
 
   it "has a label for Jeff's resume" do

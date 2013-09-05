@@ -1,13 +1,14 @@
 require 'haml'
 
 class IndexView
-  def initialize(document)
-    @document= document
+  def initialize(style_sheet)
+    #index has no style
   end
 
   #                 =value[:contact][:name]
 
-  def render
+  def render(document)
+    @document= document
     template= <<-END.gsub(/^ {8}/, '')
         %html
           %head

@@ -79,9 +79,6 @@ class TextView
   end
 
   def top_section(contents)
-    if contents[:header]
-      header_section(contents)
-    end
     sub_document(contents)
   end
 
@@ -107,9 +104,7 @@ class TextView
   end
 
   def link_document(contents)
-    link(contents) do |text|
-      section(text)
-    end
+    link(contents)
   end
 
   def text_document(contents)

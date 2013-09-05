@@ -6,7 +6,7 @@ require_relative 'app/index_view'
 require_relative 'data/documents'
 
 get "/" do
-  IndexView.new(RESUMES).render
+  IndexView.new({}).render(RESUMES)
 end
 
 get %r{/(\w+)(\.html)?$} do
