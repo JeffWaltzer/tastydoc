@@ -34,6 +34,12 @@
       jobs: [
         {
           title: 'Senior Ruby on Rails Consultant',
+          company: 'LearnZillion',
+          dates: '4/2013 – 9/2013',
+          responsibilities: ['Mentored coworkers about Behavior Driven Development',
+                             ]},
+        {
+          title: 'Senior Ruby on Rails Consultant',
           company: 'Sol Systems (contract), Washington DC',
           dates: '10/2012 – 2/2013',
           responsibilities: ['Developed new software and helped maintained existing Ruby on Rails website used in day to day operations.',
