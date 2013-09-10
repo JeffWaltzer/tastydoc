@@ -18,7 +18,11 @@ class HtmlView
     if document.is_a?(String)
       render_text(document, content_name, indent)
     elsif document.is_a?(Hash)
-      render_hash(document, content_name, indent)
+      if document[:link]
+        render_link(document,content_name, indent)
+      else
+        render_hash(document, content_name, indent)
+      end
     elsif document.is_a?(Array)
       render_array(document, content_name, indent)
     end
@@ -28,6 +32,12 @@ class HtmlView
     document.map do |element|
       render_content(content_name, element, indent)
     end.join('')
+  end
+
+  def render_link(document, content_name, indent)
+    div_wrap(content_name,indent) do
+      "#{indent_string(indent+1)}<a href='#{document[:link]}'>#{document[:text]}</a>\n"
+    end
   end
 
   def render_hash(document, content_name, indent)

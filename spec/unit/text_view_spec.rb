@@ -91,4 +91,20 @@ describe "a document with a link" do
   it "has a rendered link" do
     @doc[1].should == '  An example (http://example.com)'
   end
+
+  describe "when handed a link item" do
+    before do
+      view = TextView.new({})
+      @text= view.render_content(:email, {
+        link: "mailto:jeff@example.com",
+        text: "example" }
+      )
+    end
+
+    it "renders"
+  end
+
+  describe "when handed a mailto item" do
+    it "renders"
+  end
 end

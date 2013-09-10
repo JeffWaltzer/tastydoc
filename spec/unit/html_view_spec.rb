@@ -21,7 +21,7 @@ describe "HtmlView#render" do
 
   describe "when handed a document with one text item" do
     before do
-      view = HtmlView.new({})
+      view = HtmlView.new({ })
       @html= view.render({ some_text: "text" })
       @html.gsub!(/\s+/, '')
     end
@@ -34,7 +34,7 @@ describe "HtmlView#render" do
   describe "when handed a document with a nested item" do
     describe "with text_justification set to :center" do
       before do
-        view = HtmlView.new({})
+        view = HtmlView.new({ })
         @html= view.render({ some_text: "text",
                              more_text: "more text" })
         @html.gsub!(/\s+/, '')
@@ -42,14 +42,14 @@ describe "HtmlView#render" do
 
       it "produces two text divs" do
         @html.should == html_page("<divclass='some_text'>text</div>" +
-                                  "<divclass='more_text'>moretext</div>")
+                                    "<divclass='more_text'>moretext</div>")
       end
     end
   end
 
   describe "when handed a document with an array item" do
     it "produces two divs with the same class" do
-      view= HtmlView.new({})
+      view= HtmlView.new({ })
       html= view.render(
         {
           content: {
@@ -60,7 +60,7 @@ describe "HtmlView#render" do
       html.should == html_page("<divclass='content'>" +
                                  "<divclass='history'>didthis</div>" +
                                  "<divclass='history'>didthat</div>" +
-                               "</div>")
+                                 "</div>")
     end
   end
 end
@@ -68,29 +68,46 @@ end
 describe "HtmlView#render_content" do
   describe "when passed a string" do
     it "wraps the string in a div" do
-      HtmlView.new({}).render_content('content_name', "content").should == "<div class='content_name'>\n  content\n</div>\n"
+      HtmlView.new({ }).render_content('content_name', "content").should == "<div class='content_name'>\n  content\n</div>\n"
     end
   end
 
   describe "when handed two text items" do
     before do
-      view = HtmlView.new({})
+      view = HtmlView.new({ })
       @html= view.render_content(:content, {
-                                     some_text: "text",
-                                     more_text: "more text" }
-                                 )
+        some_text: "text",
+        more_text: "more text" }
+      )
     end
 
     it "produces a suitably indent set of divs and strings" do
       @html.should ==
         "<div class='content'>\n" +
-        "  <div class='some_text'>\n" +
-        "    text\n" +
-        "  </div>\n" +
-        "  <div class='more_text'>\n" +
-        "    more text\n" +
-        "  </div>\n" +
-        "</div>\n"
+          "  <div class='some_text'>\n" +
+          "    text\n" +
+          "  </div>\n" +
+          "  <div class='more_text'>\n" +
+          "    more text\n" +
+          "  </div>\n" +
+          "</div>\n"
+    end
+  end
+
+  describe "when handed a mailto item" do
+    before do
+      view = HtmlView.new({ })
+      @html= view.render_content(:email, {
+        link: "mailto:jeff@example.com",
+        text: "example" }
+      )
+    end
+
+    it "renders" do
+      @html.should ==
+        "<div class='email'>\n" +
+          "  <a href='mailto:jeff@example.com'>example</a>\n" +
+      "</div>\n"
     end
   end
 end
