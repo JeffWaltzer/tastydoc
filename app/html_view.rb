@@ -6,7 +6,7 @@ class HtmlView
   def render(document)
     "<html>\n" +
       "  <head>\n" +
-      "    <linkhref='tastydoc.css'rel='stylesheet'type='text/css'>\n" +
+      "    <link href='tastydoc.css' rel='stylesheet' type='text/css'>\n" +
       "  </head>\n" +
       "  <body>\n" +
       render_content(:document, document) +
@@ -16,7 +16,7 @@ class HtmlView
 
   def render_content(content_name, document, indent= 0)
     if document.is_a?(String)
-      render_text(document, @style_sheet[content_name], indent)
+      render_text(document, content_name, indent)
     elsif document.is_a?(Hash)
       render_hash(document, content_name, indent)
     elsif document.is_a?(Array)
@@ -31,7 +31,7 @@ class HtmlView
   end
 
   def render_hash(document, content_name, indent)
-    div_wrap(content_name && @style_sheet[content_name], indent) do |indent|
+    div_wrap(content_name, indent) do |indent|
       document.map { |key, value| render_content(key, value, indent) }.join('')
     end
   end
