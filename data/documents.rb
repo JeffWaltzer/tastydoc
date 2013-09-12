@@ -84,10 +84,10 @@
                     responsibilities: [
                         "Ruby on Rails development for NASA's http://reverb.echo.nasa.gov website on an agile Scrum team. System used Ruby 1.9.2 (JRuby) , Ruby on Rails 3.1, Elastic Search, Cucumber, Oracle 11g, Jquery, GeoRuby, Tomcat, Git,  RESTful web services.",
                         "Implemented interaction with ESI's RESTful web service API at both Javascript and Rails levels.  Used Jquery ajax calls to display remote system call progress.  Added dynamic display of images in a Jquery pop-up.",
-                        "Enhanced Jquery DataTables that displayed search results to give users the ability to resize/minimize columns, rearrange columns.  Also created UI element that did autocomplete on place names as they were typed in by the user.  Used Jasmine library to unit test Javascript code.",
-                        "Used Cucumber testing tool to verify ECHO Reverb at a functional level.  Rspec and MiniTest for testing at the unit level.",
-                        "Tutored fellow team members on unit testing and BDD (Behavior Driven Development)",
-                        "Frequently refactored code and advised team on system architecture, object oriented design, clean code concepts, unit testing with Behavior Driven Development and enhanced readability."]},
+                        'Enhanced Jquery DataTables that displayed search results to give users the ability to resize/minimize columns, rearrange columns.  Also created UI element that did autocomplete on place names as they were typed in by the user.  Used Jasmine library to unit test Javascript code.',
+                        'Used Cucumber testing tool to verify ECHO Reverb at a functional level.  Rspec and MiniTest for testing at the unit level.',
+                        'Tutored fellow team members on unit testing and BDD (Behavior Driven Development)',
+                        'Frequently refactored code and advised team on system architecture, object oriented design, clean code concepts, unit testing with Behavior Driven Development and enhanced readability.']},
 
                 {
                     title: 'Senior Software Engineer',
