@@ -94,6 +94,23 @@ describe "HtmlView#render_content" do
     end
   end
 
+  #TODO this feature needs to be peer reviewed.
+  describe "links without text" do
+    before do
+      view = HtmlView.new({ })
+      @html= view.render_content(:link, {
+        link: "http://example.com/stuff.html"}
+      )
+    end
+
+    it "renders" do
+      @html.should ==
+        "<div class='link'>\n" +
+          "  <a href='http://example.com/stuff.html'>http://example.com/stuff.html</a>\n" +
+          "</div>\n"
+    end
+  end
+
   describe "when handed a mailto item" do
     before do
       view = HtmlView.new({ })

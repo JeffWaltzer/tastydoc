@@ -30,7 +30,7 @@
                  {
                    link: 'https://github.com/JeffWaltzer',
                    text: 'Projects developed included a Ruby refactoring tool, Podcast feed reader and web based GPS tracker.'},
-                 ]},
+      ]},
 
     experience: {
       header: 'Experience',
@@ -70,7 +70,7 @@
           ]},
         {
           title: 'Senior Ruby on Rails Consultant',
-          company: 'Sol Systems (contract), Washington DC',
+          company: {text: 'Sol Systems (contract), Washington DC', link: 'http://www.solsystemscompany.com/'},
           dates: '10/2012 – 2/2013',
           responsibilities: [
             'Developed new software and helped maintained existing Ruby on Rails website used in day to day operations.',
@@ -85,13 +85,15 @@
           title: 'Senior Ruby on Rails Developer',
           company: 'Unissant (NASA contract), Riverdale, MD',
           dates: '5/2011 – 7/2012',
-          responsibilities: [
-            "Ruby on Rails development for NASA's http://reverb.echo.nasa.gov website on an agile Scrum team. System used Ruby 1.9.2 (JRuby) , Ruby on Rails 3.1, Elastic Search, Cucumber, Oracle 11g, Jquery, GeoRuby, Tomcat, Git,  RESTful web services.",
-            "Implemented interaction with ESI's RESTful web service API at both Javascript and Rails levels.  Used Jquery ajax calls to display remote system call progress.  Added dynamic display of images in a Jquery pop-up.",
-            'Enhanced Jquery DataTables that displayed search results to give users the ability to resize/minimize columns, rearrange columns.  Also created UI element that did autocomplete on place names as they were typed in by the user.  Used Jasmine library to unit test Javascript code.',
-            'Used Cucumber testing tool to verify ECHO Reverb at a functional level.  Rspec and MiniTest for testing at the unit level.',
-            'Tutored fellow team members on unit testing and BDD (Behavior Driven Development)',
-            'Frequently refactored code and advised team on system architecture, object oriented design, clean code concepts, unit testing with Behavior Driven Development and enhanced readability.']},
+          projects: [{
+                       name: {text: 'NASA ECHO web site', link: 'http://reverb.echo.nasa.gov'},
+                       responsibilities: [
+                         "Ruby on Rails development for NASA's http://reverb.echo.nasa.gov website on an agile Scrum team. System used Ruby 1.9.2 (JRuby) , Ruby on Rails 3.1, Elastic Search, Cucumber, Oracle 11g, Jquery, GeoRuby, Tomcat, Git,  RESTful web services.",
+                         "Implemented interaction with ESI's RESTful web service API at both Javascript and Rails levels.  Used Jquery ajax calls to display remote system call progress.  Added dynamic display of images in a Jquery pop-up.",
+                         'Enhanced Jquery DataTables that displayed search results to give users the ability to resize/minimize columns, rearrange columns.  Also created UI element that did autocomplete on place names as they were typed in by the user.  Used Jasmine library to unit test Javascript code.',
+                         'Used Cucumber testing tool to verify ECHO Reverb at a functional level.  Rspec and MiniTest for testing at the unit level.',
+                         'Tutored fellow team members on unit testing and BDD (Behavior Driven Development)',
+                         'Frequently refactored code and advised team on system architecture, object oriented design, clean code concepts, unit testing with Behavior Driven Development and enhanced readability.']}]},
 
         {
           title: 'Senior Software Engineer',
@@ -256,7 +258,18 @@
           dates: '1994-1996',
           responsibilities: [
             'Developed a nutritional labeling program using Visual Basic and MS-Access that handled data entry of new recipes, calculation of nutrients and printing of new labels.',
-            'Improved a front-end package that provided a GUI Interface for a legislative on-line database. Added Internet (TCP/IP) access, significant performance improvements, and improved user interface.']}]}},
+            'Improved a front-end package that provided a GUI Interface for a legislative on-line database. Added Internet (TCP/IP) access, significant performance improvements, and improved user interface.']}]},
+
+    additional_info: {
+      header: 'Links',
+      website: [
+        {text: 'GitHub', link: 'http://github.com/jeffwaltzer'},
+        {text: 'LinkedIn', link: 'http://www.linkedin.com/in/jeffwaltzer/'},
+        {text: 'MyTrack', link: 'http://mytrack.herokuapp.com'},
+        {text: 'TastyDoc', link: 'http://tastydoc.com'},
+      ]}
+
+  },
 
   johnmaxwell: {
 

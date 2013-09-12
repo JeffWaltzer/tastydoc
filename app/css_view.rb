@@ -18,6 +18,7 @@ class CssView
     .summary {margin-top: 0.25cm; margin-left:0.25cm}
     .header {font-family: sans-serif; font-size: large; margin-top: 0.25cm;}
     .text {margin-left: 0.25cm;}
+    .website {margin-left: 0.25cm;}
     .development .projects {margin-left: 0.25cm;}
     .development .projects .projects_item {margin-left: 0.5cm; display: list-item; list-style-type: square;}
     .projects_item {margin-left: 0.75cm;}

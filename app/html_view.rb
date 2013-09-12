@@ -36,7 +36,8 @@ class HtmlView
 
   def render_link(document, content_name, indent)
     div_wrap(content_name,indent) do
-      "#{indent_string(indent+1)}<a href='#{document[:link]}'>#{document[:text]}</a>\n"
+      document_text = document[:text] || document[:link]
+      "#{indent_string(indent+1)}<a href='#{document[:link]}'>#{document_text}</a>\n"
     end
   end
 
