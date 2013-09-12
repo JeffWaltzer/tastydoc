@@ -66,7 +66,7 @@
             'Mentored junior programmers in Object Oriented Programming, Behavior Driven Development (BDD), and Agile Principles and Practices.',
             'Created DevOps tools using Rake to automate the creation of new Customer sites.',
             'Supported team by speeding up Rails load time, by fixing broken unit tests, and by giving advice on Architecture/Object Oriented Programming.',
-            'Created and maintained TeamCity CI server to provide team with continuous on the quality of the code base.'
+            'Created and maintained TeamCity CI server to provide team with continuous feedback on the quality of the code base.'
           ]},
         {
           title: 'Senior Ruby on Rails Consultant',
