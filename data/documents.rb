@@ -69,13 +69,14 @@
                     title: 'Senior Ruby on Rails Consultant',
                     company: 'Sol Systems (contract), Washington DC',
                     dates: '10/2012 – 2/2013',
-                    responsibilities: ['Developed new software and helped maintained existing Ruby on Rails website used in day to day operations.',
-                                       'Advised on programming design principles.',
-                                       'Used Behavior Driven Development with Rspec to drive functionality and to ensure proper implementation of new features.',
-                                       'Refactored code to improve the system architecture and to make it more object oriented.',
-                                       'Used MiniProfiler and Bullet profiling tools to find inefficient database usage.',
-                                       'Converted HTML/Javascript into HAML/Coffeescript for improved code clarity.',
-                                       'Used JQuery Datatables and Ajax calls to improve user experience.']},
+                    responsibilities: [
+                        'Developed new software and helped maintained existing Ruby on Rails website used in day to day operations.',
+                        'Advised on programming design principles.',
+                        'Used Behavior Driven Development with Rspec to drive functionality and to ensure proper implementation of new features.',
+                        'Refactored code to improve the system architecture and to make it more object oriented.',
+                        'Used MiniProfiler and Bullet profiling tools to find inefficient database usage.',
+                        'Converted HTML/Javascript into HAML/Coffeescript for improved code clarity.',
+                        'Used JQuery Datatables and Ajax calls to improve user experience.']},
 
                 {
                     title: 'Senior Ruby on Rails Developer',
