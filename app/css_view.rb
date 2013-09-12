@@ -12,7 +12,7 @@ class CssView
   def render(document)
 #return '' if @document.empty?
   <<-CSS
-    body {margin-left: 3%; margin-right: 7%;}
+    body {margin-left: 3%; margin-right: 7%; font-size: medium}
     .contact {text-align: center;}
     .contact div {display: block;}
     .summary {margin-top: 0.25cm; margin-left:0.25cm}
