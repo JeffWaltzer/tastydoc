@@ -97,7 +97,7 @@
         {
           title: 'Senior Software Engineer',
           company: 'Traffipax Inc, Linthicum MD',
-          dates: '11/2007 - 4/2009',
+          dates: '2007 - 2009',
           responsibilities: [
             'Responsible for development support for a Ruby on Rails replacement of a legacy Java system.',
             'Mentored and encouraged the use of agile development methodologies including test driven development, refactoring, pair programming, continuous integration, refactoring, and iterations.',
@@ -108,17 +108,6 @@
             'Implemented report generation system with dynamically generated input pages.',
             'Wrote image manipulation code using RMagick.'
           ]},
-
-        {
-          title: 'Senior Software Engineer',
-          company: 'AJILON, Baltimore, MD and Washington, DC',
-          dates: '2007',
-          clients: [{
-                      company: 'Wachovia (Contract)',
-                      responsibilities: [
-                        'Updated legacy applications to new architecture to Spring framework using refactorings.',
-                        'Advised on existing architecure and suggested future improvements.',
-                        'Architecture used IBM Websphere J2EE with Spring, and Hibernate.']}]},
         {
           title: 'Senior Software Development Consultant',
           company: 'Fannie Mae, Washington, DC',
