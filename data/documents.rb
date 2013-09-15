@@ -12,7 +12,7 @@
     },
 
     summary:
-      'Senior Ruby on Rails Engineer with extensive experience in developing ground-up mission-critical projects. Responsible for the concept, coding, testing, implementation, user training, and technical support of new systems. Looking for a position that fully leverages my extensive experience in Behavior Driven Development, software design, architecture and agile development methodologies.',
+      'Senior Ruby on Rails Engineer with extensive experience in developing ground-up mission-critical projects. Responsible for the conception, coding, testing, implementation, user training, and technical support of new systems. Seeking a position that fully leverages my extensive experience in Behavior Driven Development (BDD), software design, architecture and agile development methodologies.',
 
     skills: {
       header: 'Programming Languages, Databases, Tools',
@@ -30,7 +30,7 @@
                    text: 'Organizer for the Ruby on Rails code fest in Columbia, MD.'},
                  {
                    link: 'https://github.com/JeffWaltzer',
-                   text: 'Projects developed included a Ruby refactoring tool, Podcast feed reader and web based GPS tracker.'},
+                   text: 'Developed Projects including a Ruby refactoring tool, Podcast feed reader and web based GPS tracker.'},
       ]},
 
     experience: {
@@ -43,8 +43,8 @@
           responsibilities: [
             'Collaborated with a team to implement a high volume, public facing web site using Ruby on Rails and PostgreSQL to '+
               'assist school districts with Common Core Standards compliance.',
-            'Transitioned to multi-tenant functionality to provide each institution with their own site.',
-            'Mentored junior programmers in Object Oriented Programming, Behavior Driven Development (BDD), and agile principles and practices.',
+            'Transitioned site to multi-tenant functionality to provide each institution with their own site.',
+            'Mentored junior programmers in Object Oriented Programming, BDD, and agile principles/practices.',
             'Created tools using Rake to automate the creation of new customer sites.',
             'Supported the team by speeding up application load time by fixing broken unit tests and by giving advice on architecture/object oriented programming.',
             'Created and maintained TeamCity CI server to provide team with feedback on regression errors and deployability.'
@@ -97,7 +97,7 @@
         {
           title: 'Senior Software Engineer',
           company: 'Traffipax Inc, Linthicum MD',
-          dates: '11/2007 - 4/2009',
+          dates: '2007 - 2009',
           responsibilities: [
             'Responsible for development support for a Ruby on Rails replacement of a legacy Java system.',
             'Mentored and encouraged the use of agile development methodologies including test driven development, refactoring, pair programming, continuous integration, refactoring, and iterations.',
@@ -108,17 +108,6 @@
             'Implemented report generation system with dynamically generated input pages.',
             'Wrote image manipulation code using RMagick.'
           ]},
-
-        {
-          title: 'Senior Software Engineer',
-          company: 'AJILON, Baltimore, MD and Washington, DC',
-          dates: '2007',
-          clients: [{
-                      company: 'Wachovia (Contract)',
-                      responsibilities: [
-                        'Updated legacy applications to new architecture to Spring framework using refactorings.',
-                        'Advised on existing architecure and suggested future improvements.',
-                        'Architecture used IBM Websphere J2EE with Spring, and Hibernate.']}]},
         {
           title: 'Senior Software Development Consultant',
           company: 'Fannie Mae, Washington, DC',
