@@ -11,7 +11,8 @@
         text: 'jeffwaltzer@gmail.com'},
     },
 
-    summary: 'Senior Ruby on Rails Programmer with extensive experience doing ground-up development for several mission-critical projects.   Responsible for the concept, coding, testing, implementation, user training, and technical support of new systems. Experienced with agile development methodologies and Behvaior Driven Development. ',
+    summary:
+      'Senior Ruby on Rails Engineer with extensive experience in developing ground-up mission-critical projects. Responsible for the concept, coding, testing, implementation, user training, and technical support of new systems. Looking for a position that fully leverages my extensive experience in Behavior Driven Development, software design, architecture and agile development methodologies.',
 
     skills: {
       header: 'Programming Languages, Databases, Tools',
@@ -35,27 +36,7 @@
     experience: {
       header: 'Experience',
       jobs: [
-#                    Important items:
-#    * postgres namespaces
-#* manage schemas
-#* Content Copy
-#* Created & maintained CI Server
-#* TeamCity
-#
-#* Sped up rails load time
-#* cleanup, organized project gems
-#* "managed" this
-#
-#General:
-#    Senior Rails developer
-#
-#Transitioned to multi-tenant application, suppored ting multiple
-#* Ensured LearnZillion's content was available from all Customers (across all Tenants)
-#    * migrated content from public schema to all tenant schemas
-#
         {
-
-
           title: 'Senior Ruby on Rails Developer',
           company: {text: 'LearnZillion, Washington DC', link: 'http://learnzillion.com'},
           dates: '4/2013 – 9/2013',
@@ -63,10 +44,10 @@
             'Collaborated with a team to implement a high volume, public facing, EdTech web site using Ruby on Rails and PostgreSQL to '+
               'assist school districts with Common Core Standards compliance.',
             'Transitioned application to multi-tenant functionality to provide each institution with their own site.',
-            'Mentored junior programmers in Object Oriented Programming, Behavior Driven Development (BDD), and Agile Principles and Practices.',
-            'Created DevOps tools using Rake to automate the creation of new Customer sites.',
-            'Supported team by speeding up Rails load time, by fixing broken unit tests, and by giving advice on Architecture/Object Oriented Programming.',
-            'Created and maintained TeamCity CI server to provide team with continuous feedback on the quality of the code base.'
+            'Mentored junior programmers in Object Oriented Programming, Behavior Driven Development (BDD), and agile principles and practices.',
+            'Created tools using Rake to automate the creation of new customer sites.',
+            'Supported the team by speeding up application load time by fixing broken unit tests and by giving advice on architecture/object oriented programming.',
+            'Created and maintained TeamCity CI server to provide team with feedback on regression errors and deployability.'
           ]},
         {
           title: 'Senior Ruby on Rails Consultant',
@@ -89,9 +70,9 @@
                        name: {text: 'NASA ECHO web site', link: 'http://reverb.echo.nasa.gov'},
                        responsibilities: [
                          "Ruby on Rails development for NASA's http://reverb.echo.nasa.gov website on an agile Scrum team. System used Ruby 1.9.2 (JRuby) , Ruby on Rails 3.1, Elastic Search, Cucumber, Oracle 11g, Jquery, GeoRuby, Tomcat, Git,  RESTful web services.",
-                         "Implemented interaction with ESI's RESTful web service API at both Javascript and Rails levels.  Used Jquery ajax calls to display remote system call progress.  Added dynamic display of images in a Jquery pop-up.",
-                         'Enhanced Jquery DataTables that displayed search results to give users the ability to resize/minimize columns, rearrange columns.  Also created UI element that did autocomplete on place names as they were typed in by the user.  Used Jasmine library to unit test Javascript code.',
-                         'Used Cucumber testing tool to verify ECHO Reverb at a functional level.  Rspec and MiniTest for testing at the unit level.',
+                         "Implemented interaction with ESI's RESTful web service API at both Javascript and Rails levels. Used Jquery ajax calls to display remote system call progress. Added dynamic display of images in a Jquery pop-up.",
+                         'Enhanced Jquery DataTables that displayed search results to give users the ability to resize/minimize columns, rearrange columns. Also created UI element that did autocomplete on place names as they were typed in by the user. Used Jasmine library to unit test Javascript code.',
+                         'Used Cucumber testing tool to verify ECHO Reverb at a functional level. Rspec and MiniTest for testing at the unit level.',
                          'Tutored fellow team members on unit testing and BDD (Behavior Driven Development)',
                          'Frequently refactored code and advised team on system architecture, object oriented design, clean code concepts, unit testing with Behavior Driven Development and enhanced readability.']}]},
 
@@ -138,19 +119,6 @@
                         'Updated legacy applications to new architecture to Spring framework using refactorings.',
                         'Advised on existing architecure and suggested future improvements.',
                         'Architecture used IBM Websphere J2EE with Spring, and Hibernate.']}]},
-
-        {
-          title: 'Senior Software Consultant',
-          company: 'AARP, Washington, DC (Contract)',
-          dates: '2007',
-          projects: [{
-                       name: 'Community web site',
-                       responsibilities: [
-                         'Participated and advised in the use of Scrum development methodologies.',
-                         'Added \'invite friend to forum\' functionality using Java Javamail Java 1.5 with Hibernate, MySQL for the backend and Jakarta Struts for the front end.',
-                         'Used JRuby library to integate a user login web service API written in Ruby into Java code.',
-                         'Mentored team on project agility, unit testing/Test Driven Development, Object Oriented Programming, refactoring, design patterns.']}]},
-
         {
           title: 'Senior Software Development Consultant',
           company: 'Fannie Mae, Washington, DC',
@@ -176,23 +144,6 @@
             'Supported software development at a Internet startup company.',
             'Implemented a paginated search page using Jakarta Lucene',
             'Applied Test Driven Development to legacy code, with JUnit regression tests of the legacy code.']},
-
-
-        {
-          title: 'Senior Software Engineer',
-          company: 'Digital Focus, Columbia, MD',
-          dates: '2004',
-          clients: [{
-                      company: 'Arbitron (Contract)',
-                      project: {
-                        name: 'Report Generator and Scheduling System',
-                        responsibilities: [
-                          'Developed new code in Scrum environment.',
-                          'Mentored others in the use of JUnit in writing unit tests.',
-                          'Developed rich client interface dialogs in Java using Eclipse\'s SWT and Eclipse\'s RCP frameworks.',
-                          'Advised fellow coders on what coding patterns to use to solve design problems.',
-                          'Refactored existing code to maximize reuse and minimize code duplication.']}}]},
-
         {
           title: 'Senior Software Engineer',
           company: 'Spirent Communications, Rockville, MD (Contract)',
