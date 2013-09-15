@@ -224,7 +224,7 @@
                  'Floyd Code Retreat.']},
 
     experience: {
-      header: 'Employment Hostory',
+      header: 'Employment History',
       jobs: [
         {title: 'Senior Software Engineer',
          company: 'OpenAmplify, Annapolis, MD',
