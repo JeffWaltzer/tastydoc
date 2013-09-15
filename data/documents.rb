@@ -184,40 +184,28 @@
           title: 'Software Engineer',
           company: 'AJILON, Baltimore, MD and Washington, DC',
           dates: '1996-2001',
-          clients: [{
-                      company: 'World Bank (Contract)',
-                      responsibilities: [
-                        'Developed a 32-bit replacement object oriented imaging toolkit with a Visual Basic 6.0 ActiveX user control for use in other applications such as MS Word and Lotus Notes.',
-                        'Provided the toolkit to handle the scanning and imaging needs of the World Bank\'s  documents.']},
-
-                    {
-                      company: 'KPMG (Contract)',
-                      responsibilities: [
-                        'Used Visual Basic 5.0 to develop REMIC (mortgage-backed securities) Tax Setup software.',
-                        'Implemented \'wizard\' style interface to maximize customer usability.',
-                        'Enhanced preexisting REMIC tax tracking program to increase report generation speed.']},
-
-                    {
-                      company: 'Banking Services Corporation (Contract)',
-                      responsibilities: [
-                        'Constructed code to assist other developers in the general programming of the application that tracked and facilitated auto lease telemarketing.',
-                        'Performed DBA functions to assist the staff DBA on this project.']}]},
-
-        {
-          title: 'Software Engineer',
-          company: 'Information Concepts Inc., Washington, DC',
-          dates: '1994-1996',
-          responsibilities: [
-            'Developed a nutritional labeling program using Visual Basic and MS-Access that handled data entry of new recipes, calculation of nutrients and printing of new labels.',
-            'Improved a front-end package that provided a GUI Interface for a legislative on-line database. Added Internet (TCP/IP) access, significant performance improvements, and improved user interface.']}]},
+          clients: [
+            {
+              company: 'World Bank (Contract), KPMG (Contract), Banking Services Corporation (Contract)',
+              responsibilities: [
+                'Developed a 32-bit replacement object oriented imaging toolkit with a Visual Basic 6.0 ActiveX user control for use in other applications such as MS Word and Lotus Notes.',
+                'Provided the toolkit to handle the scanning and imaging needs of the World Bank\'s  documents.',
+                'Used Visual Basic 5.0 to develop REMIC (mortgage-backed securities) Tax Setup software.',
+                'Implemented \'wizard\' style interface to maximize customer usability.',
+                'Enhanced preexisting REMIC tax tracking program to increase report generation speed.',
+                'Constructed code to assist other developers in the general programming of the application that tracked and facilitated auto lease telemarketing.',
+                'Performed DBA functions to assist the staff DBA on this project.'
+              ]},
+          ]},
+      ]},
 
     additional_info: {
       header: 'Links',
       website: [
-        {text: 'GitHub', link: 'http://github.com/jeffwaltzer'},
-        {text: 'LinkedIn', link: 'http://www.linkedin.com/in/jeffwaltzer/'},
-        {text: 'MyTrack', link: 'http://mytrack.herokuapp.com'},
-        {text: 'TastyDoc', link: 'http://tastydoc.com'},
+        {sitename: 'GitHub', href: {link: 'http://github.com/jeffwaltzer'}, },
+        {sitename: 'LinkedIn', href: {link: 'http://www.linkedin.com/in/jeffwaltzer/'}, },
+        {sitename: 'MyTrack deployment', href: {link: 'http://mytrack.herokuapp.com'}, },
+        {sitename: 'TastyDoc deployment', href: {link: 'http://tastydoc.com'}, },
       ]}
 
   },
