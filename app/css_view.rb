@@ -14,12 +14,13 @@ class CssView
   <<-CSS
   @page {
     size: auto;
-    margin: 15mm 15mm 15mm 15mm;
+    margin: 10mm 10mm 10mm 10mm;
   }
   body {
       margin-left: 3%;
       margin-right: 7%;
-      font-size: medium
+      font-size: medium;
+      font-family: sans-serif;
   }
 
   .contact {
@@ -36,7 +37,7 @@ class CssView
   }
 
   .header {
-      font-size: large;
+      #font-size: large;
       margin-top: 0.25cm;
   }
 
@@ -67,9 +68,12 @@ class CssView
       font-style: italic
   }
 
+  .jobs {
+    page-break-inside: avoid;
+  }
   .jobs_item {
       margin-left: 0.75cm;
-      margin-top: 0.2cm
+      margin-top: 0.1cm
   }
 
   .title {
@@ -95,13 +99,13 @@ class CssView
   .responsibilities {
       margin-left: 0.75cm;
       display: list-item;
-      list-style-type: circle
+      list-style-type: circle;
   }
 
 
   .href {
       float: right;
-      width: 3cm;
+      width: 6cm;
   }
 
   .sitename {
@@ -110,7 +114,7 @@ class CssView
   }
 
   .website {
-      width: 6cm;
+      width: 9cm;
       font-size: x-small;
   }
     CSS

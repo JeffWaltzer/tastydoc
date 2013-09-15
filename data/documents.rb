@@ -16,7 +16,7 @@
 
     skills: {
       header: 'Programming Languages, Databases, Tools',
-      text: 'Ruby 1.9.3, Ruby on Rails 3.2, RSpec, Jruby, jQuery, CoffeeScript, Haml, JavaScript, XML, MySQL, PostgreSQL, PostGIS, Oracle, Linux (Ubuntu, Red Hat, CentOS), Soap4r,  Java, J2EE, Hibernate, Eclipse IDE, JUnit, Assembler, RubyMine'},
+      text: 'Ruby 1.9.3, Ruby on Rails 3.2, RSpec, Jruby, jQuery, CoffeeScript, Haml, JavaScript, XML, MySQL, PostgreSQL, PostGIS, Oracle, Linux, Soap4r, Java, JUnit'},
 
     education: {
       header: 'Education',
@@ -41,9 +41,9 @@
           company: {text: 'LearnZillion, Washington DC', link: 'http://learnzillion.com'},
           dates: '4/2013 – 9/2013',
           responsibilities: [
-            'Collaborated with a team to implement a high volume, public facing, EdTech web site using Ruby on Rails and PostgreSQL to '+
+            'Collaborated with a team to implement a high volume, public facing web site using Ruby on Rails and PostgreSQL to '+
               'assist school districts with Common Core Standards compliance.',
-            'Transitioned application to multi-tenant functionality to provide each institution with their own site.',
+            'Transitioned to multi-tenant functionality to provide each institution with their own site.',
             'Mentored junior programmers in Object Oriented Programming, Behavior Driven Development (BDD), and agile principles and practices.',
             'Created tools using Rake to automate the creation of new customer sites.',
             'Supported the team by speeding up application load time by fixing broken unit tests and by giving advice on architecture/object oriented programming.',
@@ -54,8 +54,7 @@
           company: {text: 'Sol Systems (contract), Washington DC', link: 'http://www.solsystemscompany.com/'},
           dates: '10/2012 – 2/2013',
           responsibilities: [
-            'Developed new software and helped maintained existing Ruby on Rails website used in day to day operations.',
-            'Advised on programming design principles.',
+            'Developed new software and helped maintained existing Ruby on Rails website used in daily operations.',
             'Used Behavior Driven Development with Rspec to drive functionality and to ensure proper implementation of new features.',
             'Refactored code to improve the system architecture and to make it more object oriented.',
             'Used MiniProfiler and Bullet profiling tools to find inefficient database usage.',
@@ -98,7 +97,7 @@
         {
           title: 'Senior Software Engineer',
           company: 'Traffipax Inc, Linthicum MD',
-          dates: '12/2007 - 3/2009',
+          dates: '11/2007 - 4/2009',
           responsibilities: [
             'Responsible for development support for a Ruby on Rails replacement of a legacy Java system.',
             'Mentored and encouraged the use of agile development methodologies including test driven development, refactoring, pair programming, continuous integration, refactoring, and iterations.',
@@ -107,12 +106,13 @@
             'Created SOA interfaces for various state DMV computer systems (Restfull and SOAP).',
             'Refactored code base to improve system architecture.',
             'Implemented report generation system with dynamically generated input pages.',
-            'Wrote image manipulation code using RMagick.']},
+            'Wrote image manipulation code using RMagick.'
+          ]},
 
         {
           title: 'Senior Software Engineer',
           company: 'AJILON, Baltimore, MD and Washington, DC',
-          dates: '6/2007 - 12/2007',
+          dates: '2007',
           clients: [{
                       company: 'Wachovia (Contract)',
                       responsibilities: [
@@ -128,7 +128,7 @@
                        responsibilities: [
                          'Member of a agile development team working on a eMortgage loan system.',
                          'BEA Weblogic and the Apache Tapestry web framework was used for the front end.',
-                         'The data persistence layer was implemented using the Hibernate framework accessing an Oracle 8i database.',
+                         'Implemented data persistence layer with the Hibernate framework accessing an Oracle 8i database.',
                          'Used the Xerces XML library to process and analyse SMARTDOC eMortgage packages, and to perform digital signature validation on them.',
                          'High quality code was created using JUnit with Test Driven Development',
                          'Mentored team on project agility, unit testing, Object Oriented Programming, refactoring, design patterns and other practices to increase projects agility to deal with changing requirements.',
@@ -142,7 +142,6 @@
           responsibilities: [
             'Used Jakarta Tomcat with MySQL for the database and Jakarta Lucene for search indexing.',
             'Supported software development at a Internet startup company.',
-            'Implemented a paginated search page using Jakarta Lucene',
             'Applied Test Driven Development to legacy code, with JUnit regression tests of the legacy code.']},
         {
           title: 'Senior Software Engineer',
@@ -161,24 +160,13 @@
           title: 'Senior Software Engineer',
           company: 'MadWolf Technologies, Washington DC',
           dates: '2001-2003',
-          projects: [{
-                       name: 'Web-based contention resolution forum system',
-                       responsibilities: [
-                         'Developed a system to support a web based message forum system using Jakarta Struts.',
-                         'Introduced TDD (Test-Driven Development) to insure correctness and to avoid regression errors.',
-                         'Managed changing requirements through agile development principles.']},
-
-                     {
-                       name: 'Intranet web-based work flow application',
-                       responsibilities: [
-                         'Using Jakarta Tomcat 4.1 with Oracle 8i, implemented a Business work flow application for a real estate title research company.',
-                         'Extensive use of refactoring was used to minimize and eliminate code duplication.']},
-                     {
-                       name: 'Web-based Java Reporting Tool',
-                       responsibilities: [
-                         'Developed an extensible web-based reporting tool using Java Servlets accessing an Oracle database.',
-                         'Reports were edited using HTML web forms generated by the Java Servlets.',
-                         'Patterns and object-oriented programming concepts were exploited to make the system adaptable.']}]},
+          responsibilities: [
+            'Developed a system to support a web based message forum system using Jakarta Struts.',
+            'Introduced TDD (Test-Driven Development) to insure correctness and to avoid regression errors.',
+            'Managed changing requirements through agile development principles.',
+            'Using Jakarta Tomcat 4.1 with Oracle 8i, implemented a Business work flow application for a real estate title research company.',
+            'Extensive use of refactoring was used to minimize and eliminate code duplication.', 'Developed an extensible web-based reporting tool using Java Servlets accessing an Oracle database.',
+          ]},
 
         {
           title: 'Software Engineer',
@@ -188,11 +176,9 @@
             {
               company: 'World Bank (Contract), KPMG (Contract), Banking Services Corporation (Contract)',
               responsibilities: [
-                'Developed a 32-bit replacement object oriented imaging toolkit with a Visual Basic 6.0 ActiveX user control for use in other applications such as MS Word and Lotus Notes.',
                 'Provided the toolkit to handle the scanning and imaging needs of the World Bank\'s  documents.',
-                'Used Visual Basic 5.0 to develop REMIC (mortgage-backed securities) Tax Setup software.',
+                'Developed REMIC (mortgage-backed securities) Tax Setup software.',
                 'Implemented \'wizard\' style interface to maximize customer usability.',
-                'Enhanced preexisting REMIC tax tracking program to increase report generation speed.',
                 'Constructed code to assist other developers in the general programming of the application that tracked and facilitated auto lease telemarketing.',
                 'Performed DBA functions to assist the staff DBA on this project.'
               ]},
@@ -206,8 +192,8 @@
         {sitename: 'LinkedIn', href: {link: 'http://www.linkedin.com/in/jeffwaltzer/'}, },
         {sitename: 'MyTrack deployment', href: {link: 'http://mytrack.herokuapp.com'}, },
         {sitename: 'TastyDoc deployment', href: {link: 'http://tastydoc.com'}, },
-      ]}
-
+      ]
+    }
   },
 
   johnmaxwell: {
@@ -292,5 +278,7 @@
                             'Implemented device drivers for pen plotters and other graphical output devices.',
                             'Ported software from MS-DOS to VMS, DOS extenders, and Xenix.',
                             'Provided customer support.']},
-      ]}}
+      ]
+    }
+  }
 }
