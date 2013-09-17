@@ -54,11 +54,11 @@
           company: {text: 'Sol Systems (contract), Washington DC', link: 'http://www.solsystemscompany.com/'},
           dates: '10/2012 – 2/2013',
           responsibilities: [
-            'Developed new software and helped maintained existing Ruby on Rails website used in daily operations.',
-            'Used Behavior Driven Development with Rspec to drive functionality and to ensure proper implementation of new features.',
-            'Refactored code to improve the system architecture and to make it more object oriented.',
-            'Used MiniProfiler and Bullet profiling tools to find inefficient database usage.',
-            'Converted HTML/Javascript into HAML/Coffeescript for improved code clarity.',
+            'Developed new software and helped to maintain existing Ruby on Rails website used in daily operations.',
+            'Utilized BDD with Rspec to drive functionality and to ensure proper implementation of new features.',
+            'Refactored code to improve system architecture and to increase object orientation.',
+            'Applied MiniProfiler and Bullet profiling tools to increase efficiency of database access .',
+            'Converted HTML/Javascript into Haml/CoffeeScript to improve code clarity.',
             'Used JQuery Datatables and Ajax calls to improve user experience.']},
 
         {
@@ -68,12 +68,12 @@
           projects: [{
                        name: {text: 'NASA ECHO web site', link: 'http://reverb.echo.nasa.gov'},
                        responsibilities: [
-                         "Ruby on Rails development for NASA's http://reverb.echo.nasa.gov website on an agile Scrum team. System used Ruby 1.9.2 (JRuby) , Ruby on Rails 3.1, Elastic Search, Cucumber, Oracle 11g, Jquery, GeoRuby, Tomcat, Git,  RESTful web services.",
+                         "Supported Ruby on Rails development for NASA's ECHO website (http://reverb.echo.nasa.gov) on a agile Scrum team. System used Ruby 1.9.2 (JRuby) , Ruby on Rails 3.1, Elastic Search, Cucumber, Oracle 11g, Jquery, GeoRuby, Tomcat, Git,  RESTful web services.",
                          "Implemented interaction with ESI's RESTful web service API at both Javascript and Rails levels. Used Jquery ajax calls to display remote system call progress. Added dynamic display of images in a Jquery pop-up.",
                          'Enhanced Jquery DataTables that displayed search results to give users the ability to resize/minimize columns, rearrange columns. Also created UI element that did autocomplete on place names as they were typed in by the user. Used Jasmine library to unit test Javascript code.',
                          'Used Cucumber testing tool to verify ECHO Reverb at a functional level. Rspec and MiniTest for testing at the unit level.',
-                         'Tutored fellow team members on unit testing and BDD (Behavior Driven Development)',
-                         'Frequently refactored code and advised team on system architecture, object oriented design, clean code concepts, unit testing with Behavior Driven Development and enhanced readability.']}]},
+                         'Tutored fellow team members on unit testing and BDD',
+                         'Frequently refactored code and advised team on system architecture, object oriented design, clean code concepts, unit testing with BDD and enhanced readability.']}]},
 
         {
           title: 'Senior Software Engineer',
@@ -92,7 +92,7 @@
           responsibilities: [
             'Developed a Ruby on Rails facilities maintenance application that used GIS to draw building and room layouts using JavaScript, PostGIS and OpenLayers.',
             'Created virtual machine deployments of CentOS Linux systems running Ruby on Rails applications with PostGIS and Oracle. ',
-            'Practiced Behavior Driven Development (BDD) using RSpec to achieve high reliability and ease of code change.']},
+            'Practiced BDD using RSpec to achieve high reliability and ease of code change.']},
 
         {
           title: 'Senior Software Engineer',
