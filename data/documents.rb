@@ -70,10 +70,10 @@
                        responsibilities: [
                          "As a member of an agile Scrum team, supported Ruby on Rails development for NASA's ECHO website. System used Ruby 1.9.2 (JRuby) , Ruby on Rails 3.1, Elastic Search, Cucumber, Oracle 11g, jQuery, GeoRuby, Tomcat, Git, and RESTful web services.",
                          'Created interface for RESTful web service API at Javascript and Rails levels. Used jQuery ajax calls to display remote system call progress. Added jQuery pop-up for dynamic display of images.',
-                         'Enhanced jQuery DataTables to display search results giving users the ability to resize/minimize columns, rearrange columns. Also created UI element that did autocomplete on place names as they were typed in by the user. Used Jasmine library to unit test Javascript code.',
-                         'Used Cucumber testing tool to verify ECHO Reverb at a functional level. Rspec and MiniTest for testing at the unit level.',
+                         'Enhanced jQuery DataTables to display search results giving users the ability to resize, rearrange, and minimize columns. Created autocomplete lookup on place names typed in by the user. Utilized Jasmine library to unit test Javascript code.',
+                         'Applied Cucumber testing tool to verify functionality of ECHO Reverb. Rspec and MiniTest were used for testing at the unit level.',
                          'Tutored fellow team members on unit testing and BDD',
-                         'Frequently refactored code and advised team on system architecture, object oriented design, clean code concepts, unit testing with BDD and enhanced readability.']}]},
+                         "Refactored code and advised team on system's architecture, object oriented design, clean code concepts, unit testing with BDD and methods on how to improve readability."]}]},
 
         {
           title: 'Senior Software Engineer',
