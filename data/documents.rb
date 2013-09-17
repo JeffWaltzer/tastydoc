@@ -27,7 +27,7 @@
       header: 'Professional Development',
       projects: [{
                    link: 'http://agilemaryland.org',
-                   text: 'Organizer for the Ruby on Rails code fest in Columbia, MD.'},
+                   text: 'Organizer for the weekly Ruby on Rails CodeFest in Columbia, MD.'},
                  {
                    link: 'https://github.com/JeffWaltzer',
                    text: 'Developed Projects including a Ruby refactoring tool, Podcast feed reader and web based GPS tracker.'},
@@ -46,7 +46,7 @@
             'Transitioned site to multi-tenant functionality to provide each institution with their own site.',
             'Mentored junior programmers in Object Oriented Programming, BDD, and agile principles/practices.',
             'Created tools using Rake to automate the creation of new customer sites.',
-            'Supported the team by speeding up application load time by fixing broken unit tests and by giving advice on architecture/object oriented programming.',
+            'Supported team by speeding up application load time, fixing broken unit tests, and providing advice on architecture/object oriented programming.',
             'Created and maintained TeamCity CI server to provide team with feedback on regression errors and deployability.'
           ]},
         {
@@ -209,7 +209,7 @@
 
     development: {
       header: 'Professional Development',
-      projects: ['Agile Maryland Codefest',
+      projects: ['Agile Maryland CodeFest',
                  'Floyd Code Retreat.']},
 
     experience: {
