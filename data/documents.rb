@@ -59,7 +59,7 @@
             'Refactored code to improve system architecture and to increase object orientation.',
             'Applied MiniProfiler and Bullet profiling tools to increase efficiency of database access .',
             'Converted HTML/Javascript into Haml/CoffeeScript to improve code clarity.',
-            'Used JQuery Datatables and Ajax calls to improve user experience.']},
+            'Used jQuery Datatables and Ajax calls to improve user experience.']},
 
         {
           title: 'Senior Ruby on Rails Developer',
@@ -68,9 +68,9 @@
           projects: [{
                        name: {text: 'NASA ECHO web site', link: 'http://reverb.echo.nasa.gov'},
                        responsibilities: [
-                         "Supported Ruby on Rails development for NASA's ECHO website (http://reverb.echo.nasa.gov) on a agile Scrum team. System used Ruby 1.9.2 (JRuby) , Ruby on Rails 3.1, Elastic Search, Cucumber, Oracle 11g, Jquery, GeoRuby, Tomcat, Git,  RESTful web services.",
-                         "Implemented interaction with ESI's RESTful web service API at both Javascript and Rails levels. Used Jquery ajax calls to display remote system call progress. Added dynamic display of images in a Jquery pop-up.",
-                         'Enhanced Jquery DataTables that displayed search results to give users the ability to resize/minimize columns, rearrange columns. Also created UI element that did autocomplete on place names as they were typed in by the user. Used Jasmine library to unit test Javascript code.',
+                         "As a member of an agile Scrum team, supported Ruby on Rails development for NASA's ECHO website. System used Ruby 1.9.2 (JRuby) , Ruby on Rails 3.1, Elastic Search, Cucumber, Oracle 11g, jQuery, GeoRuby, Tomcat, Git, and RESTful web services.",
+                         'Created interface for RESTful web service API at Javascript and Rails levels. Used jQuery ajax calls to display remote system call progress. Added jQuery pop-up for dynamic display of images.',
+                         'Enhanced jQuery DataTables to display search results giving users the ability to resize/minimize columns, rearrange columns. Also created UI element that did autocomplete on place names as they were typed in by the user. Used Jasmine library to unit test Javascript code.',
                          'Used Cucumber testing tool to verify ECHO Reverb at a functional level. Rspec and MiniTest for testing at the unit level.',
                          'Tutored fellow team members on unit testing and BDD',
                          'Frequently refactored code and advised team on system architecture, object oriented design, clean code concepts, unit testing with BDD and enhanced readability.']}]},
