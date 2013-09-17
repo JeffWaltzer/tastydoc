@@ -30,7 +30,7 @@
                    text: 'Organizer for the weekly Ruby on Rails CodeFest in Columbia, MD.'},
                  {
                    link: 'https://github.com/JeffWaltzer',
-                   text: 'Developed Projects including a Ruby refactoring tool, Podcast feed reader and web based GPS tracker.'},
+                   text: 'Developed projects including a Ruby refactoring tool, Podcast feed reader and web based GPS tracker.'},
       ]},
 
     experience: {
@@ -58,7 +58,7 @@
             'Utilized BDD with Rspec to drive functionality and to ensure proper implementation of new features.',
             'Refactored code to improve system architecture and to increase object orientation.',
             'Applied MiniProfiler and Bullet profiling tools to increase efficiency of database access .',
-            'Converted HTML/Javascript into Haml/CoffeeScript to improve code clarity.',
+            'Converted HTML/JavaScript into Haml/CoffeeScript to improve code clarity.',
             'Used jQuery Datatables and Ajax calls to improve user experience.']},
 
         {
@@ -68,19 +68,19 @@
           projects: [{
                        name: {text: 'NASA ECHO web site', link: 'http://reverb.echo.nasa.gov'},
                        responsibilities: [
-                         "As a member of an agile Scrum team, supported Ruby on Rails development for NASA's ECHO website. System used Ruby 1.9.2 (JRuby) , Ruby on Rails 3.1, Elastic Search, Cucumber, Oracle 11g, jQuery, GeoRuby, Tomcat, Git, and RESTful web services.",
-                         'Created interface for RESTful web service API at Javascript and Rails levels. Used jQuery ajax calls to display remote system call progress. Added jQuery pop-up for dynamic display of images.',
-                         'Enhanced jQuery DataTables to display search results giving users the ability to resize, rearrange, and minimize columns. Created autocomplete lookup on place names typed in by the user. Utilized Jasmine library to unit test Javascript code.',
-                         'Applied Cucumber testing tool to verify functionality of ECHO Reverb. Rspec and MiniTest were used for testing at the unit level.',
+                         "As a member of an agile Scrum team, supported development for NASA's ECHO website. System used Ruby 1.9.2 (JRuby) , Ruby on Rails 3.1, Elastic Search, Cucumber, Oracle 11g, jQuery, GeoRuby, Tomcat, Git, and RESTful web services.",
+                         'Created interface for RESTful web service API at JavaScript and Rails levels. Used jQuery Ajax calls to display remote system call progress. Added jQuery pop-up for dynamic display of images.',
+                         'Enhanced jQuery DataTables to display search results giving users the ability to resize, rearrange, and minimize columns. Created auto-complete lookup for place names typed in by the user. Utilized Jasmine library to unit test JavaScript code.',
+                         'Applied Cucumber testing tool to verify functionality of ECHO Reverb website. Utilized Rspec for unit level testing.',
                          'Tutored fellow team members on unit testing and BDD',
-                         "Refactored code and advised team on system's architecture, object oriented design, clean code concepts, unit testing with BDD and methods on how to improve readability."]}]},
+                         "Advised team on system's architecture, object oriented design, clean code concepts, unit testing and on methods to improve code readability."]}]},
 
         {
           title: 'Senior Software Engineer',
           company: 'Boxtone Inc., Columbia MD',
           dates: '7/2010 - 3/2011',
           responsibilities: [
-            'Developed with an user experience expert, user interface dialogs for a mobile device management system. The dialogs were implemented using Ruby on Rails, Protoype, Javascript and CSS.',
+            'Developed with an user experience expert, user interface dialogs for a mobile device management system. The dialogs were implemented using Ruby on Rails, Protoype, JavaScript and CSS.',
             'Designed/implemented a REST interface in Ruby on Rails to enabled the device management system ability to communicate with a mail server front-end service. Interface used the RestClient Ruby gem.',
             'Coached developers on implementing RESTful interfaces in Java.',
             'Developed Rails back-end code that interfaced with legacy Oracle DB system.']},
@@ -199,7 +199,7 @@
 
     skills: {
       header: 'Skills',
-      text: 'Software development, Agile Methods (Extreme Programming), Device Drivers, Embedded Applications, Web Applications, AJAX, Client/Server Applications. C, C++, Assembler, Javascript, Lisp, Scheme, Fortran, Ruby, Ruby on Rails, jQuery, XML, Linux, MySQL'
+      text: 'Software development, Agile Methods (Extreme Programming), Device Drivers, Embedded Applications, Web Applications, Ajax, Client/Server Applications. C, C++, Assembler, JavaScript, Lisp, Scheme, Fortran, Ruby, Ruby on Rails, jQuery, XML, Linux, MySQL'
     },
 
     education: {
@@ -219,7 +219,7 @@
          company: 'OpenAmplify, Annapolis, MD',
          dates: '5/2009 – present',
          responsibilities: ['Developed and enhanced semantic text analysis software C++ running as a web service (REST and SOAP APIs) under Linux in the Amazon EC2 cloud.',
-                            'Developed various front end applications for the service in C++, Javascript, Scheme, and Ruby.',
+                            'Developed various front end applications for the service in C++, JavaScript, Scheme, and Ruby.',
                             'Coded prototype and experimental applications for linguistic R&D group, then participated in incorporating successful R&D efforts into production software.',
                             'Maintained and enhanced administrative scripts in Ruby for administration of servers in the EC2 cloud.']},
 
