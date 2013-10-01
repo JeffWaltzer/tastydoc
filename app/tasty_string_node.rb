@@ -1,0 +1,2 @@
+class TastyStringNode
+end
