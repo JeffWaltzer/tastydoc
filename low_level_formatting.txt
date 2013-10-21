@@ -1,0 +1,19 @@
+Character Styles:
+font style (e.g. serif/sans)
+font size
+italic
+bold
+link (email and href)
+
+Paragraph Styles:
+center
+left justify
+right justify
+fill
+bullet list
+number list
+labeled list
+indent
+first line indent
+nobreak (doesn't force a line break)
+
