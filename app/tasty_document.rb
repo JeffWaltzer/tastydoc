@@ -13,7 +13,6 @@ class TastyDocument
         document[:link] ? TastyLinkNode : TastyHashNode
       when Array
         TastyArrayNode
-    end.new
+    end.new(document)
   end
-
 end
