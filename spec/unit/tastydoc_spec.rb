@@ -80,7 +80,12 @@ describe TastyDocument do
       it "creates a TastyLinkNode with the correct link target" do
         @node.link.should == "http://foo.com"
       end
+    end
 
+    describe "called with something else" do
+      it "throws an exception" do
+        expect {TastyDocument.build(Object.new)}.to raise_error("unexpected document type: Object")
+      end
     end
   end
 end

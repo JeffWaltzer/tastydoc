@@ -5,14 +5,18 @@ require_relative 'tasty_link_node'
 
 class TastyDocument
 
-  def self.build(document)
-    case (document)
-      when String
-        TastyStringNode
-      when Hash
-        document[:link] ? TastyLinkNode : TastyHashNode
-      when Array
-        TastyArrayNode
-    end.new(document)
+  def self.build(raw_document)
+    document_class=
+        case (raw_document)
+          when String
+            TastyStringNode
+          when Hash
+            raw_document[:link] ? TastyLinkNode : TastyHashNode
+          when Array
+            TastyArrayNode
+          else
+            raise "unexpected document type: #{raw_document.class}"
+        end
+    document_class.new(raw_document)
   end
 end

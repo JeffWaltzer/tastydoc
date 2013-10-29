@@ -28,22 +28,22 @@ class HtmlView
     end
   end
 
-  def render_array(document, content_name, indent)
-    document.map do |element|
+  def render_array(content, content_name, indent)
+    content.map do |element|
       render_content(content_name, element, indent)
     end.join('')
   end
 
-  def render_link(document, content_name, indent)
+  def render_link(content, content_name, indent)
     div_wrap(content_name,indent) do
-      document_text = document[:text] || document[:link]
-      "#{indent_string(indent+1)}<a href='#{document[:link]}'>#{document_text}</a>\n"
+      document_text = content[:text] || content[:link]
+      "#{indent_string(indent+1)}<a href='#{content[:link]}'>#{document_text}</a>\n"
     end
   end
 
-  def render_hash(document, content_name, indent)
+  def render_hash(content, content_name, indent)
     div_wrap(content_name, indent) do |indent|
-      document.map { |key, value| render_content(key, value, indent) }.join('')
+      content.map { |key, value| render_content(key, value, indent) }.join('')
     end
   end
 
