@@ -1,3 +1,5 @@
+require_relative "rendering_context"
+
 class HtmlView
   def initialize(style_sheet)
     @style_sheet= style_sheet
@@ -15,11 +17,12 @@ class HtmlView
   end
 
   def render_content(content_name, document, indent= 0)
+    renderer= RenderingContext.new(content_name, document, indent)
     if document.is_a?(String)
-      render_text(document, content_name, indent)
+      render_text(renderer)
     elsif document.is_a?(Hash)
       if document[:link]
-        render_link(document,content_name, indent)
+        render_link(renderer)
       else
         render_hash(document, content_name, indent)
       end
@@ -34,10 +37,10 @@ class HtmlView
     end.join('')
   end
 
-  def render_link(content, content_name, indent)
-    div_wrap(content_name,indent) do
-      document_text = content[:text] || content[:link]
-      "#{indent_string(indent+1)}<a href='#{content[:link]}'>#{document_text}</a>\n"
+  def render_link(renderer)
+    div_wrap(renderer.content_name,renderer.indent) do
+      document_text = renderer.document[:text] || renderer.document[:link]
+      "#{indent_string(renderer.indent+1)}<a href='#{renderer.document[:link]}'>#{document_text}</a>\n"
     end
   end
 
@@ -47,8 +50,8 @@ class HtmlView
     end
   end
 
-  def render_text(text, style, indent)
-    "#{open_div(style, indent)}#{indent_string(indent+1)}#{text}\n#{close_div(indent)}"
+  def render_text(renderer)
+    "#{open_div(renderer.content_name, renderer.indent)}#{indent_string(renderer.indent+1)}#{renderer.document}\n#{close_div(renderer.indent)}"
   end
 
   def indent_string(indent)
