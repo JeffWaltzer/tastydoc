@@ -17,30 +17,30 @@ class HtmlView
   end
 
   def render_content(content_name, document, indent= 0)
-    renderer= RenderingContext.new(content_name, document, indent)
+    context= RenderingContext.new(content_name, document, indent)
     if document.is_a?(String)
-      render_text(renderer)
+      render_text(context)
     elsif document.is_a?(Hash)
       if document[:link]
-        render_link(renderer)
+        render_link(context)
       else
         render_hash(document, content_name, indent)
       end
     elsif document.is_a?(Array)
-      render_array(document, content_name, indent)
+      render_array(context)
     end
   end
 
-  def render_array(content, content_name, indent)
-    content.map do |element|
-      render_content(content_name, element, indent)
+  def render_array(context)
+    context.document.map do |element|
+      render_content(context.content_name, element, context.indent)
     end.join('')
   end
 
-  def render_link(renderer)
-    div_wrap(renderer.content_name,renderer.indent) do
-      document_text = renderer.document[:text] || renderer.document[:link]
-      "#{indent_string(renderer.indent+1)}<a href='#{renderer.document[:link]}'>#{document_text}</a>\n"
+  def render_link(context)
+    div_wrap(context.content_name,context.indent) do
+      document_text = context.document[:text] || context.document[:link]
+      "#{indent_string(context.indent+1)}<a href='#{context.document[:link]}'>#{document_text}</a>\n"
     end
   end
 
@@ -50,8 +50,8 @@ class HtmlView
     end
   end
 
-  def render_text(renderer)
-    "#{open_div(renderer.content_name, renderer.indent)}#{indent_string(renderer.indent+1)}#{renderer.document}\n#{close_div(renderer.indent)}"
+  def render_text(context)
+    "#{open_div(context.content_name, context.indent)}#{indent_string(context.indent+1)}#{context.document}\n#{close_div(context.indent)}"
   end
 
   def indent_string(indent)
