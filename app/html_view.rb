@@ -6,21 +6,16 @@ class HtmlView
   end
 
   def render(document)
+    context= RenderingContext.new(self, :document, document, 0)
     "<html>\n" +
       "  <head>\n" +
       "    <link href='tastydoc.css' rel='stylesheet' type='text/css'>\n" +
       "  </head>\n" +
       "  <body>\n" +
-      render_content(:document, document) +
+      context.render_document +
       "  </body>\n" +
       "</html>\n"
   end
-
-  def render_content(content_name, document, indent= 0)
-    context= RenderingContext.new(content_name, document, indent)
-    context.render_document(self)
-  end
-
 
   def indent_string(indent)
     "  " * indent
