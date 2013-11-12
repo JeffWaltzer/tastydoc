@@ -1,15 +1,15 @@
 class RenderingContext < Struct.new(:view, :content_name, :document, :indent)
   def render_text
     view.paragraph(content_name, indent) do
-      "#{view.indent_string(indent+1)}#{document}\n"
+      "#{view.indent(indent+1)}#{document}\n"
     end
-    #  "#{view.begin_paragraph(content_name, indent)}#{view.indent_string(indent+1)}#{document}\n#{view.end_paragraph(indent)}"
   end
 
   def render_link
     view.paragraph(content_name, indent) do
-      document_text = document[:text] || document[:link]
-      "#{view.indent_string(indent+1)}<a href='#{document[:link]}'>#{document_text}</a>\n"
+      url = document[:link]
+      text = document[:text] || url
+      view.indent(indent+1) + view.link(text, url)
     end
   end
 

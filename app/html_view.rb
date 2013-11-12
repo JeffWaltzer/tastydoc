@@ -7,33 +7,47 @@ class HtmlView
 
   def render(document)
     context= RenderingContext.new(self, :document, document, 0)
+    begin_document() +
+        context.render_document +
+        end_document()
+  end
+
+  def end_document
+    "  </body>\n" +
+        "</html>\n"
+  end
+
+  def begin_document
     "<html>\n" +
-      "  <head>\n" +
-      "    <link href='tastydoc.css' rel='stylesheet' type='text/css'>\n" +
-      "  </head>\n" +
-      "  <body>\n" +
-      context.render_document +
-      "  </body>\n" +
-      "</html>\n"
+        "  <head>\n" +
+        "    <link href='tastydoc.css' rel='stylesheet' type='text/css'>\n" +
+        "  </head>\n" +
+        "  <body>\n"
   end
 
-  def indent_string(indent)
-    "  " * indent
+  def link(document_text, document_link)
+    "<a href='#{document_link}'>" +
+        document_text +
+        "</a>\n"
   end
 
-  def begin_paragraph(style, indent)
-    "#{indent_string(indent)}#{style ? "<div class='#{style}'>\n" : "<div>\n"}"
+  def indent(level)
+    "  " * level
   end
 
-  def end_paragraph(indent)
-    "#{indent_string(indent)}</div>\n"
+  def begin_paragraph(style, level)
+    "#{indent(level)}#{style ? "<div class='#{style}'>\n" : "<div>\n"}"
   end
 
-  def paragraph(style, indent)
+  def end_paragraph(level)
+    "#{indent(level)}</div>\n"
+  end
+
+  def paragraph(style, level)
     if style
-      "#{begin_paragraph(style, indent)}#{yield(indent+1)}#{end_paragraph(indent)}"
+      "#{begin_paragraph(style, level)}#{yield(level+1)}#{end_paragraph(level)}"
     else
-      yield(indent)
+      yield(level)
     end
   end
 end
