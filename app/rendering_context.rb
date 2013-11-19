@@ -7,8 +7,7 @@ class RenderingContext < Struct.new(:view, :content_name, :document, :indent)
 
   def render_string
     view.paragraph(content_name, indent) do
-      view.indent(indent+1)
-      view.string(document)
+      view.string(document, indent)
     end
   end
 
@@ -16,8 +15,7 @@ class RenderingContext < Struct.new(:view, :content_name, :document, :indent)
     view.paragraph(content_name, indent) do
       url = document[:link]
       text = document[:text] || url
-      view.indent(indent+1)
-      view.link(text, url)
+      view.link(text, url, indent)
     end
   end
 
