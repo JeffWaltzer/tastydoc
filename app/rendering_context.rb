@@ -1,4 +1,4 @@
-class RenderingContext < Struct.new(:view, :content_name, :document, :indent)
+class RenderingContext < Struct.new(:view, :content_name, :document, :level)
 
   def render_document
     send "render_#{document.class.name.downcase}"
@@ -6,16 +6,16 @@ class RenderingContext < Struct.new(:view, :content_name, :document, :indent)
 
 
   def render_string
-    view.paragraph(content_name, indent) do
-      view.string(document, indent)
+    view.paragraph(content_name, level) do
+      view.string(document, level)
     end
   end
 
   def render_link
-    view.paragraph(content_name, indent) do
+    view.paragraph(content_name, level) do
       url = document[:link]
       text = document[:text] || url
-      view.link(text, url, indent)
+      view.link(text, url, level)
     end
   end
 
@@ -32,15 +32,15 @@ class RenderingContext < Struct.new(:view, :content_name, :document, :indent)
   end
 
   def render_hash_default
-    view.paragraph(content_name, indent) do |indent|
-      document.each { |key, value| render_subcontext(value, key, indent) }
+    view.paragraph(content_name, level) do |level|
+      document.each { |key, value| render_subcontext(value, key, level) }
     end
   end
 
-  def render_subcontext(value, key=nil, indent= nil)
+  def render_subcontext(value, key=nil, level= nil)
     key ||= content_name
-    indent ||= self.indent
-    sub_context= RenderingContext.new(view, key, value, indent)
+    level ||= self.level
+    sub_context= RenderingContext.new(view, key, value, level)
     sub_context.render_document
   end
 
