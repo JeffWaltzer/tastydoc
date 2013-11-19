@@ -1,5 +1,11 @@
 class RenderingContext < Struct.new(:view, :content_name, :document, :indent)
-  def render_text
+
+  def render_document
+    send "render_#{document.class.name.downcase}"
+  end
+
+
+  def render_string
     view.paragraph(content_name, indent) do
       view.indent(indent+1)
       view.string(document)
@@ -16,32 +22,28 @@ class RenderingContext < Struct.new(:view, :content_name, :document, :indent)
   end
 
   def render_array
-    document.each do |element|
-      sub_context= RenderingContext.new(view, content_name, element, indent)
-      sub_context.render_document
-    end
+    document.each { |element| render_subcontext(element) }
   end
 
   def render_hash
-    view.paragraph(content_name, indent) do |indent|
-      document.each do |key, value|
-        sub_context= RenderingContext.new(view, key, value, indent)
-        sub_context.render_document
-      end
+    if document[:link]
+      render_link
+    else
+      render_hash_default
     end
   end
 
-  def render_document
-    if document.is_a?(String)
-      render_text
-    elsif document.is_a?(Hash)
-      if document[:link]
-        render_link
-      else
-        render_hash
-      end
-    elsif document.is_a?(Array)
-      render_array
+  def render_hash_default
+    view.paragraph(content_name, indent) do |indent|
+      document.each { |key, value| render_subcontext(value, key, indent) }
     end
   end
+
+  def render_subcontext(value, key=nil, indent= nil)
+    key ||= content_name
+    indent ||= self.indent
+    sub_context= RenderingContext.new(view, key, value, indent)
+    sub_context.render_document
+  end
+
 end
