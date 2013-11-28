@@ -4,6 +4,8 @@ class TextView
   def initialize(style_sheet)
     @style_sheet= style_sheet
     @accumulator = ''
+    @last_level= 0
+    @display_indent= 0
   end
 
   def render(document)
@@ -19,8 +21,7 @@ class TextView
   end
 
   def link(document_text, document_link,level)
-    indent(level+1)
-    @accumulator += "#{document_text} #{document_link}"
+    string("#{document_text} (#{document_link})", level)
   end
 
   def begin_paragraph(style, level)
@@ -36,6 +37,12 @@ class TextView
   end
 
   def string(s, level)
-    @accumulator += "#{s}\n"
+    if level > @last_level
+      @display_indent += 1
+    #elsif level < @last_level
+      #@display_indent -= 1
+    end
+    @last_level= level
+    @accumulator += "#{'  ' * @display_indent}#{s}\n"
   end
 end

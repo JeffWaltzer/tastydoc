@@ -19,6 +19,10 @@ describe "HtmlView#render" do
     end
   end
 
+  describe "when handed a document" do
+    it "produces correctly indented HTML"
+  end
+
   describe "when handed a document with one text item" do
     before do
       view = HtmlView.new({ })

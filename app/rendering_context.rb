@@ -40,7 +40,7 @@ class RenderingContext < Struct.new(:view, :content_name, :document, :level)
   def render_subcontext(value, key=nil, level= nil)
     key ||= content_name
     level ||= self.level
-    sub_context= RenderingContext.new(view, key, value, level)
+    sub_context= RenderingContext.new(view, key, value, key == :header ? 0 : level)
     sub_context.render_document
   end
 
