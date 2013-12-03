@@ -6,6 +6,7 @@ class TextView
     @accumulator = ''
     @last_level= nil
     @display_indent= 0
+    @magic_array= [:skills, :needed, :contents]
   end
 
   def render(document)
@@ -24,26 +25,25 @@ class TextView
     string("#{document_text} (#{document_link})", level)
   end
 
-  def begin_paragraph(style, level)
+  def begin_paragraph(style)
+    if @magic_array.include?(style)
+      @display_indent += 1
+    end
   end
 
-  def end_paragraph(level)
+  def end_paragraph(style)
+    if @magic_array.include?(style)
+      @display_indent -= 1
+    end
   end
 
   def paragraph(style, level)
-    begin_paragraph(style, level)
-    yield(level+1)
-    end_paragraph(level)
+    begin_paragraph(style)
+    yield(level)
+    end_paragraph(style)
   end
 
   def string(s, level)
-
-    if @last_level && level > @last_level
-      @display_indent += 1
-    elsif @last_level && level < @last_level && @display_indent > 0
-      @display_indent -= 1
-    end
-    @last_level= level
     @accumulator += "#{'  ' * @display_indent}#{s}\n"
   end
 end

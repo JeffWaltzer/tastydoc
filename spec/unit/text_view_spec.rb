@@ -42,7 +42,7 @@ describe "experience" do
         experience: {
             header: 'Experience',
         },
-        skills: {
+        skills_list: {
             header: 'Skills',
             skills: ["Advanced BSing",
                      "Basic Coding"]
