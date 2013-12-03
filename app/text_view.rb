@@ -2,11 +2,10 @@ require_relative "rendering_context"
 
 class TextView
   def initialize(style_sheet)
-    @style_sheet= style_sheet
     @accumulator = ''
     @last_level= nil
     @display_indent= 0
-    @magic_array= [:skills, :needed, :contents]
+    @indented_sections= style_sheet[:indented_sections] || []
   end
 
   def render(document)
@@ -26,13 +25,13 @@ class TextView
   end
 
   def begin_paragraph(style)
-    if @magic_array.include?(style)
+    if @indented_sections.include?(style)
       @display_indent += 1
     end
   end
 
   def end_paragraph(style)
-    if @magic_array.include?(style)
+    if @indented_sections.include?(style)
       @display_indent -= 1
     end
   end

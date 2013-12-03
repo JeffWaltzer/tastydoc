@@ -48,7 +48,7 @@ describe "experience" do
                      "Basic Coding"]
         }
     }
-    @doc= TextView.new({}).render(master_document).split("\n")
+    @doc= TextView.new({indented_sections: [:skills]}).render(master_document).split("\n")
   end
 
   it 'should have experience' do
@@ -70,20 +70,21 @@ describe "experience" do
   it "Add more deeply nested hash."
 end
 
-def make_text_document(master_document)
-  TextView.new({}).render(master_document).split("\n")
+def make_text_document(master_document, style_sheet={})
+  TextView.new(style_sheet).render(master_document).split("\n")
 end
 
 describe "a document with a link" do
   let (:doc) do
     make_text_document(
-        pages: {
+        {pages: {
             header: 'Pages',
             contents: [{
                            link: 'http://example.com',
                            text: 'An example'
                        }],
-        },
+        }},
+        indented_sections: [:contents]
     )
   end
 
@@ -99,10 +100,10 @@ end
 describe "when handed a mailto link item" do
   let(:doc) do
     make_text_document(
-        email: {
+        {email: {
             link: "mailto:jeff@example.com",
             text: "example"
-        }
+        }}
     )
   end
 
@@ -114,17 +115,18 @@ end
 describe 'multi nesting' do
   let :doc do
     make_text_document(
-        garage: {
+        {garage: {
             car: "text",
             gas: {needed: 'YES'},
             bicycle: 'FUN'
-        }
+        }},
+        indented_sections: [:needed]
     )
   end
 
-  it {doc[0].should == 'text'}
-  it {doc[1].should == '  YES'}
-  it {doc[2].should == 'FUN'}
+  it { doc[0].should == 'text' }
+  it { doc[1].should == '  YES' }
+  it { doc[2].should == 'FUN' }
 
 end
 
