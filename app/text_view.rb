@@ -4,7 +4,7 @@ class TextView
   def initialize(style_sheet)
     @style_sheet= style_sheet
     @accumulator = ''
-    @last_level= 0
+    @last_level= nil
     @display_indent= 0
   end
 
@@ -37,10 +37,11 @@ class TextView
   end
 
   def string(s, level)
-    if level > @last_level
+
+    if @last_level && level > @last_level
       @display_indent += 1
-    #elsif level < @last_level
-      #@display_indent -= 1
+    elsif @last_level && level < @last_level && @display_indent > 0
+      @display_indent -= 1
     end
     @last_level= level
     @accumulator += "#{'  ' * @display_indent}#{s}\n"

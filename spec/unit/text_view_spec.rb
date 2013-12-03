@@ -12,10 +12,10 @@ end
 describe "A populated contact" do
   before do
     master_document= {
-      contact: {
-        name: "Joe Smith",
-        email: 'joe@example.com'
-      }
+        contact: {
+            name: "Joe Smith",
+            email: 'joe@example.com'
+        }
     }
     @doc= TextView.new({}).render(master_document).split("\n")
   end
@@ -26,12 +26,12 @@ describe "A populated contact" do
 
   it "has the correct contact name" do
     name= @doc.first
-    name.should == '  Joe Smith'
+    name.should == 'Joe Smith'
   end
 
   it "has the correct contact email" do
     email= @doc[1]
-    email.should == '  joe@example.com'
+    email.should == 'joe@example.com'
   end
 end
 
@@ -39,14 +39,14 @@ end
 describe "experience" do
   before do
     master_document= {
-      experience: {
-        header: 'Experience',
-      },
-      skills: {
-        header: 'Skills',
-        skills: ["Advanced BSing",
-                 "Basic Coding"]
-      }
+        experience: {
+            header: 'Experience',
+        },
+        skills: {
+            header: 'Skills',
+            skills: ["Advanced BSing",
+                     "Basic Coding"]
+        }
     }
     @doc= TextView.new({}).render(master_document).split("\n")
   end
@@ -70,41 +70,64 @@ describe "experience" do
   it "Add more deeply nested hash."
 end
 
+def make_text_document(master_document)
+  TextView.new({}).render(master_document).split("\n")
+end
+
 describe "a document with a link" do
-  before do
-    master_document= {
-      pages: {
-        header: 'Pages',
-        contents: [{
-                     link: 'http://example.com',
-                     text: 'An example'
-                   }],
-      },
-    }
-    @doc= TextView.new({}).render(master_document).split("\n")
+  let (:doc) do
+    make_text_document(
+        pages: {
+            header: 'Pages',
+            contents: [{
+                           link: 'http://example.com',
+                           text: 'An example'
+                       }],
+        },
+    )
   end
 
   it "has a header" do
-    @doc[0].should == 'Pages'
+    doc[0].should == 'Pages'
   end
 
   it "has a rendered link" do
-    @doc[1].should == '  An example (http://example.com)'
+    doc[1].should == '  An example (http://example.com)'
+  end
+end
+
+describe "when handed a mailto link item" do
+  let(:doc) do
+    make_text_document(
+        email: {
+            link: "mailto:jeff@example.com",
+            text: "example"
+        }
+    )
   end
 
-  describe "when handed a link item" do
-    before do
-      view = TextView.new({})
-      @text= view.render_content(:email, {
-        link: "mailto:jeff@example.com",
-        text: "example" }
-      )
-    end
+  it "renders" do
+    doc[0].should == 'example (mailto:jeff@example.com)'
+  end
+end
 
-    it "renders"
+describe 'multi nesting' do
+  let :doc do
+    make_text_document(
+        garage: {
+            car: "text",
+            gas: {needed: 'YES'},
+            bicycle: 'FUN'
+        }
+    )
   end
 
-  describe "when handed a mailto item" do
-    it "renders"
-  end
+  it {doc[0].should == 'text'}
+  it {doc[1].should == '  YES'}
+  it {doc[2].should == 'FUN'}
+
+end
+
+describe "when handed a mailto item" do
+  it "renders"
 end
