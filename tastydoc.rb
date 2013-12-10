@@ -16,8 +16,9 @@ end
 
 get %r{/(\w+)(\.txt)?$} do
   name = params[:captures].first.to_sym
+  style_sheet= {indented_sections: [:contact, :text]}
   content_type 'text/plain'
-  TextView.new({}).render(RESUMES[name])
+  TextView.new(style_sheet).render(RESUMES[name])
 end
 
 get %r{/(\w+)(\.css)$} do
