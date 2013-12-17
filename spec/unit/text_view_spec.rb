@@ -136,14 +136,14 @@ describe "A more deeply nested hash." do
     make_text_document(
         {header: 'Employment History',
          employment_list: [
-            {header: 'Zed',
-             projects: %w{one two}
-            },
-            {header: 'Zork',
-             projects: %w{xyzzy froboz}
-            },
-        ]},
-      indented_sections: [:employment_list, :projects]
+             {header: 'Zed',
+              projects: %w{one two}
+             },
+             {header: 'Zork',
+              projects: %w{xyzzy froboz}
+             },
+         ]},
+        indented_sections: [:employment_list, :projects]
     )
   end
 
@@ -192,7 +192,17 @@ describe "2-A more deeply nested hash." do
     )
   end
 
-  it "renders" do
-    pending
+  [
+      '  Zed',
+      '    one',
+      '    two',
+      '    three',
+      '  Zork',
+      '    xyzzy',
+      '    froboz'
+  ].each_with_index do |line, index|
+    it "renders '#{line}'" do
+      doc[index].should == line
+    end
   end
 end

@@ -48,6 +48,7 @@ describe RenderingContext do
       end
 
       it "renders" do
+        #Todo Change this to check call to view class link method
         @html.should ==
             "<div class='link'>\n" +
                 "  <a href='http://example.com/stuff.html'>http://example.com/stuff.html</a>\n" +
@@ -56,6 +57,7 @@ describe RenderingContext do
     end
 
     describe "when handed a mailto item" do
+      #Todo Change this to check call to view class link method
       before do
         context = RenderingContext.new(
             HtmlView.new({}),
