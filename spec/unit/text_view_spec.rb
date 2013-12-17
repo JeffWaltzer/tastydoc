@@ -74,9 +74,6 @@ describe "experience" do
   end
 end
 
-describe "A more deeply nested hash." do
-  it "renders"
-end
 
 describe "a document with a link" do
   let :doc do
@@ -132,4 +129,70 @@ describe 'multi nesting' do
   it { doc[1].should == '  YES' }
   it { doc[2].should == 'FUN' }
 
+end
+
+describe "A more deeply nested hash." do
+  let :doc do
+    make_text_document(
+        {header: 'Employment History',
+         employment_list: [
+            {header: 'Zed',
+             projects: %w{one two}
+            },
+            {header: 'Zork',
+             projects: %w{xyzzy froboz}
+            },
+        ]},
+      indented_sections: [:employment_list, :projects]
+    )
+  end
+
+  it "renders" do
+    doc[0].should == "Employment History"
+  end
+
+  it "renders" do
+    doc[1].should == "  Zed"
+  end
+
+  it "renders" do
+    doc[2].should == "    one"
+  end
+
+  it "renders" do
+    doc[3].should == "    two"
+  end
+
+  it "renders" do
+    doc[4].should == "  Zork"
+  end
+
+  it "renders" do
+    doc[5].should == "    xyzzy"
+  end
+
+  it "renders" do
+    doc[6].should == "    froboz"
+  end
+end
+
+
+describe "2-A more deeply nested hash." do
+  let :doc do
+    make_text_document(
+        {employment_list: [
+            {header: 'Zed',
+             projects: %w{one two three}
+            },
+            {header: 'Zork',
+             projects: %w{xyzzy froboz}
+            },
+        ]},
+        indented_sections: [:employment_list, :projects]
+    )
+  end
+
+  it "renders" do
+    pending
+  end
 end

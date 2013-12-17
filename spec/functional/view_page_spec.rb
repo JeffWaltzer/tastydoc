@@ -46,5 +46,4 @@ describe 'The TastyDocs app' do
     get '/jeffwaltzer.html'
     last_response.body.should include 'Applied Test Driven Development to legacy code'
   end
-
 end

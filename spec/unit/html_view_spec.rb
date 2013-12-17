@@ -67,5 +67,25 @@ describe "HtmlView#render" do
                                  "</div>")
     end
   end
+
+  describe "when handed a link with no display text" do
+    it "renders" do
+      view= HtmlView.new({})
+      html= view.render(
+          {link: 'http://www.example.com'}
+      ).gsub!(/\s+/, '')
+      html.should == html_page("<ahref='http://www.example.com'>http://www.example.com</a>")
+    end
+  end
+
+  describe "when handed a link with some display text" do
+    it "renders" do
+      view= HtmlView.new({})
+      html= view.render(
+          {text: 'Show Me', link: 'http://www.example.com'}
+      ).gsub!(/\s+/, '')
+      html.should == html_page("<ahref='http://www.example.com'>ShowMe</a>")
+    end
+  end
 end
 
