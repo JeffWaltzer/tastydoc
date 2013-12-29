@@ -179,8 +179,8 @@
       website: [
         {sitename: 'GitHub', href: {link: 'http://github.com/jeffwaltzer'}, },
         {sitename: 'LinkedIn', href: {link: 'http://www.linkedin.com/in/jeffwaltzer/'}, },
-        {sitename: 'MyTrack deployment', href: {link: 'http://mytrack.herokuapp.com'}, },
-        {sitename: 'TastyDoc deployment', href: {link: 'http://tastydoc.com'}, },
+        {sitename: 'MyTrack', href: {link: 'http://mytrack.herokuapp.com'}, },
+        {sitename: 'TastyDoc', href: {link: 'http://tastydoc.com'}, },
       ]
     }
   },
