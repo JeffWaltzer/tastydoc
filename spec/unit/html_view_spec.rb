@@ -38,10 +38,6 @@ end
 describe "HtmlView#render" do
   check_html_document({}, [])
 
-  describe "when handed a document" do
-    it "produces correctly indented HTML"
-  end
-
   describe "when handed a document with one text item" do
     check_html_document(
         {some_text: "text"},
