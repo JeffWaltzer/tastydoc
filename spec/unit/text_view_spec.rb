@@ -1,11 +1,9 @@
 require_relative '../spec_helper'
 require_relative '../../app/text_view'
 
-#ToDo: change arguments to an option hash
-
-def check_text_document(expected, master_document, style_sheet={})
+def check_text_document(document, expected, style_sheet)
   let :doc do
-    TextView.new(style_sheet).render(master_document).split("\n")
+    TextView.new(style_sheet).render(document).split("\n")
   end
 
   it "has the correct number of lines" do
@@ -21,37 +19,27 @@ end
 
 
 describe "TextView#render's result" do
-  check_text_document([], {})
-
-  it "is a text document" do
-    doc.should be_empty
-  end
+  check_text_document({}, [], {})
 end
 
 describe "A populated contact" do
   check_text_document(
-      [
-          'Joe Smith',
-          'joe@example.com'
-      ],
       {
           contact: {
               name: "Joe Smith",
               email: 'joe@example.com'
           }
-      }
-  )
+      },
+      [
+          'Joe Smith',
+          'joe@example.com'
+      ],
+      {})
 end
 
 
 describe "experience" do
   check_text_document(
-      [
-          'Experience',
-          'Skills',
-          '  Advanced BSing',
-          '  Basic Coding'
-      ],
       {
           experience: {
               header: 'Experience',
@@ -62,17 +50,18 @@ describe "experience" do
                        "Basic Coding"]
           }
       },
-      indented_sections: [:skills]
-  )
+      [
+          'Experience',
+          'Skills',
+          '  Advanced BSing',
+          '  Basic Coding'
+      ],
+      indented_sections: [:skills])
 end
 
 
 describe "a document with a link" do
   check_text_document(
-      [
-          'Pages',
-          '  An example (http://example.com)'
-      ],
       {
           pages: {
               header: 'Pages',
@@ -81,30 +70,28 @@ describe "a document with a link" do
                              text: 'An example'
                          }],
           }},
-      indented_sections: [:contents]
-  )
+      [
+          'Pages',
+          '  An example (http://example.com)'
+      ],
+      indented_sections: [:contents])
 end
 
 
 describe "when handed a mailto link item" do
   check_text_document(
-      ['example (mailto:jeff@example.com)'],
       {
           email: {
               link: "mailto:jeff@example.com",
               text: "example"
           }
-      }
-  )
+      },
+      ['example (mailto:jeff@example.com)'],
+      {})
 end
 
 describe 'multi nesting' do
   check_text_document(
-      [
-          'text',
-          '  YES',
-          'FUN',
-      ],
       {
           garage: {
               car: "text",
@@ -112,22 +99,17 @@ describe 'multi nesting' do
               bicycle: 'FUN'
           }
       },
-      indented_sections: [:needed]
-  )
+      [
+          'text',
+          '  YES',
+          'FUN',
+      ],
+      indented_sections: [:needed])
 end
 
 
 describe "A more deeply nested hash." do
   check_text_document(
-      [
-          "Employment History",
-          "  Zed",
-          "    one",
-          "    two",
-          "  Zork",
-          "    xyzzy",
-          "    froboz",
-      ],
       {
           header: 'Employment History',
           employment_list: [
@@ -140,12 +122,29 @@ describe "A more deeply nested hash." do
                   projects: %w{xyzzy froboz}
               },
           ]},
-      indented_sections: [:employment_list, :projects]
-  )
+      [
+          "Employment History",
+          "  Zed",
+          "    one",
+          "    two",
+          "  Zork",
+          "    xyzzy",
+          "    froboz",
+      ],
+      indented_sections: [:employment_list, :projects])
 end
 
 describe "2-A more deeply nested hash." do
   check_text_document(
+      {
+          employment_list: [
+          {header: 'Zed',
+           projects: %w{one two three}
+          },
+          {header: 'Zork',
+           projects: %w{xyzzy froboz}
+          },
+      ]},
       [
           '  Zed',
           '    one',
@@ -155,14 +154,5 @@ describe "2-A more deeply nested hash." do
           '    xyzzy',
           '    froboz'
       ],
-      {employment_list: [
-          {header: 'Zed',
-           projects: %w{one two three}
-          },
-          {header: 'Zork',
-           projects: %w{xyzzy froboz}
-          },
-      ]},
-      indented_sections: [:employment_list, :projects]
-  )
+      indented_sections: [:employment_list, :projects])
 end
