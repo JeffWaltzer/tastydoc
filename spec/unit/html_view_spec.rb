@@ -2,90 +2,111 @@ require 'spec_helper'
 require_relative '../../app/html_view'
 
 def html_page(body_html)
-  "<html><head><linkhref='tastydoc.css'rel='stylesheet'type='text/css'></head><body><divclass='document'>" +
-    body_html +
-    "</div></body></html>"
+  [
+      "<html>",
+      "  <head>",
+      "    <link href='tastydoc.css' rel='stylesheet' type='text/css'>",
+      "  </head>",
+      "  <body>",
+      "    <div class='document'>"
+  ] +
+  body_html.map {|line| ' '*6 + line} +
+  [
+      "    </div>",
+      "  </body>",
+      "</html>"
+  ]
+end
+
+def check_html_document(document, expected)
+  let :html do
+    view = HtmlView.new({})
+    view.render(document).split("\n")
+  end
+
+  it "has the correct number of lines" do
+    html.size.should == html_page(expected).size
+  end
+
+  html_page(expected).each_with_index do |line, index|
+    it "renders '#{line}'" do
+      html[index].should == line
+    end
+  end
 end
 
 describe "HtmlView#render" do
-  describe "when handed an empty document" do
-    before do
-      @html= HtmlView.new({ }).render({ })
-      @html.gsub!(/\s+/, '')
-    end
-
-    it "is an HTML document" do
-      @html.should == html_page("")
-    end
-  end
+  check_html_document({}, [])
 
   describe "when handed a document" do
     it "produces correctly indented HTML"
   end
 
   describe "when handed a document with one text item" do
-    before do
-      view = HtmlView.new({ })
-      @html= view.render({ some_text: "text" })
-      @html.gsub!(/\s+/, '')
-    end
-
-    it "produces a text div with class 'some_text'" do
-      @html.should == html_page("<divclass='some_text'>text</div>")
-    end
+    check_html_document(
+        {some_text: "text"},
+        [
+            "<div class='some_text'>",
+            "  text",
+            "</div>"
+        ]
+    )
   end
 
   describe "when handed a document with a nested item" do
-    describe "with text_justification set to :center" do
-      before do
-        view = HtmlView.new({ })
-        @html= view.render({ some_text: "text",
-                             more_text: "more text" })
-        @html.gsub!(/\s+/, '')
-      end
-
-      it "produces two text divs" do
-        @html.should == html_page("<divclass='some_text'>text</div>" +
-                                    "<divclass='more_text'>moretext</div>")
-      end
-    end
+    check_html_document(
+        {
+            some_text: "text",
+            more_text: "more text"
+        },
+        [
+            "<div class='some_text'>",
+            "  text",
+            "</div>",
+            "<div class='more_text'>",
+            "  more text",
+            "</div>"
+        ]
+    )
   end
 
   describe "when handed a document with an array item" do
-    it "produces two divs with the same class" do
-      view= HtmlView.new({ })
-      html= view.render(
+    check_html_document(
         {
-          content: {
-            history: ["did this",
-                      "did that"]
-          }
-        }).gsub!(/\s+/, '')
-      html.should == html_page("<divclass='content'>" +
-                                 "<divclass='history'>didthis</div>" +
-                                 "<divclass='history'>didthat</div>" +
-                                 "</div>")
-    end
+            content: {
+                history: ["did this",
+                          "did that"]
+            }
+        },
+        [
+            "<div class='content'>",
+            "  <div class='history'>",
+            "    did this",
+            "  </div>",
+            "  <div class='history'>",
+            "    did that",
+            "  </div>",
+            "</div>"
+      ]
+    )
   end
 
   describe "when handed a link with no display text" do
-    it "renders" do
-      view= HtmlView.new({})
-      html= view.render(
-          {link: 'http://www.example.com'}
-      ).gsub!(/\s+/, '')
-      html.should == html_page("<ahref='http://www.example.com'>http://www.example.com</a>")
-    end
+    check_html_document(
+        {link: 'http://www.example.com'},
+        [
+            "<a href='http://www.example.com'>http://www.example.com</a>"
+        ]
+    )
   end
 
   describe "when handed a link with some display text" do
-    it "renders" do
-      view= HtmlView.new({})
-      html= view.render(
-          {text: 'Show Me', link: 'http://www.example.com'}
-      ).gsub!(/\s+/, '')
-      html.should == html_page("<ahref='http://www.example.com'>ShowMe</a>")
-    end
+    check_html_document(
+        {
+            text: 'Show Me',
+            link: 'http://www.example.com'
+        },
+        ["<a href='http://www.example.com'>Show Me</a>"]
+    )
   end
 end
-

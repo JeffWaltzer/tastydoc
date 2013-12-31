@@ -8,7 +8,7 @@ class HtmlView
 
   def render(document)
     @accumulator = ''
-    context= RenderingContext.new(self, :document, document, 0)
+    context= RenderingContext.new(self, :document, document, 2)
     begin_document
     context.render_document
     end_document
@@ -21,7 +21,8 @@ class HtmlView
   end
 
   def begin_document
-    @accumulator += "<html>\n" +
+    @accumulator +=
+        "<html>\n" +
         "  <head>\n" +
         "    <link href='tastydoc.css' rel='stylesheet' type='text/css'>\n" +
         "  </head>\n" +
