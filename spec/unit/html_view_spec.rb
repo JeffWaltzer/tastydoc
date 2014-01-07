@@ -10,33 +10,33 @@ def html_page(body_html)
       "  <body>",
       "    <div class='document'>"
   ] +
-  body_html.map {|line| ' '*6 + line} +
-  [
-      "    </div>",
-      "  </body>",
-      "</html>"
-  ]
+      body_html.map { |line| ' '*6 + line } +
+      [
+          "    </div>",
+          "  </body>",
+          "</html>"
+      ]
 end
 
-def check_html_document(document, expected)
-  let :html do
-    view = HtmlView.new({})
+def check_html_document(document, expected, view_class, style_sheet={})
+  let :rendered_document do
+    view = view_class.new(style_sheet)
     view.render(document).split("\n")
   end
 
   it "has the correct number of lines" do
-    html.size.should == html_page(expected).size
+    rendered_document.size.should == html_page(expected).size
   end
 
   html_page(expected).each_with_index do |line, index|
     it "renders '#{line}'" do
-      html[index].should == line
+      rendered_document[index].should == line
     end
   end
 end
 
 describe "HtmlView#render" do
-  check_html_document({}, [])
+  check_html_document({}, [], HtmlView)
 
   describe "when handed a document with one text item" do
     check_html_document(
@@ -45,7 +45,8 @@ describe "HtmlView#render" do
             "<div class='some_text'>",
             "  text",
             "</div>"
-        ]
+        ],
+        HtmlView
     )
   end
 
@@ -62,7 +63,8 @@ describe "HtmlView#render" do
             "<div class='more_text'>",
             "  more text",
             "</div>"
-        ]
+        ],
+        HtmlView
     )
   end
 
@@ -83,7 +85,8 @@ describe "HtmlView#render" do
             "    did that",
             "  </div>",
             "</div>"
-      ]
+        ],
+        HtmlView
     )
   end
 
@@ -92,7 +95,8 @@ describe "HtmlView#render" do
         {link: 'http://www.example.com'},
         [
             "<a href='http://www.example.com'>http://www.example.com</a>"
-        ]
+        ],
+        HtmlView
     )
   end
 
@@ -102,7 +106,8 @@ describe "HtmlView#render" do
             text: 'Show Me',
             link: 'http://www.example.com'
         },
-        ["<a href='http://www.example.com'>Show Me</a>"]
+        ["<a href='http://www.example.com'>Show Me</a>"],
+        HtmlView
     )
   end
 end

@@ -1,25 +1,25 @@
 require_relative '../spec_helper'
 require_relative '../../app/text_view'
 
-def check_text_document(document, expected, style_sheet)
-  let :doc do
-    TextView.new(style_sheet).render(document).split("\n")
+def check_text_document(document, expected, view_class, style_sheet= {})
+  let :rendered_document do
+    view_class.new(style_sheet).render(document).split("\n")
   end
 
   it "has the correct number of lines" do
-    doc.size.should == expected.size
+    rendered_document.size.should == expected.size
   end
 
   expected.each_with_index do |line, index|
     it "renders '#{line}'" do
-      doc[index].should == line
+      rendered_document[index].should == line
     end
   end
 end
 
 
 describe "TextView#render's result" do
-  check_text_document({}, [], {})
+  check_text_document({}, [], TextView, {})
 end
 
 describe "A populated contact" do
@@ -34,7 +34,7 @@ describe "A populated contact" do
           'Joe Smith',
           'joe@example.com'
       ],
-      {})
+      TextView)
 end
 
 
@@ -56,7 +56,10 @@ describe "experience" do
           '  Advanced BSing',
           '  Basic Coding'
       ],
-      indented_sections: [:skills])
+      TextView,
+      {
+          indented_sections: [:skills]
+      })
 end
 
 
@@ -74,7 +77,10 @@ describe "a document with a link" do
           'Pages',
           '  An example (http://example.com)'
       ],
-      indented_sections: [:contents])
+      TextView,
+      {
+          indented_sections: [:contents]
+      })
 end
 
 
@@ -87,7 +93,7 @@ describe "when handed a mailto link item" do
           }
       },
       ['example (mailto:jeff@example.com)'],
-      {})
+      TextView)
 end
 
 describe 'multi nesting' do
@@ -104,7 +110,10 @@ describe 'multi nesting' do
           '  YES',
           'FUN',
       ],
-      indented_sections: [:needed])
+      TextView,
+      {
+          indented_sections: [:needed]
+      })
 end
 
 
@@ -131,20 +140,23 @@ describe "A more deeply nested hash." do
           "    xyzzy",
           "    froboz",
       ],
-      indented_sections: [:employment_list, :projects])
+      TextView,
+      {
+          indented_sections: [:employment_list, :projects]
+      })
 end
 
 describe "2-A more deeply nested hash." do
   check_text_document(
       {
           employment_list: [
-          {header: 'Zed',
-           projects: %w{one two three}
-          },
-          {header: 'Zork',
-           projects: %w{xyzzy froboz}
-          },
-      ]},
+              {header: 'Zed',
+               projects: %w{one two three}
+              },
+              {header: 'Zork',
+               projects: %w{xyzzy froboz}
+              },
+          ]},
       [
           '  Zed',
           '    one',
@@ -154,5 +166,8 @@ describe "2-A more deeply nested hash." do
           '    xyzzy',
           '    froboz'
       ],
-      indented_sections: [:employment_list, :projects])
+      TextView,
+      {
+          indented_sections: [:employment_list, :projects]
+      })
 end
