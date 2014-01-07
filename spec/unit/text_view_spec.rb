@@ -1,29 +1,12 @@
 require_relative '../spec_helper'
 require_relative '../../app/text_view'
 
-def check_text_document(document, expected, view_class, style_sheet= {})
-  let :rendered_document do
-    view_class.new(style_sheet).render(document).split("\n")
-  end
-
-  it "has the correct number of lines" do
-    rendered_document.size.should == expected.size
-  end
-
-  expected.each_with_index do |line, index|
-    it "renders '#{line}'" do
-      rendered_document[index].should == line
-    end
-  end
-end
-
-
 describe "TextView#render's result" do
-  check_text_document({}, [], TextView, {})
+  check_rendered_document({}, [], TextView)
 end
 
 describe "A populated contact" do
-  check_text_document(
+  check_rendered_document(
       {
           contact: {
               name: "Joe Smith",
@@ -39,7 +22,7 @@ end
 
 
 describe "experience" do
-  check_text_document(
+  check_rendered_document(
       {
           experience: {
               header: 'Experience',
@@ -64,7 +47,7 @@ end
 
 
 describe "a document with a link" do
-  check_text_document(
+  check_rendered_document(
       {
           pages: {
               header: 'Pages',
@@ -85,7 +68,7 @@ end
 
 
 describe "when handed a mailto link item" do
-  check_text_document(
+  check_rendered_document(
       {
           email: {
               link: "mailto:jeff@example.com",
@@ -97,7 +80,7 @@ describe "when handed a mailto link item" do
 end
 
 describe 'multi nesting' do
-  check_text_document(
+  check_rendered_document(
       {
           garage: {
               car: "text",
@@ -118,7 +101,7 @@ end
 
 
 describe "A more deeply nested hash." do
-  check_text_document(
+  check_rendered_document(
       {
           header: 'Employment History',
           employment_list: [
@@ -147,7 +130,7 @@ describe "A more deeply nested hash." do
 end
 
 describe "2-A more deeply nested hash." do
-  check_text_document(
+  check_rendered_document(
       {
           employment_list: [
               {header: 'Zed',

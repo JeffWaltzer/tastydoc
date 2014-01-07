@@ -6,6 +6,24 @@ class HtmlView
     @accumulator = ''
   end
 
+  def self.wrap_page(body)
+    [
+        "<html>",
+        "  <head>",
+        "    <link href='tastydoc.css' rel='stylesheet' type='text/css'>",
+        "  </head>",
+        "  <body>",
+        "    <div class='document'>"
+    ] +
+    body.map { |line| ' '*6 + line } +
+    [
+        "    </div>",
+        "  </body>",
+        "</html>"
+    ]
+  end
+
+
   def render(document)
     @accumulator = ''
     context= RenderingContext.new(self, :document, document, 2)
@@ -23,13 +41,13 @@ class HtmlView
   def begin_document
     @accumulator +=
         "<html>\n" +
-        "  <head>\n" +
-        "    <link href='tastydoc.css' rel='stylesheet' type='text/css'>\n" +
-        "  </head>\n" +
-        "  <body>\n"
+            "  <head>\n" +
+            "    <link href='tastydoc.css' rel='stylesheet' type='text/css'>\n" +
+            "  </head>\n" +
+            "  <body>\n"
   end
 
-  def link(document_text, document_link,level)
+  def link(document_text, document_link, level)
     indent(level+1)
     @accumulator += "<a href='#{document_link}'>" +
         document_text +
@@ -51,9 +69,9 @@ class HtmlView
   end
 
   def paragraph(style, level)
-      begin_paragraph(style, level)
-      yield(level+1)
-      end_paragraph(level)
+    begin_paragraph(style, level)
+    yield(level+1)
+    end_paragraph(level)
   end
 
   def string(s, level)

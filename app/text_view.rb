@@ -8,6 +8,10 @@ class TextView
     @indented_sections= style_sheet[:indented_sections] || []
   end
 
+  def self.wrap_page(body)
+    body
+  end
+
   def render(document)
     @accumulator = ''
 
