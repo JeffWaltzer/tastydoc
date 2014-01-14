@@ -1,4 +1,5 @@
 require_relative "rendering_context"
+require_relative "string_wrapper"
 
 class TextView
   def initialize(style_sheet)
@@ -47,18 +48,6 @@ class TextView
   end
 
   def string(s, level)
-    max_length= 72
-
-    words = s.split(/\s/)
-    word_index= 0
-    while word_index < words.size
-      line = '  ' * @display_indent
-      while word_index < words.size &&
-          (line + words[word_index]).length < max_length
-        line += words[word_index] + ' '
-        word_index += 1
-      end
-      @accumulator += line.rstrip + "\n"
-    end
+    @accumulator += StringWrapper.new('  ' * @display_indent).wrap(s)
   end
 end
