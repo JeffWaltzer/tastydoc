@@ -14,7 +14,7 @@ def check_rendered_document(document, expected, view_class, style_sheet={})
   end
 
   expected.each_with_index do |line, index|
-    it "renders '#{line}'" do
+    it "renders line #{index} as '#{line}'" do
       rendered_document[index].should == line
     end
   end

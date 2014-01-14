@@ -24,7 +24,7 @@ class TextView
   def indent(level)
   end
 
-  def link(document_text, document_link,level)
+  def link(document_text, document_link, level)
     string("#{document_text} (#{document_link})", level)
   end
 
@@ -47,6 +47,18 @@ class TextView
   end
 
   def string(s, level)
-    @accumulator += "#{'  ' * @display_indent}#{s}\n"
+    max_length= 72
+
+    words = s.split(/\s/)
+    word_index= 0
+    while word_index < words.size
+      line = '  ' * @display_indent
+      while word_index < words.size &&
+          (line + words[word_index]).length < max_length
+        line += words[word_index] + ' '
+        word_index += 1
+      end
+      @accumulator += line.rstrip + "\n"
+    end
   end
 end

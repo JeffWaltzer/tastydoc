@@ -154,3 +154,29 @@ describe "2-A more deeply nested hash." do
           indented_sections: [:employment_list, :projects]
       })
 end
+
+describe "TextView#string word wrapping" do
+  repeated_string = '01234567890 '
+  check_rendered_document(
+      {text: repeated_string * 8},
+      [
+          (repeated_string * 6).strip,
+          (repeated_string * 2).strip,
+      ],
+      TextView, {}
+  )
+end
+
+describe "TextView#string word wrapping for a longer line" do
+  repeated_string = '01234567890 '
+  check_rendered_document(
+      {text: repeated_string * 16},
+      [
+          (repeated_string * 6).strip,
+          (repeated_string * 6).strip,
+          (repeated_string * 4).strip,
+      ],
+      TextView, {}
+  )
+
+end
