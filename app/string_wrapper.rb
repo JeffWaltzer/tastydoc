@@ -5,23 +5,20 @@ class StringWrapper
     @indent_string= indent_string
   end
 
-  def word_fits(line, word)
-    word.length + line.length < MAX_LINE_LENGTH ||
-        word.length >= MAX_LINE_LENGTH
-  end
-
   def wrap(s)
     result= ''
-
-    line = @indent_string
-    s.split(/\s/).each do |word|
-      if !word_fits(line, word)
-        result += line.rstrip + "\n"
-        line = @indent_string
+    words= s.split(/\s/)
+    while !words.empty?
+      line= @indent_string
+      while !words.empty? && (line.strip.empty? || line.length + words[0].length + 1 < MAX_LINE_LENGTH)
+        if !line.strip.empty?
+          line += ' '
+        end
+        line += words[0]
+        words= words[1..-1]
       end
-      line += word + ' '
+      result += line + "\n"
     end
-
-    result + ((line.strip == '') ? '' : line.rstrip + "\n")
+    result
   end
 end
