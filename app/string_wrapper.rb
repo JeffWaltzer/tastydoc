@@ -6,7 +6,7 @@ class StringWrapper
   end
 
   def word_too_big(line, word)
-    !line.empty? && line.length + word.length + 1 >= MAX_LINE_LENGTH
+    !line.empty? && line.length + word.length >= MAX_LINE_LENGTH
   end
 
   def wrap(s)
@@ -14,11 +14,11 @@ class StringWrapper
     line= ''
     s.split(/\s/).each do |word|
       if word_too_big(line, word)
-        result += line + "\n"
+        result += line.rstrip + "\n"
         line= ''
       end
       line += (line.empty? ? @indent_string : ' ') + word
     end
-    result + line + "\n"
+    result + line.rstrip + "\n"
   end
 end
