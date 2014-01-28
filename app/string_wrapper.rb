@@ -5,16 +5,16 @@ class StringWrapper
     @indent_string= indent_string
   end
 
-  def word_fits(line, word)
-    line.length + word.length + 1 < MAX_LINE_LENGTH
+  def word_to_big(line, word)
+    !line.empty? && line.length + word.length + 1 >= MAX_LINE_LENGTH
   end
 
   def wrap(s)
     result= ''
     words= s.split(/\s/).reverse
-    while !words.empty?
+    until words.empty?
       line= ''
-      while !words.empty? && (line.empty? || word_fits(line, words[-1]))
+      until words.empty? || word_to_big(line, words[-1])
         line += (line.empty? ? @indent_string : ' ') + words.pop
       end
       result += line + "\n"
