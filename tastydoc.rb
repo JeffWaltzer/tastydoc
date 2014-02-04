@@ -19,6 +19,9 @@ get %r{/(\w+)(\.txt)?$} do
   style_sheet= {indented_sections:
                     [:contact, :text,
                      :projects, :jobs, :responsibilities,
+                     :clients],
+                bulleted_sections:
+                    [:projects, :jobs, :responsibilities,
                      :clients]}
   content_type 'text/plain'
   TextView.new(style_sheet).render(RESUMES[name])
