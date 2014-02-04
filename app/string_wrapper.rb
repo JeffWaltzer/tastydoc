@@ -26,11 +26,13 @@ class StringWrapper
   end
 
   def line_prefix
-    return_value= @indent_string
-    if @bullet
-          return_value += (@first ? '* ' : '  ')
-          @first= false
+    if @first && @bullet
+      @first= false
+      @indent_string + '* '
+    elsif @bullet
+      @indent_string + '  '
+    else
+      @indent_string
     end
-    return_value
   end
 end
