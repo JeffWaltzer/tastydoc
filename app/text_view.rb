@@ -7,6 +7,7 @@ class TextView
     @last_level= nil
     @display_indent= 0
     @indented_sections= style_sheet[:indented_sections] || []
+    @bulleted_sections = style_sheet[:bulleted_sections] || []
   end
 
   def self.wrap_page(body)
@@ -25,8 +26,8 @@ class TextView
   def indent(level)
   end
 
-  def link(document_text, document_link, level)
-    string("#{document_text} (#{document_link})", level)
+  def link(document_text, document_link, level, style)
+    string("#{document_text} (#{document_link})", level, style)
   end
 
   def begin_paragraph(style)
@@ -47,7 +48,9 @@ class TextView
     end_paragraph(style)
   end
 
-  def string(s, level)
-    @accumulator += StringWrapper.new('  ' * @display_indent).wrap(s)
+  def string(s, level, style)
+    line_prefix = '  ' * @display_indent
+    bullet= @bulleted_sections.include?(style)
+    @accumulator += StringWrapper.new(line_prefix, bullet).wrap(s)
   end
 end

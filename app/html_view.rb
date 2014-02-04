@@ -47,7 +47,7 @@ class HtmlView
             "  <body>\n"
   end
 
-  def link(document_text, document_link, level)
+  def link(document_text, document_link, level, style)
     indent(level+1)
     @accumulator += "<a href='#{document_link}'>" +
         document_text +
@@ -74,7 +74,7 @@ class HtmlView
     end_paragraph(level)
   end
 
-  def string(s, level)
+  def string(s, level, style)
     indent(level+1)
     @accumulator += "#{s}\n"
   end

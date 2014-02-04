@@ -7,7 +7,7 @@ class RenderingContext < Struct.new(:view, :content_name, :document, :level)
 
   def render_string
     view.paragraph(content_name, level) do
-      view.string(document, level)
+      view.string(document, level, content_name)
     end
   end
 
@@ -15,7 +15,7 @@ class RenderingContext < Struct.new(:view, :content_name, :document, :level)
     view.paragraph(content_name, level) do
       url = document[:link]
       text = document[:text] || url
-      view.link(text, url, level)
+      view.link(text, url, level, content_name)
     end
   end
 
