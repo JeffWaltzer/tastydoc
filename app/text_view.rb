@@ -8,6 +8,7 @@ class TextView
     @display_indent= 0
     @indented_sections= style_sheet[:indented_sections] || []
     @bulleted_sections = style_sheet[:bulleted_sections] || []
+    @seperated_sections= style_sheet[:seperated_sections] || []
   end
 
   def self.wrap_page(body)
@@ -31,6 +32,9 @@ class TextView
   end
 
   def begin_paragraph(style)
+    if @seperated_sections.include?(style)
+      @accumulator += "\n"
+    end
     if @indented_sections.include?(style)
       @display_indent += 1
     end

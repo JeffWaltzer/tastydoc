@@ -156,5 +156,40 @@ describe "2-A more deeply nested hash." do
 end
 
 describe "adding blank lines before some things" do
-  it "should"
+  check_rendered_document(
+      {a_section: "some text"},
+      [
+          '',
+          'some text'
+      ],
+      TextView,
+      { seperated_sections: [:a_section]}
+  )
+end
+
+describe "adding blank lines before some things" do
+  check_rendered_document(
+      {a_section: {a: "some text", b: "some more text"}},
+      [
+          '',
+          'some text' ,
+          'some more text',
+      ],
+      TextView,
+      { seperated_sections: [:a_section]}
+  )
+end
+
+describe "adding blank lines before some things" do
+  check_rendered_document(
+      {a_section: ["some text", "some more text"]},
+      [
+          '',
+          'some text' ,
+          '',
+          'some more text',
+      ],
+      TextView,
+      { seperated_sections: [:a_section]}
+  )
 end
