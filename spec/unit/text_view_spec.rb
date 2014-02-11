@@ -45,7 +45,6 @@ describe "experience" do
       })
 end
 
-
 describe "a document with a link" do
   check_rendered_document(
       {
@@ -209,5 +208,27 @@ describe "adding blank lines after some things" do
       ],
       TextView,
       { seperated_sections: [:a_section]}
+  )
+end
+
+describe 'a nobreak section does not insert newlines between subsections' do
+  check_rendered_document(
+      {first: 'first section',
+       second: 'second section'},
+      ['first section second section'],
+      TextView,
+      {nobreak_sections: [:first]}
+  )
+end
+
+describe 'a nobreak section does not insert newlines between subsections' do
+  check_rendered_document(
+      {first: ['first section 1', 'first section 2'],
+       second: 'second section',
+       third: 'third section'},
+      ['first section 1 first section 2 second section',
+       'third section'],
+      TextView,
+      {nobreak_sections: [:first]}
   )
 end

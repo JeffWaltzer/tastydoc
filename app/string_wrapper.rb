@@ -11,7 +11,7 @@ class StringWrapper
     !line.empty? && line.length + word.length >= MAX_LINE_LENGTH
   end
 
-  def wrap(s)
+  def wrap(s, nobreak= false)
     result= ''
     line= ''
     s.split(/\s/).each do |word|
@@ -22,7 +22,7 @@ class StringWrapper
       line += line.empty? ? line_prefix : ' '
       line += word
     end
-    result + line.rstrip + "\n"
+    result + line.rstrip + (nobreak ? ' ' : "\n")
   end
 
   def line_prefix

@@ -9,6 +9,7 @@ class TextView
     @indented_sections= style_sheet[:indented_sections] || []
     @bulleted_sections = style_sheet[:bulleted_sections] || []
     @seperated_sections= style_sheet[:seperated_sections] || []
+    @nobreak_sections= style_sheet[:nobreak_sections] || []
   end
 
   def self.wrap_page(body)
@@ -55,6 +56,6 @@ class TextView
   def string(s, level, style)
     line_prefix = '  ' * @display_indent
     bullet= @bulleted_sections.include?(style)
-    @accumulator += StringWrapper.new(line_prefix, bullet).wrap(s)
+    @accumulator += StringWrapper.new(line_prefix, bullet).wrap(s, @nobreak_sections.include?(style))
   end
 end
