@@ -155,39 +155,57 @@ describe "2-A more deeply nested hash." do
       })
 end
 
-describe "adding blank lines before some things" do
+describe "not adding blank lines after some things at the end of the document" do
   check_rendered_document(
       {a_section: "some text"},
       [
-          '',
-          'some text'
+          'some text',
       ],
       TextView,
       { seperated_sections: [:a_section]}
   )
 end
 
-describe "adding blank lines before some things" do
+describe "adding blank lines after some things" do
   check_rendered_document(
-      {a_section: {a: "some text", b: "some more text"}},
+      {a_section: "some text",
+       another_section: "different text"},
       [
+          'some text',
           '',
-          'some text' ,
-          'some more text',
+          "different text",
       ],
       TextView,
       { seperated_sections: [:a_section]}
   )
 end
 
-describe "adding blank lines before some things" do
+describe "adding blank lines after some things" do
   check_rendered_document(
-      {a_section: ["some text", "some more text"]},
+      {a_section: {a: "some text", b: "some more text"},
+      another_section: "even more text"
+      },
       [
+          'some text' ,
+          'some more text',
           '',
+          "even more text",
+      ],
+      TextView,
+      { seperated_sections: [:a_section]}
+  )
+end
+
+describe "adding blank lines after some things" do
+  check_rendered_document(
+      {a_section: ["some text", "some more text"],
+       another_section: "even more text"},
+      [
           'some text' ,
           '',
           'some more text',
+          '',
+          'even more text'
       ],
       TextView,
       { seperated_sections: [:a_section]}

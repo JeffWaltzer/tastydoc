@@ -22,7 +22,11 @@ get %r{/(\w+)(\.txt)?$} do
                      :clients],
                 bulleted_sections:
                     [:projects, :jobs, :responsibilities,
-                     :clients]}
+                     :clients],
+                seperated_sections:
+                    [:additional_info, :jobs, :experience,
+                     :development, :education, :skills,
+                     :summary, :contact]}
   content_type 'text/plain'
   TextView.new(style_sheet).render(RESUMES[name])
 end

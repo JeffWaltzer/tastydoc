@@ -32,9 +32,6 @@ class TextView
   end
 
   def begin_paragraph(style)
-    if @seperated_sections.include?(style)
-      @accumulator += "\n"
-    end
     if @indented_sections.include?(style)
       @display_indent += 1
     end
@@ -43,6 +40,9 @@ class TextView
   def end_paragraph(style)
     if @indented_sections.include?(style)
       @display_indent -= 1
+    end
+    if @seperated_sections.include?(style)
+      @accumulator += "\n"
     end
   end
 
