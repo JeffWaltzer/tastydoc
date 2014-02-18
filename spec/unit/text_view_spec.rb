@@ -65,6 +65,46 @@ describe "a document with a link" do
       })
 end
 
+describe 'when the text and link are the same, it only shows the link' do
+  check_rendered_document(
+      {
+          pages: {
+              header: 'Pages',
+              contents: [{
+                             link: 'http://example.com',
+                             text: 'http://example.com'
+                         }],
+          }},
+      [
+          'Pages',
+          '  http://example.com'
+      ],
+      TextView,
+      {
+          indented_sections: [:contents]
+      })
+
+end
+
+describe 'when there is  only a link, the text of the link is shown' do
+  check_rendered_document(
+      {
+          pages: {
+              header: 'Pages',
+              contents: [{
+                             link: 'http://example.com',
+                         }],
+          }},
+      [
+          'Pages',
+          '  http://example.com'
+      ],
+      TextView,
+      {
+          indented_sections: [:contents]
+      })
+
+end
 
 describe "when handed a mailto link item" do
   check_rendered_document(
@@ -232,3 +272,4 @@ describe 'a nobreak section does not insert newlines between subsections' do
       {nobreak_sections: [:first]}
   )
 end
+

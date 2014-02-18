@@ -26,7 +26,8 @@ get %r{/(\w+)(\.txt)?$} do
                 seperated_sections:
                     [:additional_info, :jobs, :experience,
                      :development, :education, :skills,
-                     :summary, :contact]}
+                     :summary, :contact],
+                nobreak_sections: [:sitename]}
   content_type 'text/plain'
   TextView.new(style_sheet).render(RESUMES[name])
 end

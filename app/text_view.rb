@@ -29,7 +29,11 @@ class TextView
   end
 
   def link(document_text, document_link, level, style)
-    string("#{document_text} (#{document_link})", level, style)
+    if document_text == document_link
+      string("#{document_link}", level, style)
+    else
+      string("#{document_text} (#{document_link})", level, style)
+    end
   end
 
   def begin_paragraph(style)
