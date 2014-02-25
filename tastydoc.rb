@@ -4,32 +4,25 @@ require_relative 'app/html_view'
 require_relative 'app/css_view'
 require_relative 'app/index_view'
 require_relative 'data/documents'
+require_relative 'app/user_documents'
+
 
 get "/" do
-  IndexView.new({}).render(RESUMES)
+  IndexView.new({}).render(USER_DOCUMENTS)
 end
 
 get %r{/(\w+)(\.html)?$} do
   name = params[:captures].first.to_sym
-  HtmlView.new({}).render(RESUMES[name])
+  HtmlView.new({}).render(USER_DOCUMENTS[name])
 end
 
+
 get %r{/(\w+)(\.txt)?$} do
-  name = params[:captures].first.to_sym
-  style_sheet= {indented_sections:
-                    [:contact, :text,
-                     :projects, :jobs, :responsibilities,
-                     :clients],
-                bulleted_sections:
-                    [:projects, :jobs, :responsibilities,
-                     :clients],
-                seperated_sections:
-                    [:additional_info, :jobs, :experience,
-                     :development, :education, :skills,
-                     :summary, :contact],
-                nobreak_sections: [:sitename]}
   content_type 'text/plain'
-  TextView.new(style_sheet).render(RESUMES[name])
+  name = params[:captures].first.to_sym
+
+  resume, style_sheet = UserDocuments.new(name).pull_documents
+  TextView.new(style_sheet).render(resume )
 end
 
 get %r{/(\w+)(\.css)$} do

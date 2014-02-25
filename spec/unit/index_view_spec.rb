@@ -13,7 +13,7 @@ end
 
 describe "IndexView for a database with two documents" do
   before do
-    master_document= {jeff: {contact: {name: "Jeff Waltzer"}}, john: {contact: {name: "John Maxwell"}}}
+    master_document= {jeff: {resume: {contact: {name: "Jeff Waltzer"}}}, john: {resume: {contact: {name: "John Maxwell"}}}}
     @doc= Nokogiri::HTML(IndexView.new({}).render(master_document))
   end
 

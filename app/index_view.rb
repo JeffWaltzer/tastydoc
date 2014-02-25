@@ -16,7 +16,7 @@ class IndexView
             - @document.each do |key, value|
               %div
                 %span
-                  =value[:contact][:name]
+                  =value[:resume][:contact][:name]
                 %a{href: "/" + key.to_s + ".html"}
                   as html
                 %a{href: "/" + key.to_s + ".txt"}
