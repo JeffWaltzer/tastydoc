@@ -37,9 +37,14 @@ describe 'The TastyDocs app' do
     last_response.body.should_not include "'jeffwaltzer'"
   end
 
+  it 'returns OK for html' do
+    get '/johnmaxwell.html'
+    last_response.should be_ok
+  end
+
   it 'is an html document' do
     get '/johnmaxwell.html'
-    last_response.body.should include 'John'
+    last_response.body.should include 'Rimark'
   end
 
   it 'has deeply nested content' do

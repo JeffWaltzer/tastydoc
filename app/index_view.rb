@@ -8,7 +8,7 @@ class IndexView
   #                 =value[:contact][:name]
 
   def render(document)
-    @document= document
+    @document= document.reject{|k,v| k==:defaults}
     template= <<-END.gsub(/^ {8}/, '')
         %html
           %head
@@ -22,6 +22,7 @@ class IndexView
                 %a{href: "/" + key.to_s + ".txt"}
                   as text
     END
+
     Haml::Engine.new(template).render(self, document: @document)
   end
 end

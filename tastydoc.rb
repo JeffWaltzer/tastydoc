@@ -13,7 +13,10 @@ end
 
 get %r{/(\w+)(\.html)?$} do
   name = params[:captures].first.to_sym
-  HtmlView.new({}).render(USER_DOCUMENTS[name])
+  user_documents = UserDocuments.new(name).pull_documents
+  resume= user_documents[:resume]
+  style_sheet = user_documents[:style_sheet]
+  HtmlView.new(style_sheet).render(resume)
 end
 
 
@@ -21,7 +24,9 @@ get %r{/(\w+)(\.txt)?$} do
   content_type 'text/plain'
   name = params[:captures].first.to_sym
 
-  resume, style_sheet = UserDocuments.new(name).pull_documents
+  user_documents = UserDocuments.new(name).pull_documents
+  resume= user_documents[:resume]
+   style_sheet = user_documents[:style_sheet]
   TextView.new(style_sheet).render(resume )
 end
 

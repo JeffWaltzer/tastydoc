@@ -4,19 +4,8 @@ class UserDocuments
   end
 
   def pull_documents
-    style_sheet= {indented_sections:
-                      [:contact, :text,
-                       :projects, :jobs, :responsibilities,
-                       :clients],
-                  bulleted_sections:
-                      [:projects, :jobs, :responsibilities,
-                       :clients],
-                  seperated_sections:
-                      [:additional_info, :jobs, :experience,
-                       :development, :education, :skills,
-                       :summary, :contact],
-                  nobreak_sections: [:sitename]}
-    resume = USER_DOCUMENTS[@name.to_sym]
-    return resume, style_sheet
+    default_documents = USER_DOCUMENTS[:defaults]
+    user_documents = USER_DOCUMENTS[@name.to_sym]
+    return default_documents.merge(user_documents)
   end
 end
