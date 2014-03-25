@@ -9,5 +9,6 @@ gem 'haml'
 gem 'pry'
 gem 'simplecov'
 gem 'rake'
+gem 'csspool'
 
 gem 'clbustos-rtf'

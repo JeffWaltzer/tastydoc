@@ -1,21 +1,10 @@
 class CssView
-  SECTION_STYLES= {
-    contact: [".contact {text-align: center;}",
-              ".contact div {display: block;}"],
-    summary: ".summary {margin-top: 0.25cm; margin-left:0.25cm}",
-  }
-
   def initialize(style)
     @results= []
   end
 
   def render(document)
-#return '' if @document.empty?
   <<-CSS
-  @page {
-    size: auto;
-    margin: 10mm 10mm 10mm 10mm;
-  }
   body {
       margin-left: 3%;
       margin-right: 7%;
@@ -37,7 +26,7 @@ class CssView
   }
 
   .header {
-      #font-size: large;
+      font-size: large;
       margin-top: 0.25cm;
   }
 
@@ -118,14 +107,6 @@ class CssView
       font-size: x-small;
   }
     CSS
-#    @results << ["body {margin-left: 3%; margin-right: 7%;}"]
-#    document.each do |sub_name, sub_contents|
-#      section_style = SECTION_STYLES[sub_name]
-#      if section_style
-#        @results += [section_style].flatten
-#      end
-#    end
-#    @results.join("\n")
   end
 end
 

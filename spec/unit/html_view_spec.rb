@@ -81,8 +81,3 @@ describe "HtmlView#render" do
     )
   end
 end
-
-
-describe 'It bullets' do
-  it 'should do it'
-end
