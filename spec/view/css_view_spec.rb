@@ -11,7 +11,7 @@ describe "CssView#render's result" do
     @css.should be
   end
 
-  it "isn't blank" do
-    @css.should_not == ''
+  it "is blank" do
+    @css.should == ''
   end
 end
