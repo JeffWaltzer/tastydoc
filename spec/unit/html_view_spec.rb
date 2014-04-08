@@ -6,7 +6,7 @@ describe "HtmlView#wrap_page" do
 end
 
 describe "HtmlView#render" do
-  check_rendered_document({}, [], HtmlView)
+  check_rendered_document({}, [], HtmlView, 'fake_username')
 
   describe "when handed a document with one text item" do
     check_rendered_document(
@@ -16,7 +16,8 @@ describe "HtmlView#render" do
             "  text",
             "</div>"
         ],
-        HtmlView
+        HtmlView,
+        'fake_username'
     )
   end
 
@@ -34,7 +35,8 @@ describe "HtmlView#render" do
             "  more text",
             "</div>"
         ],
-        HtmlView
+        HtmlView,
+        'fake_username'
     )
   end
 
@@ -56,7 +58,8 @@ describe "HtmlView#render" do
             "  </div>",
             "</div>"
         ],
-        HtmlView
+        HtmlView,
+        'fake_username'
     )
   end
 
@@ -66,7 +69,8 @@ describe "HtmlView#render" do
         [
             "<a href='http://www.example.com'>http://www.example.com</a>"
         ],
-        HtmlView
+        HtmlView,
+        'fake_username'
     )
   end
 
@@ -77,7 +81,8 @@ describe "HtmlView#render" do
             link: 'http://www.example.com'
         },
         ["<a href='http://www.example.com'>Show Me</a>"],
-        HtmlView
+        HtmlView,
+        'fake_username'
     )
   end
 end

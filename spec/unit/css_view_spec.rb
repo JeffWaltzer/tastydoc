@@ -5,7 +5,7 @@ require 'csspool'
 def should_generate_css(expected_selector, expected_rules, tasty_style_sheet)
   expected_rules.each_with_index do |expected, index|
     it "generates #{expected} sets for #{expected_selector}" do
-      css= CssView.new(tasty_style_sheet).render({})
+      css= CssView.new(tasty_style_sheet).render({}, 'junk_username')
       parsed_css= CSSPool::SAC::Parser.new.parse(css)
       bulleted = parsed_css[expected_selector]
       bulleted.first.should be

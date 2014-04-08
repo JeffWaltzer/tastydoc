@@ -6,11 +6,11 @@ class HtmlView
     @accumulator = ''
   end
 
-  def self.wrap_page(body)
+  def self.wrap_page(body, username)
     [
         "<html>",
         "  <head>",
-        "    <link href='tastydoc.css' rel='stylesheet' type='text/css'>",
+        "    <link href='#{username}.css' rel='stylesheet' type='text/css'>",
         "  </head>",
         "  <body>",
         "    <div class='document'>"
@@ -24,7 +24,8 @@ class HtmlView
   end
 
 
-  def render(document)
+  def render(document, username)
+    @username= username
     @accumulator = ''
     context= RenderingContext.new(self, :document, document, 2)
     begin_document
@@ -42,7 +43,7 @@ class HtmlView
     @accumulator +=
         "<html>\n" +
             "  <head>\n" +
-            "    <link href='tastydoc.css' rel='stylesheet' type='text/css'>\n" +
+            "    <link href='#{@username}.css' rel='stylesheet' type='text/css'>\n" +
             "  </head>\n" +
             "  <body>\n"
   end

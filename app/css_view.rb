@@ -4,7 +4,7 @@ class CssView
     @style= style
   end
 
-  def render(document)
+  def render(document, username)
     [
       css_sections(:bulleted_sections) {|section| bullet_css(section)} ,
       css_sections(:indented_sections) {|section| indent_css(section)}

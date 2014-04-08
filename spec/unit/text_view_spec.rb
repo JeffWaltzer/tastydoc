@@ -2,7 +2,7 @@ require_relative '../spec_helper'
 require_relative '../../app/text_view'
 
 describe "TextView#render's result" do
-  check_rendered_document({}, [], TextView)
+  check_rendered_document({}, [], TextView, 'fake_username')
 end
 
 describe "A populated contact" do
@@ -17,7 +17,10 @@ describe "A populated contact" do
           'Joe Smith',
           'joe@example.com'
       ],
-      TextView)
+      TextView,
+      'fake_user'
+  )
+
 end
 
 
@@ -40,6 +43,7 @@ describe "experience" do
           '  Basic Coding'
       ],
       TextView,
+      'fake_user',
       {
           indented_sections: [:skills]
       })
@@ -60,6 +64,7 @@ describe "a document with a link" do
           '  An example (http://example.com)'
       ],
       TextView,
+      'fake_user',
       {
           indented_sections: [:contents]
       })
@@ -80,6 +85,7 @@ describe 'when the text and link are the same, it only shows the link' do
           '  http://example.com'
       ],
       TextView,
+      'fake_user',
       {
           indented_sections: [:contents]
       })
@@ -100,6 +106,7 @@ describe 'when there is  only a link, the text of the link is shown' do
           '  http://example.com'
       ],
       TextView,
+      'fake_user',
       {
           indented_sections: [:contents]
       })
@@ -115,7 +122,8 @@ describe "when handed a mailto link item" do
           }
       },
       ['example (mailto:jeff@example.com)'],
-      TextView)
+      TextView,
+      'fake_user')
 end
 
 describe 'multi nesting' do
@@ -133,6 +141,7 @@ describe 'multi nesting' do
           'FUN',
       ],
       TextView,
+      'fake_user',
       {
           indented_sections: [:needed]
       })
@@ -163,6 +172,7 @@ describe "A more deeply nested hash." do
           "    froboz",
       ],
       TextView,
+      'fake_user',
       {
           indented_sections: [:employment_list, :projects]
       })
@@ -189,6 +199,7 @@ describe "2-A more deeply nested hash." do
           '    froboz'
       ],
       TextView,
+      'fake_user',
       {
           indented_sections: [:employment_list, :projects]
       })
@@ -201,6 +212,7 @@ describe "not adding blank lines after some things at the end of the document" d
           'some text',
       ],
       TextView,
+      'fake_user',
       { seperated_sections: [:a_section]}
   )
 end
@@ -215,6 +227,7 @@ describe "adding blank lines after some things" do
           "different text",
       ],
       TextView,
+      'fake_user',
       { seperated_sections: [:a_section]}
   )
 end
@@ -231,6 +244,7 @@ describe "adding blank lines after some things" do
           "even more text",
       ],
       TextView,
+      'fake_user',
       { seperated_sections: [:a_section]}
   )
 end
@@ -247,6 +261,7 @@ describe "adding blank lines after some things" do
           'even more text'
       ],
       TextView,
+      'fake_user',
       { seperated_sections: [:a_section]}
   )
 end
@@ -257,6 +272,7 @@ describe 'a nobreak section does not insert newlines between subsections' do
        second: 'second section'},
       ['first section second section'],
       TextView,
+      'fake_user',
       {nobreak_sections: [:first]}
   )
 end
@@ -269,6 +285,7 @@ describe 'a nobreak section does not insert newlines between subsections' do
       ['first section 1 first section 2 second section',
        'third section'],
       TextView,
+      'fake_user',
       {nobreak_sections: [:first]}
   )
 end

@@ -9,6 +9,6 @@ describe "rendering an invalid document" do
         email: 'joe@example.com'
       }
     }
-    expect { TextView.new({}).render(master_document) }.to raise_error(NoMethodError)
+    expect { TextView.new({}).render(master_document,'fake_username') }.to raise_error(NoMethodError)
   end
 end

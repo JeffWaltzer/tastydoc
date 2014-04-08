@@ -12,11 +12,11 @@ class TextView
     @nobreak_sections= style_sheet[:nobreak_sections] || []
   end
 
-  def self.wrap_page(body)
+  def self.wrap_page(body, username)
     body
   end
 
-  def render(document)
+  def render(document, username)
     @accumulator = ''
 
     context= RenderingContext.new(self, :document, document, 0)

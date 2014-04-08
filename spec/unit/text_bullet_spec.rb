@@ -22,6 +22,7 @@ describe 'It bullets' do
           '* Basic Coding'
       ],
       TextView,
+      'fake_username',
       {
           bulleted_sections: [:skills]
       })
@@ -46,6 +47,7 @@ describe "it indents and bullets" do
           '  * Basic Coding'
       ],
       TextView,
+      'fake_user',
       {
           bulleted_sections: [:skills],
           indented_sections: [:skills]
@@ -72,6 +74,7 @@ describe "it indents, wraps, and bullets" do
           "  * Basic Coding"
       ],
       TextView,
+      'fake_user',
       {
           bulleted_sections: [:skills],
           indented_sections: [:skills]

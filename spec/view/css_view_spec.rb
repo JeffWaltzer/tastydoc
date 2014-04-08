@@ -4,7 +4,7 @@ require_relative '../../app/css_view'
 
 describe "CssView#render's result" do
   before do
-    @css= CssView.new({ }).render({})
+    @css= CssView.new({ }).render({}, 'fake_username')
   end
 
   it "isn't nil" do

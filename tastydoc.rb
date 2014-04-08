@@ -12,27 +12,28 @@ get "/" do
 end
 
 get %r{/(\w+)(\.html)?$} do
-  name = params[:captures].first.to_sym
-  user_documents = UserDocuments.new(name).pull_documents
+  username= params[:captures].first.to_sym
+  user_documents = UserDocuments.new(username).pull_documents
   resume= user_documents[:resume]
   style_sheet = user_documents[:style_sheet]
-  HtmlView.new(style_sheet).render(resume)
+  HtmlView.new(style_sheet).render(resume, username)
 end
 
 
 get %r{/(\w+)(\.txt)?$} do
   content_type 'text/plain'
-  name = params[:captures].first.to_sym
+  username = params[:captures].first.to_sym
 
-  user_documents = UserDocuments.new(name).pull_documents
+  user_documents = UserDocuments.new(username).pull_documents
   resume= user_documents[:resume]
    style_sheet = user_documents[:style_sheet]
-  TextView.new(style_sheet).render(resume )
+  TextView.new(style_sheet).render(resume, username)
 end
 
 get %r{/(\w+)(\.css)$} do
   content_type 'text/css'
-  CssView.new({}).render({})
+  username= params[:captures].first.to_sym
+  CssView.new({}).render({}, username)
 end
 
 
