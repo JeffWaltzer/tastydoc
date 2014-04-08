@@ -26,14 +26,18 @@ get %r{/(\w+)(\.txt)?$} do
 
   user_documents = UserDocuments.new(username).pull_documents
   resume= user_documents[:resume]
-   style_sheet = user_documents[:style_sheet]
+  style_sheet = user_documents[:style_sheet]
   TextView.new(style_sheet).render(resume, username)
 end
 
 get %r{/(\w+)(\.css)$} do
   content_type 'text/css'
   username= params[:captures].first.to_sym
-  CssView.new({}).render({}, username)
+
+  user_documents = UserDocuments.new(username).pull_documents
+  resume= user_documents[:resume]
+  style_sheet = user_documents[:style_sheet]
+  CssView.new(style_sheet).render(resume, username)
 end
 
 

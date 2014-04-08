@@ -21,4 +21,9 @@ describe 'The TastyDocs app' do
     get '/johnmaxwell.css'
     last_response.headers['Content-Type'].should== "text/css;charset=utf-8"
   end
+
+  it 'has css for indented sections' do
+    get '/johnmaxwell.css'
+    last_response.body.should include('.contact')
+  end
 end
