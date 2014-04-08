@@ -11,33 +11,24 @@ get "/" do
   IndexView.new({}).render(USER_DOCUMENTS)
 end
 
-get %r{/(\w+)(\.html)?$} do
-  username= params[:captures].first.to_sym
+def render_document(username, view_class)
   user_documents = UserDocuments.new(username).pull_documents
   resume= user_documents[:resume]
   style_sheet = user_documents[:style_sheet]
-  HtmlView.new(style_sheet).render(resume, username)
+  view_class.new(style_sheet).render(resume, username)
 end
 
+get %r{/(\w+)(\.html)?$} do
+  content_type 'text/html'
+  render_document(params[:captures].first.to_sym, HtmlView)
+end
 
 get %r{/(\w+)(\.txt)?$} do
   content_type 'text/plain'
-  username = params[:captures].first.to_sym
-
-  user_documents = UserDocuments.new(username).pull_documents
-  resume= user_documents[:resume]
-  style_sheet = user_documents[:style_sheet]
-  TextView.new(style_sheet).render(resume, username)
+  render_document(params[:captures].first.to_sym, TextView)
 end
 
 get %r{/(\w+)(\.css)$} do
   content_type 'text/css'
-  username= params[:captures].first.to_sym
-
-  user_documents = UserDocuments.new(username).pull_documents
-  resume= user_documents[:resume]
-  style_sheet = user_documents[:style_sheet]
-  CssView.new(style_sheet).render(resume, username)
+  render_document(params[:captures].first.to_sym, CssView)
 end
-
-
