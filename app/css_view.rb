@@ -6,8 +6,9 @@ class CssView
 
   def render(document, username)
     [
-      css_sections(:bulleted_sections) {|section| bullet_css(section)} ,
-      css_sections(:indented_sections) {|section| indent_css(section)}
+     css_sections(:bulleted_sections)  {|section| bullet_css(section)} ,
+     css_sections(:indented_sections)  {|section| indent_css(section)},
+     css_sections(:seperated_sections) {|section| seperated_css(section)},
     ].join
   end
 
@@ -31,6 +32,14 @@ class CssView
             margin-left: 0.75cm;
             display: list-item;
             list-style-type: circle;
+          }
+          "
+  end
+
+  def seperated_css(section)
+    "
+          .#{section} {
+            margin-bottom: 1em;         
           }
           "
   end

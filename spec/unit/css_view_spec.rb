@@ -37,11 +37,15 @@ describe CssView do
         ],
         {indented_sections: [:our_indented_section]}
     )
-
   end
 
   describe "a seperated section" do
-    it 'generates a CSS class with a margin-bottom'
+    should_generate_css('.our_seperated_section',
+                        [
+                         "  margin-bottom: 1em;",
+                        ],
+                        {seperated_sections: [:our_seperated_section]}
+    )
   end
 
   describe "A nobreak section" do
