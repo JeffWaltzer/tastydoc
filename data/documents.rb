@@ -2,7 +2,8 @@
     defaults: {
         style_sheet: {
             indented_sections:
-                [:contact, :text,
+                [:document,
+                 :contact, :text,
                  :projects, :jobs, :responsibilities,
                  :clients],
             bulleted_sections:
