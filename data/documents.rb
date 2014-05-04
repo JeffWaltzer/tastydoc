@@ -27,7 +27,10 @@
             },
 
             summary:
-                'Senior Ruby on Rails Engineer with extensive experience in developing ground-up mission-critical projects. Responsible for the conception, coding, testing, implementation, user training, and technical support of new systems. Seeking a position that fully leverages my extensive experience in Behavior Driven Development (BDD), software design, architecture and agile development methodologies.',
+                'Senior Ruby on Rails Engineer with extensive experience in developing ground-up mission-critical projects. ' +
+                    'Responsible for the conception, coding, testing, implementation, user training, and technical support of new systems. ' +
+                    'Seeking a position that fully leverages my extensive experience in Behavior Driven Development (BDD), ' +
+                    'software design, architecture and agile development methodologies.',
 
             skills: {
                 header: 'Programming Languages, Databases, Tools',
@@ -51,6 +54,21 @@
             experience: {
                 header: 'Experience',
                 jobs: [
+                    {
+                        title: 'Senior Ruby on Rails Developer',
+                        company: {text: 'Kit Check, Washington DC', link: 'http://kitcheck.com'},
+                        dates: '12/2014 – present',
+                        responsibilities: [
+                            'Built REST business application logic API with Ruby 2.1 and Rails 4.0. Used Apipie to document REST endpoints,'+
+                                ' Minitest for unit/functional tests, Dossier for report generation, and Devise for user authentication.',
+                            'Implemented business domain model using Test Driven Development. Verified correct function with 98% test coverage.'+
+                                '  Implemented numerous macros and helper methods to increase code readability ease of maintenance and extensibility.',
+                            'Refactored User validation/permissions code with meta-programming to reduce code duplication '+
+                                'and simplify implementation of user access requirements.',
+                            'Implemented database design changes with Rails migrations to create a more consistent and normalized data model.'                                ,
+                            'Analysed report queries to find inefficiencies such as missing indexes, n+1 selects and unused eager loading.'+
+                                ' Applied fixes to decrease report load times from several minutes to a few seconds.',
+                        ]},
                     {
                         title: 'Senior Ruby on Rails Developer',
                         company: {text: 'LearnZillion, Washington DC', link: 'http://learnzillion.com'},
@@ -139,14 +157,6 @@
                                            'Team achieved 95% code coverage with unit tests resulting in a very number of defects found.',
                                            'Helped design and architect many aspects of the system to create code that had low coupling and was easy to maintain.']}]},
 
-                    {
-                        title: 'Senior Software Engineer',
-                        company: 'Wondir, Bethesda, MD',
-                        dates: '2005',
-                        responsibilities: [
-                            'Used Jakarta Tomcat with MySQL for the database and Jakarta Lucene for search indexing.',
-                            'Supported software development at a Internet startup company.',
-                            'Applied Test Driven Development to legacy code, with JUnit regression tests of the legacy code.']},
                     {
                         title: 'Senior Software Engineer',
                         company: 'Spirent Communications, Rockville, MD (Contract)',
