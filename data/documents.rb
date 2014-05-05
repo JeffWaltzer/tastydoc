@@ -62,7 +62,7 @@
                             'Built REST business application logic API with Ruby 2.1 and Rails 4.0. Used Apipie to document REST endpoints,'+
                                 ' Minitest for unit/functional tests, Dossier for report generation, and Devise for user authentication.',
                             'Implemented business domain model using Test Driven Development. Verified correct function with 98% test coverage.'+
-                                '  Implemented numerous macros and helper methods to increase code readability ease of maintenance and extensibility.',
+                                '  Implemented numerous macros and helper methods to increase code readability, ease of maintenance and extensibility.',
                             'Refactored User validation/permissions code with meta-programming to reduce code duplication '+
                                 'and simplify implementation of user access requirements.',
                             'Implemented database design changes with Rails migrations to create a more consistent and normalized data model.'                                ,
