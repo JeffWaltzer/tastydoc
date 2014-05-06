@@ -13,7 +13,7 @@
                 [:additional_info, :jobs, :experience,
                  :development, :education, :skills,
                  :summary, :contact],
-            nobreak_sections: [:sitename]}
+            nobreak_sections: [:sitename, :company]}
     },
     jeffwaltzer: {
         resume: {

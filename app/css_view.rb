@@ -9,6 +9,7 @@ class CssView
      css_sections(:bulleted_sections)  {|section| bullet_css(section)} ,
      css_sections(:indented_sections)  {|section| indent_css(section)},
      css_sections(:seperated_sections) {|section| seperated_css(section)},
+     css_sections(:nobreak_sections)   {|section| nobreak_css(section)},
     ].join
   end
 
@@ -40,6 +41,17 @@ class CssView
     "
           .#{section} {
             margin-bottom: 1em;         
+          }
+          "
+  end
+
+  def nobreak_css(section)
+    "
+          .#{section} {
+            display: inline;
+          }
+          .#{section}+div {
+            display: inline;
           }
           "
   end

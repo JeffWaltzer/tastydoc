@@ -6,6 +6,7 @@ def should_generate_css(expected_selector, expected_rules, tasty_style_sheet)
   expected_rules.each_with_index do |expected, index|
     it "generates #{expected} sets for #{expected_selector}" do
       css= CssView.new(tasty_style_sheet).render({}, 'junk_username')
+      pending "css is missing" if css.empty?
       parsed_css= CSSPool::SAC::Parser.new.parse(css)
       bulleted = parsed_css[expected_selector]
       bulleted.first.should be
@@ -48,7 +49,20 @@ describe CssView do
     )
   end
 
-  describe "A nobreak section" do
-    it 'generates a CSS class with an appropriate display style'
+  describe "A nobreak section generates a CSS class with an appropriate display style" do
+    should_generate_css('.our_nobreak_section',
+                        [
+                            "  display: inline;",
+                        ],
+                        {nobreak_sections: [:our_nobreak_section]}
+    )
+
+    should_generate_css('.our_nobreak_section+div',
+                        [
+                            "  display: inline;",
+                        ],
+                        {nobreak_sections: [:our_nobreak_section]}
+    )
+
   end
 end
