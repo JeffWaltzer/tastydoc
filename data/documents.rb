@@ -57,7 +57,7 @@
                     {
                         title: 'Senior Ruby on Rails Developer',
                         company: {text: 'Kit Check, Washington DC', link: 'http://kitcheck.com'},
-                        dates: '12/2014 – present',
+                        dates: '1/2014 – present',
                         responsibilities: [
                             'Built REST business application logic API with Ruby 2.1 and Rails 4.0. Used Apipie to document REST endpoints,'+
                                 ' Minitest for unit/functional tests, Dossier for report generation, and Devise for user authentication.',
