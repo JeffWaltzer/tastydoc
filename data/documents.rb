@@ -20,7 +20,7 @@
                 name: 'Jeffrey L. Waltzer',
                 street: '3 Riverview Court #202',
                 city_state_zip: 'Laurel, MD 20707',
-                phone: '240-671-9368 (cell)',
+                phone: '(240) 547-9474',
                 email: {
                     link: 'mailto:jeffwaltzer@gmail.com',
                     text: 'jeffwaltzer@gmail.com'},
