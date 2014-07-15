@@ -196,7 +196,7 @@
 
             education: {
                 header: 'Education',
-                text: 'BS, Computer Science, University of Bridgeport',
+                text: 'BS, Computer Science, University of Bridgeport 1988'
             },
 
             additional_info: {
