@@ -56,8 +56,8 @@
                         responsibilities: [
                             'Implemented features for a OAuth2 mobile application authentication portal using Ruby on Rails.',
                             'Setup Team City server to provide continuous integration to monitor code quality and to regression test code after each checkin.',
-                            'Reviewed code submissions and advised how unit tests code be better written, how the code code be more object oriented, and gave suggestions' +
-                                'how to increase overall code quality.',
+                            'Reviewed code submissions and advised how unit tests code be better written, how the code code be more object oriented, and gave suggestions ' +
+                                'on how to increase overall code quality.',
                             'Supervised the development/design of OAuth2 native application support.'
                         ]},
                     {
