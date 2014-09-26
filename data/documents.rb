@@ -50,6 +50,17 @@
                 header: 'Experience',
                 jobs: [
                     {
+                        title: 'Senior Ruby on Rails Consultant',
+                        company: {text: 'Insight Global (AT&T contract), Dallas, TX', link: 'http://kitcheck.com'},
+                        dates: '7/2014 – Current',
+                        responsibilities: [
+                            'Implemented features for a OAuth2 mobile application authentication portal using Ruby on Rails.',
+                            'Setup Team City server to provide continuous integration to monitor code quality and to regression test code after each checkin.',
+                            'Reviewed code submissions and advised how unit tests code be better written, how the code code be more object oriented, and gave suggestions' +
+                                'how to increase overall code quality.',
+                            'Supervised the development/design of OAuth2 native application support.'
+                        ]},
+                    {
                         title: 'Senior Ruby on Rails Developer',
                         company: {text: 'Kit Check, Washington DC', link: 'http://kitcheck.com'},
                         dates: '1/2014 – 6/2014',
@@ -60,7 +71,7 @@
                                 '  Implemented numerous macros and helper methods to increase code readability, ease of maintenance and extensibility.',
                             'Refactored User validation/permissions code with meta-programming to reduce code duplication '+
                                 'and simplify implementation of user access requirements.',
-                            'Implemented database design changes with Rails migrations to create a more consistent and normalized data model.'                                ,
+                            'Implemented database design changes with Rails migrations to create a more consistent and normalized data model.',
                             'Analysed report queries to find inefficiencies such as missing indexes, n+1 selects and unused eager loading.'+
                                 ' Applied fixes to decrease report load times from several minutes to a few seconds.',
                         ]},
