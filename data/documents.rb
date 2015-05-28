@@ -20,7 +20,7 @@ USER_DOCUMENTS= {
         name: 'Jeffrey L. Waltzer',
         street: '3 Riverview Court #202',
         city_state_zip: 'Laurel, MD 20707',
-        phone: '240-547-9474',
+        phone: '(240) 547-9474',
         email: {
           link: 'mailto:jeff@waltzer.org',
           text: 'jeff@waltzer.org'},
@@ -51,13 +51,16 @@ USER_DOCUMENTS= {
         jobs: [
           {
             title: 'Senior Ruby on Rails Consultant',
-            company: {text: 'CRGT (OFR contract), Washington, DC', link: 'http://kitcheck.com'},
+            company: {
+              text: 'CRGT contract with the Office of Financial Research (OFR), Washington, DC',
+              link: 'http://financialresearch.gov'
+            },
             dates: '12/2014 – Current',
             responsibilities: [
-              'Worked on FRACTAL project that ingested XML data from 40 different countries and stored it for future processing.',
+              'Developed code for the FRACTAL project that ingested XML data from 40 different countries and persisted it for future processing.',
               "Implemented code that can generically take XML and convert that to multiple CSV files using Nokogiri's SAX parser.  Further extended code to also be able to populate database tables.",
               "Created dataset validity check rules engine that was web configurable, to allow users to specifiy when a data pull is successful.  Rules engine used file counts, files sizes and file mime types to check validity.",
-              "Charted dataset pull attempts withJavascript/Jquery and the Highcharts plugin to visually present metrics on the data ingests."
+              "Charted dataset pull attempt metrics with Javascript/Jquery and the Highcharts plugin to visually present metrics on the data ingests."
             ]},
           {
             title: 'Senior Ruby on Rails Consultant',
