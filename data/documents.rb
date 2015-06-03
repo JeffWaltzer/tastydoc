@@ -58,8 +58,8 @@ USER_DOCUMENTS= {
             dates: '12/2014 – Current',
             responsibilities: [
               'Developed code for the FRACTAL project that ingested XML data from 40 different countries and persisted it for future processing.',
-              "Implemented code that can generically take XML and convert that to multiple CSV files using Nokogiri's SAX parser.  Further extended code to also be able to populate database tables.",
-              "Created dataset validity check rules engine that was web configurable, to allow users to specifiy when a data pull is successful.  Rules engine used file counts, files sizes and file mime types to check validity.",
+              "Implemented code using Nokogiri's SAX parser for converting  generic XML to multiple CSV files.  Extended code to populate database tables.",
+              "Created a web configurable dataset rules engine to allow users to validate and specify successful data pulls. Rules engine used file counts, files sizes and file mime types as inputs.",
               "Charted dataset pull attempt metrics with Javascript/Jquery and the Highcharts plugin to visually present metrics on the data ingests."
             ]},
           {
