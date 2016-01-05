@@ -27,14 +27,13 @@ USER_DOCUMENTS= {
             },
 
             summary:
-                'Senior Ruby on Rails Engineer with extensive experience in developing ground-up projects. ' +
-                    'Responsible for the conception, coding, testing, and user training of new systems. ' +
-                    'Seeking a position that leverages my experience in Behavior Driven Development (BDD), ' +
-                    'software design, systems architecture and agile development methodologies.',
+                'Senior Ruby on Rails Engineer responsible for the conception, coding, testing, '+
+                    ' and user training of new systems. Seeking a position in Behavior Driven Development (BDD),'+
+                    ' software design,  systems architecture and agile development methodologies.',
 
             skills: {
                 header: 'Programming Languages, Databases, Tools',
-                text: 'Ruby 2.14, Ruby on Rails 4.1, RSpec, Jruby, jQuery, CoffeeScript, Haml, JavaScript, XML, MySQL, PostgreSQL, PostGIS, Oracle, Linux (Redhat, Ubuntu, etc.), Soap4r'},
+                text: 'Ruby 2.2, Ruby on Rails 4.2, RSpec 3.4, JRuby, jQuery, Haml, JavaScript, XML, MySQL, PostgreSQL, PostGIS, Oracle, Linux (Redhat, Ubuntu, etc.)'},
 
             development: {
                 header: 'Professional Development',
@@ -49,7 +48,6 @@ USER_DOCUMENTS= {
             experience: {
                 header: 'Experience',
                 jobs: [
-
                     {
                         title: 'Senior Ruby on Rails Consultant',
                         company: {
@@ -85,8 +83,7 @@ USER_DOCUMENTS= {
                             'Implemented features for a OAuth2 mobile application authentication portal using Ruby on Rails.',
                             'Setup Team City server to provide continuous integration to monitor code quality and to regression test code after each checkin.',
                             'Reviewed code submissions and advised how unit tests code be better written, how the code code be more object oriented, and gave suggestions ' +
-                                'on how to increase overall code quality.',
-                            'Supervised the development/design of OAuth2 native application support.'
+                                'on how to increase overall code quality.'
                         ]},
                     {
                         title: 'Senior Ruby on Rails Developer',
@@ -97,9 +94,6 @@ USER_DOCUMENTS= {
                                 ' Minitest for unit/functional tests, Dossier for report generation, and Devise for user authentication.',
                             'Implemented business domain model using Test Driven Development. Verified correct function with 98% test coverage.'+
                                 '  Implemented numerous macros and helper methods to increase code readability, ease of maintenance and extensibility.',
-                            'Refactored User validation/permissions code with meta-programming to reduce code duplication '+
-                                'and simplify implementation of user access requirements.',
-                            'Implemented database design changes with Rails migrations to create a more consistent and normalized data model.',
                             'Analysed report queries to find inefficiencies such as missing indexes, n+1 selects and unused eager loading.'+
                                 ' Applied fixes to decrease report load times from several minutes to a few seconds.',
                         ]},
