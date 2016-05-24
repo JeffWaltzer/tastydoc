@@ -18,8 +18,8 @@ USER_DOCUMENTS= {
         resume: {
             contact: {
                 name: 'Jeffrey L. Waltzer',
-                street: '3 Riverview Court #202',
-                city_state_zip: 'Laurel, MD 20707',
+                street: '3498 Angelton Ct',
+                city_state_zip: 'Burtonsville, MD 20866',
                 phone: '(240) 547-9474',
                 email: {
                     link: 'mailto:jeff@waltzer.org',
@@ -51,16 +51,29 @@ USER_DOCUMENTS= {
                     {
                         title: 'Senior Ruby on Rails Consultant',
                         company: {
+                            text: 'Veredus (Contract with ByteCubed), Arlington, VA',
+                            link: 'http://bytecubed.com/'
+                        },
+                        dates: '1/2016 – current',
+                        responsibilities: [
+                            'Used Ruby 2.3 and Ruby on Rails 4.2.4 on a Private Market system to help client companies manage employee equity and to manage investor relationships',
+                            "Spearheaded effort to integrate the user logins of two different web applications to a single login under the Devise gem",
+                            "Implemented system for the synchronization of accounts between the two applications",
+                            "Used Test Driven Development with RSpec to drive a Object Oriented Architecture backed by regression tests."
+                        ]
+                    },
+
+                    {
+                        title: 'Senior Ruby on Rails Consultant',
+                        company: {
                             text: 'Oxford Global Resources (Remote Contract with NASDAQ Private Markets), San Francisco, CA    ',
                             link: 'https://www.nasdaqprivatemarket.com'
                         },
                         dates: '8/2015 – 12/2015',
                         responsibilities: [
-                            'Used Ruby 2.1.6 and Ruby on Rails 4.2.4 on a Private Market system to help client companies manage employee equity and to manage investor relationships',
-                            "Spearheaded effort to integrate the user logins of two different web applications to a single login under the Devise gem",
-                            "Implemented system for the synchronization of accounts between the two applications",
-                            "Used Test Driven Development with RSpec to drive a Object Oriented Architecture backed by regression tests."
-                        ]},
+                            'Used Ruby 2.3 and Ruby on Rails 4.2.5 for a company coaching management system.',
+                        ]
+                    },
 
                     {
                         title: 'Senior Ruby on Rails Consultant',
@@ -68,7 +81,7 @@ USER_DOCUMENTS= {
                             text: 'CRGT contract with the Office of Financial Research (OFR), Washington, DC',
                             link: 'http://financialresearch.gov'
                         },
-                        dates: '12/2014 – Current',
+                        dates: '12/2014 – 7/2015',
                         responsibilities: [
                             'Developed code for the FRACTAL project that ingested XML data from 40 different countries and persisted it for future processing.',
                             "Implemented code using Nokogiri's SAX parser for converting  generic XML to multiple CSV files.  Extended code to populate database tables.",
