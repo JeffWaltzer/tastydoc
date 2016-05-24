@@ -56,10 +56,7 @@ USER_DOCUMENTS= {
                         },
                         dates: '1/2016 – current',
                         responsibilities: [
-                            'Used Ruby 2.3 and Ruby on Rails 4.2.4 on a Private Market system to help client companies manage employee equity and to manage investor relationships',
-                            "Spearheaded effort to integrate the user logins of two different web applications to a single login under the Devise gem",
-                            "Implemented system for the synchronization of accounts between the two applications",
-                            "Used Test Driven Development with RSpec to drive a Object Oriented Architecture backed by regression tests."
+                            'Used Ruby 2.3 and Ruby on Rails 4.2.5 for a company coaching management system.',
                         ]
                     },
 
@@ -71,7 +68,10 @@ USER_DOCUMENTS= {
                         },
                         dates: '8/2015 – 12/2015',
                         responsibilities: [
-                            'Used Ruby 2.3 and Ruby on Rails 4.2.5 for a company coaching management system.',
+                            'Used Ruby 2.3 and Ruby on Rails 4.2.4 on a Private Market system to help client companies manage employee equity and to manage investor relationships',
+                            "Spearheaded effort to integrate the user logins of two different web applications to a single login under the Devise gem",
+                            "Implemented system for the synchronization of accounts between the two applications",
+                            "Used Test Driven Development with RSpec to drive a Object Oriented Architecture backed by regression tests."
                         ]
                     },
 
