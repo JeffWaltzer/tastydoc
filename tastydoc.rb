@@ -11,7 +11,7 @@ get "/" do
   IndexView.new({}).render(USER_DOCUMENTS)
 end
 
-get %r{/(\w+)(\.html)?$} do
+get %r{/(\w+)(\.html)?} do
   name = params[:captures].first.to_sym
   user_documents = UserDocuments.new(name).pull_documents
   resume= user_documents[:resume]
@@ -20,7 +20,7 @@ get %r{/(\w+)(\.html)?$} do
 end
 
 
-get %r{/(\w+)(\.txt)?$} do
+get %r{/(\w+)(\.txt)?} do
   content_type 'text/plain'
   name = params[:captures].first.to_sym
 
@@ -30,7 +30,7 @@ get %r{/(\w+)(\.txt)?$} do
   TextView.new(style_sheet).render(resume )
 end
 
-get %r{/(\w+)(\.css)$} do
+get %r{/(\w+)(\.css)} do
   content_type 'text/css'
   CssView.new({}).render({})
 end
