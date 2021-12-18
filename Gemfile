@@ -12,3 +12,5 @@ gem 'simplecov'
 gem 'rake'
 
 gem 'clbustos-rtf'
+
+gem 'rspec-collection_matchers'

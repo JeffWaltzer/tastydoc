@@ -1,4 +1,5 @@
 require 'simplecov'
+require 'rspec/collection_matchers'
 SimpleCov.start
 
 def check_rendered_document(document, expected, view_class, style_sheet={})
